@@ -2152,6 +2152,46 @@ span { color: inherit; }
 
 .footer-item ul a:hover { color: var(--accent); }
 
+.footer-contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.footer-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+}
+
+.footer-contact-item i {
+    color: var(--primary);
+    font-size: 0.85rem;
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+    width: 14px;
+    text-align: center;
+}
+
+.footer-contact-item span,
+.footer-contact-item a {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+    text-decoration: none;
+    word-break: break-word;
+    transition: var(--transition);
+}
+
+.footer-contact-item a:hover {
+    color: var(--accent);
+}
+
 .social {
     margin-top: 0.75rem;
 }
