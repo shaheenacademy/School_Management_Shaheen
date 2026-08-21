@@ -1,0 +1,689 @@
+<%- include('partials/header'); -%>
+
+<!-- HOME CAROUSEL BANNER -->
+<% if (typeof carousels !== 'undefined' && carousels.length > 0) { %>
+<section class="home-carousel-section">
+    <div class="home-carousel-container">
+        <div id="shaheenHeroCarousel" class="carousel slide carousel-fade home-carousel-wrapper" data-bs-ride="carousel" data-bs-interval="5000">
+            <!-- Carousel Indicators -->
+            <% if (carousels.length > 1) { %>
+            <div class="carousel-indicators">
+                <% for (var c=0; c<carousels.length; c++) { %>
+                <button type="button" data-bs-target="#shaheenHeroCarousel" data-bs-slide-to="<%= c %>" class="<%= c === 0 ? 'active' : '' %>" aria-current="<%= c === 0 ? 'true' : 'false' %>" aria-label="Slide <%= c + 1 %>"></button>
+                <% } %>
+            </div>
+            <% } %>
+
+            <!-- Carousel Inner -->
+            <div class="carousel-inner">
+                <% for (var c=0; c<carousels.length; c++) { %>
+                <div class="carousel-item carousel-slide-item <%= c === 0 ? 'active' : '' %>">
+                    <img src="<%= carousels[c].image %>" class="carousel-slide-image" alt="<%= carousels[c].title || 'Shaheen Academy Slide' %>" onerror="this.src='/img/slide1.jpg'">
+                    <div class="carousel-gradient-overlay"></div>
+                    <div class="carousel-content-layer">
+                        <div class="carousel-badge-tag">
+                            <i class="fa-solid fa-graduation-cap"></i> Shaheen Academy
+                        </div>
+                        <% if (carousels[c].title) { %>
+                        <h2 class="carousel-slide-title"><%= carousels[c].title %></h2>
+                        <% } %>
+                        <% if (carousels[c].subtitle) { %>
+                        <p class="carousel-slide-desc"><%= carousels[c].subtitle %></p>
+                        <% } %>
+                        <% if (carousels[c].buttonText && carousels[c].link) { %>
+                        <div class="carousel-actions-row">
+                            <a href="<%= carousels[c].link %>" class="carousel-btn-cta">
+                                <%= carousels[c].buttonText %> <i class="fa-solid fa-arrow-right ms-1"></i>
+                            </a>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+
+            <!-- Controls -->
+            <% if (carousels.length > 1) { %>
+            <button class="carousel-control-prev" type="button" data-bs-target="#shaheenHeroCarousel" data-bs-slide="prev" aria-label="Previous Slide">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#shaheenHeroCarousel" data-bs-slide="next" aria-label="Next Slide">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+            <% } %>
+        </div>
+    </div>
+</section>
+<% } %>
+
+<!-- HERO -->
+<section class="hero-section py-5">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-lg-7 hero-text text-start py-4">
+                <!-- Live Availability Badge -->
+                <div class="status-badge mb-3">
+                    <span class="status-dot"></span> Available for Freelance &amp; Projects
+                </div>
+                
+                <% if (homepage && homepage.length > 0) { %>
+                    <% for(var i=0; i<homepage.length; i++) { %>
+                        <h1 class="hero-title" style="text-align: left;"><%=homepage[i].title%></h1>
+                    <% }; %>
+                <% } else { %>
+                    <h1 class="hero-title" style="text-align: left;">Building High-Performance Digital Solutions</h1>
+                <% } %>
+                
+                <p class="subtitle mb-4">A professional <span>Pro</span>grammer, Developer &amp; Tech Enthusiast</p>
+                
+                <div class="hero-cta-buttons mb-2">
+                    <a href="/book" class="btn btn-primary btn-lg custom-hero-btn primary-btn shadow-sm">
+                        <i class="fa-solid fa-calendar-check me-2"></i>Book Session
+                    </a>
+                    <a href="/learnings" class="btn btn-outline-dark btn-lg custom-hero-btn secondary-btn">
+                        <i class="fa-solid fa-compass me-2"></i>Explore Learnings
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-lg-5 py-4">
+                <!-- Roadmap Checklist Card -->
+                <div class="roadmap-card">
+                    <div class="roadmap-header">
+                        <div class="roadmap-title-row">
+                            <span class="roadmap-tag"><i class="fa-solid fa-road me-1"></i> Architecture Roadmap</span>
+                            <span class="roadmap-pct">65% Complete</span>
+                        </div>
+                        <div class="roadmap-progress">
+                            <div class="roadmap-progress-bar" style="width: 65%;"></div>
+                        </div>
+                        <span class="roadmap-subtitle">Track development stages and architectural checklist</span>
+                    </div>
+                    <div class="roadmap-list">
+                        <!-- Step 1 -->
+                        <div class="roadmap-item">
+                            <div class="roadmap-indicator completed">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div class="roadmap-details">
+                                <div class="roadmap-item-header">
+                                    <span class="roadmap-item-title">System Architecture</span>
+                                    <span class="roadmap-status completed">Done</span>
+                                </div>
+                                <p class="roadmap-item-desc">Designing database schemas, routing, controllers, and setting up scalable EJS view components.</p>
+                            </div>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="roadmap-item">
+                            <div class="roadmap-indicator active">
+                                <i class="fa-solid fa-spinner-third fa-spin"></i>
+                            </div>
+                            <div class="roadmap-details">
+                                <div class="roadmap-item-header">
+                                    <span class="roadmap-item-title">Grid & Form Optimization</span>
+                                    <span class="roadmap-status active">Active</span>
+                                </div>
+                                <p class="roadmap-item-desc">Refactoring layouts into responsive 3-column grids & optimising publish forms into 2-column styles.</p>
+                            </div>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="roadmap-item">
+                            <div class="roadmap-indicator pending">
+                                <i class="fa-solid fa-ellipsis-h"></i>
+                            </div>
+                            <div class="roadmap-details">
+                                <div class="roadmap-item-header">
+                                    <span class="roadmap-item-title">Production Server Staging</span>
+                                    <span class="roadmap-status pending">Planned</span>
+                                </div>
+                                <p class="roadmap-item-desc">Binding secure credentials, configuring upstream proxy caches, and public server SSL domain bindings.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT PREVIEW -->
+<section id="about" class="py-5">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-lg-7 hawert text-start">
+                <div class="section-tag mb-2">Who I Am</div>
+                <h2 class="mb-3" style="text-align: left;">About <span>My Vision</span></h2>
+                <% if (homepage && homepage.length > 0) { %>
+                    <% for(var i=0; i<homepage.length; i++) { %>
+                        <p class="about-lead" style="text-align: left;"><%=homepage[i].about.substring(0, 320) + "..."%></p>
+                    <% }; %>
+                <% } else { %>
+                    <p class="about-lead" style="text-align: left;">I am a passionate developer focusing on modern web standards, beautiful design, and optimal server configurations. I help clients turn their ideas into stable and performant applications.</p>
+                <% } %>
+                <a href="/about" class="btn-read-more-custom mt-3" style="width: fit-content; display: inline-flex; align-items: center;">
+                    Learn More <i class="fa-solid fa-arrow-right-long ms-2"></i>
+                </a>
+            </div>
+            
+            <div class="col-lg-5 mt-4 mt-lg-0">
+                <!-- Achievement Flow Card -->
+                <div class="achievement-flow-card">
+                    <div class="flow-header">
+                        <div class="flow-title">
+                            <i class="fa-solid fa-wand-magic-sparkles text-primary"></i> Achievement Flow
+                        </div>
+                        <div class="flow-subtitle">Our path of turning complex ideas into digital realities</div>
+                    </div>
+                    
+                    <div class="flow-timeline">
+                        <!-- Node 1 -->
+                        <div class="flow-node completed">
+                            <div class="flow-node-dot"></div>
+                            <div class="flow-node-title">
+                                <span>Concept & Architecture</span>
+                                <i class="fa-solid fa-circle-check text-primary ms-1" style="font-size: 0.85rem;"></i>
+                            </div>
+                            <div class="flow-node-desc">Analyzing constraints, designing schema diagrams, and aligning tech choices with scalability needs.</div>
+                        </div>
+                        
+                        <!-- Node 2 -->
+                        <div class="flow-node active">
+                            <div class="flow-node-dot"></div>
+                            <div class="flow-node-title">
+                                <span>Development & Refactoring</span>
+                                <span class="spinner-grow spinner-grow-sm text-primary ms-1" style="width: 8px; height: 8px;" role="status"></span>
+                            </div>
+                            <div class="flow-node-desc">Translating wireframes into beautiful EJS pages, configuring optimal responsive CSS grid columns, and coding backend logic.</div>
+                        </div>
+                        
+                        <!-- Node 3 -->
+                        <div class="flow-node">
+                            <div class="flow-node-dot"></div>
+                            <div class="flow-node-title">Launch, Audit & Scale</div>
+                            <div class="flow-node-desc">Deploying onto modern container infrastructures, load testing under high stress, and maximizing web performance.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" class="py-5 bg-white">
+    <div class="container-fluid">
+        <div class="section-header text-center mb-5">
+            <div class="section-tag mb-2">My Services</div>
+            <h2 class="mb-3">What I <span>Do Best</span></h2>
+            <p class="section-subtitle max-w-2xl mx-auto">Providing end-to-end engineering, beautiful interfaces, and robust cloud configurations.</p>
+        </div>
+        
+        <div class="row g-4">
+        <% if (homecards && homecards.length > 0) { %>
+            <% for(var j=0; j<homecards.length; j++) { %>
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card-custom">
+                    <div class="icon-box-custom">
+                        <i class="<%= homecards[j].icon %>"></i>
+                    </div>
+                    <h3><%= homecards[j].title %></h3>
+                    <p><%= homecards[j].description %></p>
+                </div>
+            </div>
+            <% } %>
+        <% } else { %>
+            <!-- High quality defaults if database cards are not populated -->
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card-custom">
+                    <div class="icon-box-custom">
+                        <i class="fa-sharp fa-solid fa-crop-simple"></i>
+                    </div>
+                    <h3>UI/UX Design</h3>
+                    <p>Creating highly polished, user-focused web interfaces with a great sense of visual rhythm, typography, and contrast.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card-custom">
+                    <div class="icon-box-custom">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h3>Full Stack Development</h3>
+                    <p>Developing scalable web and server applications using cutting-edge stacks (Node.js, Express, React, MongoDB).</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card-custom">
+                    <div class="icon-box-custom">
+                        <i class="fa-brands fa-aws"></i>
+                    </div>
+                    <h3>Cloud Deployment</h3>
+                    <p>Deploying application servers, setting up domain names, handling SSL certificates, and configuring secure firewalls.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card-custom">
+                    <div class="icon-box-custom">
+                        <i class="fa-solid fa-server"></i>
+                    </div>
+                    <h3>Server Administration</h3>
+                    <p>Optimizing server-side runtimes, processes, memory usage, and background operations for maximum performance.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card-custom">
+                    <div class="icon-box-custom">
+                        <i class="fa-solid fa-people-roof"></i>
+                    </div>
+                    <h3>Technical Project Lead</h3>
+                    <p>Leading project lifecycles from architecture planning, code structures, to deployment, ensuring clear timelines and goals.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card-custom">
+                    <div class="icon-box-custom">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <h3>Network Operations</h3>
+                    <p>Configuring secure proxy services, reverse proxies like Nginx, API gateways, load balancing, and secure virtual networks.</p>
+                </div>
+            </div>
+        <% } %>
+        </div>
+    </div>
+</section>
+
+<!-- TECH STACK & SKILLS -->
+<section id="tech-stack" class="py-5 bg-light-section">
+    <div class="container-fluid">
+        <div class="section-header text-center mb-5">
+            <div class="section-tag mb-2">My Toolbox</div>
+            <h2 class="mb-3">My <span>Tech Stack</span></h2>
+            <p class="section-subtitle max-w-2xl mx-auto">The core programming languages, frameworks, and database structures that I build with daily.</p>
+        </div>
+        
+        <div class="row g-4">
+            <!-- Frontend -->
+            <div class="col-lg-3 col-md-6">
+                <div class="tech-category-card">
+                    <div class="tech-card-header">
+                        <i class="fa-solid fa-desktop text-primary-color"></i>
+                        <h4>Frontend</h4>
+                    </div>
+                    <div class="tech-badges">
+                        <span class="tech-badge"><i class="fa-brands fa-react"></i> React</span>
+                        <span class="tech-badge"><i class="fa-brands fa-html5"></i> HTML5</span>
+                        <span class="tech-badge"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+                        <span class="tech-badge"><i class="fa-brands fa-js"></i> ES6+ JS</span>
+                        <span class="tech-badge"><i class="fa-brands fa-bootstrap"></i> Bootstrap 5</span>
+                        <span class="tech-badge">Tailwind CSS</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Backend -->
+            <div class="col-lg-3 col-md-6">
+                <div class="tech-category-card">
+                    <div class="tech-card-header">
+                        <i class="fa-solid fa-gears text-success-color"></i>
+                        <h4>Backend</h4>
+                    </div>
+                    <div class="tech-badges">
+                        <span class="tech-badge"><i class="fa-brands fa-node-js"></i> Node.js</span>
+                        <span class="tech-badge">Express.js</span>
+                        <span class="tech-badge">RESTful APIs</span>
+                        <span class="tech-badge">MVC Pattern</span>
+                        <span class="tech-badge">OAuth / JWT</span>
+                        <span class="tech-badge">Nodemailer</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Database & Storage -->
+            <div class="col-lg-3 col-md-6">
+                <div class="tech-category-card">
+                    <div class="tech-card-header">
+                        <i class="fa-solid fa-database text-warning-color"></i>
+                        <h4>Database</h4>
+                    </div>
+                    <div class="tech-badges">
+                        <span class="tech-badge">MongoDB</span>
+                        <span class="tech-badge">Mongoose</span>
+                        <span class="tech-badge">Cloud Atlas</span>
+                        <span class="tech-badge">Session Store</span>
+                        <span class="tech-badge">Drizzle ORM</span>
+                        <span class="tech-badge">PostgreSQL</span>
+                    </div>
+                </div>
+            </div>
+            <!-- DevOps & Tools -->
+            <div class="col-lg-3 col-md-6">
+                <div class="tech-category-card">
+                    <div class="tech-card-header">
+                        <i class="fa-solid fa-toolbox text-danger-color"></i>
+                        <h4>DevOps &amp; Tools</h4>
+                    </div>
+                    <div class="tech-badges">
+                        <span class="tech-badge"><i class="fa-brands fa-git-alt"></i> Git</span>
+                        <span class="tech-badge"><i class="fa-brands fa-github"></i> GitHub</span>
+                        <span class="tech-badge">Nginx Proxy</span>
+                        <span class="tech-badge">VPS (Ubuntu)</span>
+                        <span class="tech-badge">Vite</span>
+                        <span class="tech-badge">PM2 / npm</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LATEST LEARNINGS PREVIEW -->
+<section id="latest-learnings" class="py-5 bg-white">
+    <div class="container-fluid">
+        <div class="d-flex align-items-center justify-content-between mb-5 flex-wrap gap-3">
+            <div>
+                <div class="section-tag mb-2">Educational Feed</div>
+                <h2 class="mb-1">Recent <span>Learnings</span></h2>
+                <p class="section-subtitle mb-0">Micro-lessons, code snippets, and structured concepts I have recently discovered.</p>
+            </div>
+            <a href="/learnings" class="btn btn-outline-primary rounded-pill px-4">
+                All Learnings <i class="fa-solid fa-arrow-right-long ms-2"></i>
+            </a>
+        </div>
+        
+        <div class="row g-4">
+            <% if (latestLearnings && latestLearnings.length > 0) { %>
+                <% for(var k=0; k<latestLearnings.length; k++) { %>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="learning-preview-card">
+                            <% if (latestLearnings[k].image) { %>
+                                <div class="learning-preview-cover" style="width: calc(100% + 3.7rem); margin-left: -1.85rem; margin-top: -1.85rem; height: 160px; overflow: hidden; border-top-left-radius: 15px; border-top-right-radius: 15px; margin-bottom: 1.15rem; border-bottom: 1px solid var(--border);">
+                                    <img src="<%= latestLearnings[k].image %>" alt="<%= latestLearnings[k].title %>" style="width: 100%; height: 100%; object-fit: cover;">
+                                </div>
+                            <% } %>
+                            <div>
+                                <div class="learning-card-header">
+                                    <span class="learning-date"><i class="fa-regular fa-calendar-days me-1"></i> <%= latestLearnings[k].date %></span>
+                                    <span class="learning-badge-tag"><%= k === 0 ? "Latest" : "Insight" %></span>
+                                </div>
+                                <h3><%= latestLearnings[k].title %></h3>
+                                <p class="learning-excerpt"><%= latestLearnings[k].content.substring(0, 160) + (latestLearnings[k].content.length > 160 ? "..." : "") %></p>
+                            </div>
+                            <a href="/learnings" class="learning-read-link mt-3">Read full entry <i class="fa-solid fa-chevron-right ms-1"></i></a>
+                        </div>
+                    </div>
+                <% } %>
+            <% } else { %>
+                <!-- Beautiful static fallbacks if database learnings are not populated -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="learning-preview-card">
+                        <div>
+                            <div class="learning-card-header">
+                                <span class="learning-date"><i class="fa-regular fa-calendar-days me-1"></i> June 24, 2026</span>
+                                <span class="learning-badge-tag">NodeJS</span>
+                            </div>
+                            <h3>Understanding Secure Session Stores</h3>
+                            <p class="learning-excerpt">A dive into session-based state, Cookie parameters, and using MongoStore for secure, scalable authentication sessions on persistent servers.</p>
+                        </div>
+                        <a href="/learnings" class="learning-read-link mt-3">Read full entry <i class="fa-solid fa-chevron-right ms-1"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="learning-preview-card">
+                        <div>
+                            <div class="learning-card-header">
+                                <span class="learning-date"><i class="fa-regular fa-calendar-days me-1"></i> June 18, 2026</span>
+                                <span class="learning-badge-tag">Database</span>
+                            </div>
+                            <h3>MongoDB Optimization with Mongoose Indexes</h3>
+                            <p class="learning-excerpt">How to leverage compound indexes, remove duplicate unique constraints in collection sub-records, and speed up query processing times.</p>
+                        </div>
+                        <a href="/learnings" class="learning-read-link mt-3">Read full entry <i class="fa-solid fa-chevron-right ms-1"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="learning-preview-card">
+                        <div>
+                            <div class="learning-card-header">
+                                <span class="learning-date"><i class="fa-regular fa-calendar-days me-1"></i> June 10, 2026</span>
+                                <span class="learning-badge-tag">DevOps</span>
+                            </div>
+                            <h3>Reverse Proxy setups with Nginx</h3>
+                            <p class="learning-excerpt">Configuring upstream blocks, SSL/TLS certifications via certbot, handling secure headers, and keeping production systems protected behind proxy layers.</p>
+                        </div>
+                        <a href="/learnings" class="learning-read-link mt-3">Read full entry <i class="fa-solid fa-chevron-right ms-1"></i></a>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</section>
+
+<!-- MILESTONES / METRICS -->
+<section class="milestones-section py-5 bg-light-section border-top border-bottom">
+    <div class="container-fluid text-center">
+        <div class="row g-4">
+            <div class="col-6 col-lg-3">
+                <div class="milestone-box">
+                    <span class="milestone-number">3+</span>
+                    <span class="milestone-label">Years of Development</span>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3">
+                <div class="milestone-box">
+                    <span class="milestone-number">24+</span>
+                    <span class="milestone-label">Projects Completed</span>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3">
+                <div class="milestone-box">
+                    <span class="milestone-number">500+</span>
+                    <span class="milestone-label">GitHub Contributions</span>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3">
+                <div class="milestone-box">
+                    <span class="milestone-number">100%</span>
+                    <span class="milestone-label">Customer Satisfaction</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LATEST BLOG PREVIEW -->
+<section id="latest-blog" class="py-5 bg-light-section">
+    <div class="container-fluid">
+        <div class="d-flex align-items-center justify-content-between mb-5 flex-wrap gap-3">
+            <div>
+                <div class="section-tag mb-2">Read My Thoughts</div>
+                <h2 class="mb-1">Recent <span>Stories &amp; Blog Posts</span></h2>
+                <p class="section-subtitle mb-0">Thoughtful articles on software architecture, technology, and engineering practices.</p>
+            </div>
+            <a href="/blog" class="btn btn-outline-primary rounded-pill px-4">
+                View Full Blog <i class="fa-solid fa-arrow-right-long ms-2"></i>
+            </a>
+        </div>
+        
+        <div class="row g-4">
+            <% if (latestBlogs && latestBlogs.length > 0) { %>
+                <% for(var k=0; k<latestBlogs.length; k++) { %>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="blog-preview-card">
+                            <% if (latestBlogs[k].image) { %>
+                                <div class="blog-preview-cover" style="width: calc(100% + 3.7rem); margin-left: -1.85rem; margin-top: -1.85rem; height: 160px; overflow: hidden; border-top-left-radius: 15px; border-top-right-radius: 15px; margin-bottom: 1.15rem; border-bottom: 1px solid var(--border);">
+                                    <img src="<%= latestBlogs[k].image %>" alt="<%= latestBlogs[k].title %>" style="width: 100%; height: 100%; object-fit: cover;">
+                                </div>
+                            <% } %>
+                            <div>
+                                <span class="blog-date"><i class="fa-regular fa-calendar-days me-1"></i> <%= latestBlogs[k].date || latestBlogs[k].timestamp %></span>
+                                <h3><%= latestBlogs[k].title %></h3>
+                                <p class="blog-excerpt"><%= latestBlogs[k].content.substring(0, 180) + (latestBlogs[k].content.length > 180 ? "..." : "") %></p>
+                            </div>
+                            <a href="/blog" class="blog-read-link mt-3">Continue Reading <i class="fa-solid fa-arrow-right-long ms-1"></i></a>
+                        </div>
+                    </div>
+                <% } %>
+            <% } else { %>
+                <!-- Beautiful static fallbacks if database blogs are not populated -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog-preview-card">
+                        <div>
+                            <span class="blog-date"><i class="fa-regular fa-calendar-days me-1"></i> June 24, 2026</span>
+                            <h3>Why I Am Building My Core Infrastructure with Node.js</h3>
+                            <p class="blog-excerpt">Discussing the benefits of JavaScript on both client and server sides, the speed of asynchronous loop designs, and setting up lightweight full-stack environments.</p>
+                        </div>
+                        <a href="/blog" class="blog-read-link mt-3">Continue Reading <i class="fa-solid fa-arrow-right-long ms-1"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog-preview-card">
+                        <div>
+                            <span class="blog-date"><i class="fa-regular fa-calendar-days me-1"></i> June 20, 2026</span>
+                            <h3>A Practical Guide to Two-Factor Verification (OTP)</h3>
+                            <p class="blog-excerpt">How implementing simple, secure numeric verification pins through NodeMailer can dramatically improve admin security bounds without bloating backend packages.</p>
+                        </div>
+                        <a href="/blog" class="blog-read-link mt-3">Continue Reading <i class="fa-solid fa-arrow-right-long ms-1"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog-preview-card">
+                        <div>
+                            <span class="blog-date"><i class="fa-regular fa-calendar-days me-1"></i> June 15, 2026</span>
+                            <h3>Design Rhythms: Moving Beyond CSS Framework Defaults</h3>
+                            <p class="blog-excerpt">Exploring visual contrast, negative space, customized drop-shadow definitions, and establishing custom design languages inside simple client-side websites.</p>
+                        </div>
+                        <a href="/blog" class="blog-read-link mt-3">Continue Reading <i class="fa-solid fa-arrow-right-long ms-1"></i></a>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDER / CONCEPTS -->
+<section id="slider">
+    <div class="container-fluid py-5">
+        <div class="section-header text-center mb-4">
+            <div class="section-tag mb-2">My Ideology</div>
+            <h2>Process &amp; <span>Delivery Workflow</span></h2>
+        </div>
+        <div id="ideaslider" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <i class="fa-solid fa-lightbulb text-primary mb-3" style="font-size: clamp(3rem, 8vw, 4.5rem); display: block; margin: 1.5rem auto;"></i>
+                    <h1>Have an idea?</h1>
+                </div>
+                <div class="carousel-item">
+                    <i class="fa-solid fa-handshake text-primary mb-3" style="font-size: clamp(3rem, 8vw, 4.5rem); display: block; margin: 1.5rem auto;"></i>
+                    <h1>Have a meet!</h1>
+                </div>
+                <div class="carousel-item">
+                    <i class="fa-solid fa-rocket text-primary mb-3" style="font-size: clamp(3rem, 8vw, 4.5rem); display: block; margin: 1.5rem auto;"></i>
+                    <h1>Make it a reality</h1>
+                </div>
+                <div class="carousel-item">
+                    <i class="fa-solid fa-laptop-code text-primary mb-3" style="font-size: clamp(3rem, 8vw, 4.5rem); display: block; margin: 1.5rem auto;"></i>
+                    <h1>Technology we use</h1>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#ideaslider" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#ideaslider" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ ACCORDION -->
+<section id="faq" class="py-5 bg-white">
+    <div class="container-fluid">
+        <div class="section-header text-center mb-5">
+            <div class="section-tag mb-2">Got Questions?</div>
+            <h2 class="mb-3">Frequently Asked <span>Questions</span></h2>
+            <p class="section-subtitle max-w-2xl mx-auto">Get answers to the most common questions regarding my development cycle, services, and collaborations.</p>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="accordion custom-accordion" id="faqAccordion">
+                    
+                    <!-- Q1 -->
+                    <div class="accordion-item faq-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button faq-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                <i class="fa-solid fa-circle-question me-2 text-primary"></i> What technologies do you specialize in?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body faq-body">
+                                I specialize in full-stack web development using the MERN stack (MongoDB, Express, React, Node.js). I also have strong experience with SQL databases, Tailwind CSS, Bootstrap, and running cloud systems behind Nginx reverse proxies.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Q2 -->
+                    <div class="accordion-item faq-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button faq-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <i class="fa-solid fa-circle-question me-2 text-primary"></i> How can I book an appointment or consultation session?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body faq-body">
+                                You can easily book an appointment by clicking the <strong>Book Session</strong> button in the hero area or heading to the <a href="/book">Book Page</a>. Fill out the short booking form, select your desired service and details, and I will get back to you with confirmation details.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Q3 -->
+                    <div class="accordion-item faq-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button faq-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <i class="fa-solid fa-circle-question me-2 text-primary"></i> Are you open to freelance and project contracts?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body faq-body">
+                                Yes, I am actively available for remote freelance contracts, architectural consultations, and full-stack development roles. Reach out via the <a href="/contact">Contact Page</a> with your project scope, and let's discuss details!
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Q4 -->
+                    <div class="accordion-item faq-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button faq-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                <i class="fa-solid fa-circle-question me-2 text-primary"></i> Do you write about tech or offer study materials?
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body faq-body">
+                                Absolutely! I maintain a regular <a href="/blog">Blog</a> explaining core design concepts, and a dedicated <a href="/learnings">Learnings</a> diary capturing smaller snippets of knowledge. You can find comprehensive study guides and files directly in the footer references or via the learnings feed.
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner-section py-5 bg-white">
+    <div class="container-fluid">
+        <div class="cta-banner-card text-center text-white">
+            <h2 class="mb-3 text-white">Have a Great Project Idea in Mind?</h2>
+            <p class="max-w-2xl mx-auto mb-4 opacity-90">Let's collaborate to build something stunning, performant, and fully customized to your specific business requirements.</p>
+            <a href="/contact" class="btn btn-light btn-lg rounded-pill px-4 text-primary font-weight-bold shadow-sm">
+                Let's Connect <i class="fa-solid fa-paper-plane ms-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer'); -%>

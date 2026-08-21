@@ -1,0 +1,115 @@
+<%- include('partials/admin'); -%>
+
+<div class="page-content">
+    <div class="page-header" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;">
+        <div class="page-header-content">
+            <p class="page-label">Admin Management</p>
+            <h1>Gallery <span>Photos</span></h1>
+            <p class="page-subtitle">Upload, categorize, edit captions, or remove photos displayed in the public campus gallery.</p>
+        </div>
+        <div class="d-flex gap-2">
+            <a href="/gallery" target="_blank" class="btn btn-outline-secondary" style="display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none;">
+                <i class="fa-solid fa-eye"></i> View Public Gallery
+            </a>
+            <a href="/admin-gallery/add" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none;">
+                <i class="fa-solid fa-cloud-arrow-up"></i> Upload New Photo
+            </a>
+        </div>
+    </div>
+
+    <!-- Quick Stats Bar -->
+    <div class="d-flex flex-wrap gap-3 mb-4 p-3 bg-white rounded border shadow-sm align-items-center">
+        <div class="d-flex align-items-center gap-2">
+            <span class="badge bg-primary px-2.5 py-1.5" style="font-size:0.85rem;"><i class="fa-solid fa-images me-1"></i> Total: <%= galleries.length %></span>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+            <span class="badge bg-success px-2.5 py-1.5" style="font-size:0.85rem;"><i class="fa-solid fa-circle-check me-1"></i> Active: <%= galleries.filter(g => g.active).length %></span>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+            <span class="badge bg-secondary px-2.5 py-1.5" style="font-size:0.85rem;"><i class="fa-solid fa-eye-slash me-1"></i> Hidden: <%= galleries.filter(g => !g.active).length %></span>
+        </div>
+        <div class="ms-auto d-flex align-items-center gap-2">
+            <label class="small text-muted fw-semibold">Filter Category:</label>
+            <select id="adminCategoryFilter" class="form-select form-select-sm" style="width: auto; font-size: 0.82rem;" onchange="filterAdminGallery(this.value)">
+                <option value="all">All Categories</option>
+                <option value="Campus">Campus</option>
+                <option value="Academic & Labs">Academic & Labs</option>
+                <option value="Events">Events</option>
+                <option value="Sports & Activities">Sports & Activities</option>
+                <option value="Hostel Life">Hostel Life</option>
+                <option value="Achievements">Achievements</option>
+            </select>
+        </div>
+    </div>
+
+    <% if (galleries.length === 0) { %>
+    <div class="admin-empty-state text-center p-5 bg-white border rounded shadow-sm my-4">
+        <i class="fa-solid fa-photo-film fa-3x text-muted mb-3"></i>
+        <h3 class="fw-bold">No Photos in Gallery</h3>
+        <p class="text-muted">Start showcasing your academy facilities, activities, and milestones by uploading your first photo.</p>
+        <a href="/admin-gallery/add" class="btn btn-primary mt-2">
+            <i class="fa-solid fa-plus me-1"></i> Upload First Photo
+        </a>
+    </div>
+    <% } else { %>
+    
+    <div class="admin-gallery-grid" id="adminGalleryGrid">
+        <% for(var i=0; i<galleries.length; i++) { %>
+        <div class="admin-gallery-card" data-category="<%= galleries[i].category %>">
+            <div class="admin-gallery-img-wrap">
+                <img src="<%= galleries[i].image %>" alt="<%= galleries[i].title || 'Gallery Photo' %>" class="admin-gallery-preview" onerror="this.src='/img/slide1.jpg'">
+                <div class="admin-gallery-badges">
+                    <span class="admin-badge <%= galleries[i].active ? 'admin-badge--success' : 'admin-badge--danger' %>">
+                        <%= galleries[i].active ? 'Active' : 'Hidden' %>
+                    </span>
+                    <span class="admin-badge admin-badge--neutral">
+                        <%= galleries[i].category || 'General' %>
+                    </span>
+                    <span class="admin-badge admin-badge--neutral">
+                        <i class="fa-solid fa-sort me-1"></i> #<%= galleries[i].order || 0 %>
+                    </span>
+                </div>
+            </div>
+            
+            <div class="admin-gallery-body">
+                <h3 class="admin-gallery-title"><%= galleries[i].title || 'Untitled Photo' %></h3>
+                <p class="admin-gallery-desc"><%= galleries[i].description || 'No description provided.' %></p>
+                
+                <div class="d-flex justify-content-between align-items-center small text-muted mb-2 font-monospace" style="font-size:0.75rem;">
+                    <span><i class="fa-regular fa-calendar me-1"></i> <%= galleries[i].date || 'Session 2026' %></span>
+                    <% if (galleries[i].featured) { %>
+                    <span class="text-warning"><i class="fa-solid fa-star me-1"></i> Featured</span>
+                    <% } %>
+                </div>
+                
+                <div class="admin-gallery-footer">
+                    <a href="/admin-gallery/edit/<%= galleries[i]._id %>" class="btn-admin-edit" style="text-decoration:none;">
+                        <i class="fa-solid fa-pen"></i> Edit Photo
+                    </a>
+                    <form action="/admin-gallery/delete/<%= galleries[i]._id %>" method="post" onsubmit="return confirm('Are you sure you want to permanently delete this photo from the gallery?');" style="margin:0;">
+                        <button type="submit" class="btn-admin-delete">
+                            <i class="fa-solid fa-trash"></i> Delete
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <% } %>
+    </div>
+    <% } %>
+</div>
+
+<script>
+    function filterAdminGallery(category) {
+        const cards = document.querySelectorAll('#adminGalleryGrid .admin-gallery-card');
+        cards.forEach(card => {
+            if (category === 'all' || card.getAttribute('data-category') === category) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+</script>
+
+<%- include('partials/footer'); -%>

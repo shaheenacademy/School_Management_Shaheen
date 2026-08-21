@@ -1,0 +1,316 @@
+<%- include('partials/header'); -%>
+
+<style>
+.squad-register-wrapper {
+    min-height: 85vh;
+    padding: 3rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg);
+}
+
+.squad-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--card-shadow);
+    width: 100%;
+    max-width: 820px;
+    padding: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+.squad-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+}
+
+.squad-header-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--primary-light);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+}
+
+.squad-header-title {
+    font-size: 1.28rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 0.25rem 0;
+    letter-spacing: -0.02em;
+}
+
+.squad-header-sub {
+    font-size: 0.83rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.squad-section-title {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin: 1.6rem 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 0.45rem;
+}
+
+.squad-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.squad-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.squad-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.38rem;
+}
+
+.squad-badge {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--accent);
+    font-weight: 500;
+}
+
+.squad-helper-text {
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    margin-top: 0.35rem;
+    line-height: 1.45;
+}
+
+.password-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-toggle-btn {
+    position: absolute;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    transition: color 0.2s ease;
+}
+
+.password-toggle-btn:hover {
+    color: var(--primary);
+}
+
+.squad-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border-light);
+}
+
+.squad-footnote {
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    margin: 0;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .squad-grid-3, .squad-grid-2 {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+    }
+    .squad-card {
+        padding: 1.5rem 1.25rem;
+    }
+    .squad-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .btn-admin-style {
+        width: 100%;
+    }
+}
+</style>
+
+<div class="squad-register-wrapper">
+    <div class="squad-card">
+        <div class="squad-header">
+            <div class="squad-header-icon">
+                <i class="fa-solid fa-user-plus"></i>
+            </div>
+            <div>
+                <h1 class="squad-header-title">Register New Member</h1>
+                <p class="squad-header-sub">Configure standard SQUAD body parameter records. Fields correspond exactly to API parameters.</p>
+            </div>
+        </div>
+
+        <form action="/adminregister" method="post" id="registerForm">
+            <!-- 1. CLASSIFICATION PARAMETERS -->
+            <div class="squad-section-title">
+                <span>1. CLASSIFICATION PARAMETERS</span>
+            </div>
+
+            <div class="squad-grid-2 mb-3">
+                <div>
+                    <label class="squad-label">
+                        <span>User Type (user_type_id) *</span>
+                        <span class="squad-badge">Dropdown Selection</span>
+                    </label>
+                    <select class="form-control" name="userType" id="userTypeSelect">
+                        <option value="super_admin">Super Administrator</option>
+                        <option value="admin" selected>Staff / Administrator</option>
+                        <option value="faculty">Academic Faculty / Teacher</option>
+                        <option value="editor">Content Manager / Editor</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="squad-label">
+                        <span>Access Level (access_level_id) *</span>
+                        <span class="squad-badge">Dropdown Selection</span>
+                    </label>
+                    <select class="form-control" name="accessLevel" id="accessLevelSelect">
+                        <option value="level_1" selected>Level 1 — Full Administrative Control</option>
+                        <option value="level_2">Level 2 — Content &amp; Admissions Manager</option>
+                        <option value="level_3">Level 3 — Staff Portal &amp; Bookings Read/Write</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="squad-label">
+                    <span><i class="fa-solid fa-building me-1 text-muted"></i> Institution (organization_id)</span>
+                    <span class="squad-badge">6 available</span>
+                </label>
+                <select class="form-control" name="organizationId">
+                    <option value="shaheen_badarpur" selected>Shaheen Academy Badarpur (Main Campus)</option>
+                    <option value="shaheen_junior_college">Shaheen Junior College of Science &amp; Arts</option>
+                    <option value="shaheen_hostel_campus">Shaheen Residential Campus</option>
+                </select>
+                <div class="squad-helper-text">Maps this member to an institution from the m_organizations schema on the ABMS backend.</div>
+            </div>
+
+            <!-- 2. PERSONAL & IDENTITY METRICS -->
+            <div class="squad-section-title">
+                <span>2. PERSONAL &amp; IDENTITY METRICS</span>
+            </div>
+
+            <div class="squad-grid-3 mb-3">
+                <div>
+                    <label class="squad-label">First Name (first_name) *</label>
+                    <input type="text" class="form-control" name="firstName" placeholder="e.g. Jenish" required>
+                </div>
+                <div>
+                    <label class="squad-label">Middle Name (middle_name)</label>
+                    <input type="text" class="form-control" name="middleName" placeholder="e.g. J">
+                </div>
+                <div>
+                    <label class="squad-label">Last Name (last_name) *</label>
+                    <input type="text" class="form-control" name="lastName" placeholder="e.g. D" required>
+                </div>
+            </div>
+
+            <div class="squad-grid-2 mb-3">
+                <div>
+                    <label class="squad-label">Username (username) *</label>
+                    <input type="text" class="form-control" name="username_display" placeholder="e.g. jackson">
+                </div>
+                <div>
+                    <label class="squad-label">Email Address (email) *</label>
+                    <input type="email" class="form-control" name="username" placeholder="e.g. jacson@gmail.com" required>
+                </div>
+            </div>
+
+            <div class="squad-grid-2 mb-3">
+                <div>
+                    <label class="squad-label">Admin ID Code (adminid) *</label>
+                    <input type="text" class="form-control" name="adminid" placeholder="e.g. abcsd" required>
+                </div>
+                <div>
+                    <label class="squad-label">Contact Number (phone)</label>
+                    <input type="tel" class="form-control" name="phone" placeholder="e.g. 8837092370">
+                </div>
+            </div>
+
+            <!-- 3. SERVER CREDENTIALS & ROUTING PARAMETERS -->
+            <div class="squad-section-title">
+                <span>3. SERVER CREDENTIALS &amp; ROUTING PARAMETERS</span>
+            </div>
+
+            <div class="mb-3">
+                <label class="squad-label">
+                    <span>Password (password) *</span>
+                    <span class="squad-badge" id="revealKeyBtn" style="cursor: pointer;" onclick="togglePasswordVisibility()">Reveal Key</span>
+                </label>
+                <div class="password-input-wrap">
+                    <input type="password" class="form-control" id="passwordInput" name="password" placeholder="••••••••" required style="padding-right: 2.75rem;">
+                    <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility()" title="Toggle password visibility">
+                        <i class="fa-solid fa-lock" id="lockIcon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="squad-footer">
+                <p class="squad-footnote">* All input properties are verified to construct a valid JSON body with no extra properties.</p>
+                <button type="submit" class="btn btn-admin-style">
+                    <i class="fa-solid fa-user-plus"></i> Register SQUAD Member
+                </button>
+            </div>
+            
+            <div class="text-center mt-3">
+                <span class="text-muted" style="font-size: 0.82rem;">Already registered? <a href="/adminlogin" style="color: var(--primary); font-weight: 600; text-decoration: none;">Sign in to Admin Portal</a></span>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+function togglePasswordVisibility() {
+    const input = document.getElementById('passwordInput');
+    const badge = document.getElementById('revealKeyBtn');
+    const icon = document.getElementById('lockIcon');
+    if (input.type === 'password') {
+        input.type = 'text';
+        badge.textContent = 'Hide Key';
+        icon.className = 'fa-solid fa-lock-open';
+    } else {
+        input.type = 'password';
+        badge.textContent = 'Reveal Key';
+        icon.className = 'fa-solid fa-lock';
+    }
+}
+</script>
+
+<%- include('partials/footer'); -%>

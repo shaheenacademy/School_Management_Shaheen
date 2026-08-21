@@ -1,0 +1,47 @@
+<%- include('partials/admin'); -%>
+
+<div class="page-content">
+    <div class="page-header" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;">
+    <div class="page-header-content">
+        <p class="page-label">Admin</p>
+        <h1>Manage <span>Terms</span></h1>
+        <p class="page-subtitle">Each entry becomes a section on the public Terms of Use page.</p>
+    </div>
+    <a href="/admin-terms/add" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none;"><i class="fa-solid fa-plus"></i> Add Section</a>
+</div>
+
+    <% if (termsList.length === 0) { %>
+    <div class="admin-empty-state">
+        <i class="fa-solid fa-file-contract"></i>
+        <p>No terms sections yet. <a href="/admin-terms/add" style="color:var(--primary); font-weight:600;">Add one</a></p>
+    </div>
+    <% } %>
+
+    <div class="admin-list-stack">
+    <% for(var i=0; i<termsList.length; i++) { %>
+    <div class="blogcard admin-list-card">
+        <div class="admin-list-card-body">
+            <h3 class="admin-list-card-title"><%= termsList[i].title %></h3>
+            <p class="admin-list-card-excerpt"><%= termsList[i].content.substring(0,150) %><%= termsList[i].content.length > 150 ? '...' : '' %></p>
+            <% if(termsList[i].lastUpdated) { %>
+            <p class="admin-list-card-date">
+                <i class="fa-regular fa-clock"></i> <%= new Date(termsList[i].lastUpdated).toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'}) %>
+            </p>
+            <% } %>
+        </div>
+        <div class="admin-card-actions">
+            <a href="/admin-terms/edit/<%= termsList[i]._id %>" class="btn-admin-edit">
+                <i class="fa-solid fa-pen"></i> Edit
+            </a>
+            <form action="/admin-terms/delete/<%= termsList[i]._id %>" method="post" onsubmit="return confirm('Delete this terms section?')">
+                <button type="submit" class="btn-admin-delete">
+                    <i class="fa-solid fa-trash"></i> Delete
+                </button>
+            </form>
+        </div>
+    </div>
+    <% } %>
+    </div>
+</div>
+
+<%- include('partials/footer'); -%>

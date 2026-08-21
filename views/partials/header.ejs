@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ── Google Search Console Verification ── -->
+    <meta name="google-site-verification" content="jrxpfIHtHQpurXk13E-0jgr2-w293cuTl-BevOJVP1U" />
+
+    <!-- ── Primary SEO ── -->
+    <title><%= typeof pageTitle !== 'undefined' ? pageTitle : 'Shaheen Academy Badarpur — Excellence in Education & STEM' %></title>
+    <meta name="description" content="<%= typeof pageDesc !== 'undefined' ? pageDesc : 'Shaheen Academy Badarpur — Empowering future leaders through academic excellence, STEM and robotics, character development, and holistic mentoring.' %>">
+    <meta name="author" content="Shaheen Academy Badarpur">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="<%= typeof pageUrl !== 'undefined' ? pageUrl : siteUrl %>">
+
+    <!-- ── Open Graph ── -->
+    <meta property="og:type" content="<%= typeof ogType !== 'undefined' ? ogType : 'website' %>">
+    <meta property="og:title" content="<%= typeof pageTitle !== 'undefined' ? pageTitle : 'Shaheen Academy Badarpur' %>">
+    <meta property="og:description" content="<%= typeof pageDesc !== 'undefined' ? pageDesc : 'Shaheen Academy Badarpur school management portal, academics, admissions, and careers.' %>">
+    <meta property="og:url" content="<%= typeof pageUrl !== 'undefined' ? pageUrl : siteUrl %>">
+    <meta property="og:site_name" content="Shaheen Academy Badarpur">
+    <meta property="og:image" content="<%= siteUrl %>/img/logo.png">
+    <meta property="og:locale" content="en_US">
+
+    <!-- ── Twitter Card ── -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= typeof pageTitle !== 'undefined' ? pageTitle : 'Shaheen Academy Badarpur' %>">
+    <meta name="twitter:description" content="<%= typeof pageDesc !== 'undefined' ? pageDesc : 'Shaheen Academy Badarpur — Excellence in Education & STEM' %>">
+    <meta name="twitter:image" content="<%= siteUrl %>/img/logo.png">
+
+    <!-- ── JSON-LD: EducationalOrganization (all pages) ── -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Shaheen Academy Badarpur",
+        "url": "<%= siteUrl %>",
+        "logo": "<%= siteUrl %>/img/logo.png",
+        "description": "Excellence in secondary education, competitive examinations, STEM labs, and holistic student development.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Badarpur",
+            "addressRegion": "Assam",
+            "addressCountry": "IN"
+        }
+    }
+    </script>
+    <% if (typeof postTitle !== 'undefined') { %>
+    <!-- ── JSON-LD: BlogPosting (individual post pages) ── -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "<%= postTitle.replace(/\\/g, '\\\\').replace(/"/g, '\\"') %>",
+        "author": { "@type": "Organization", "name": "Shaheen Academy Badarpur" },
+        "publisher": { "@type": "Organization", "name": "Shaheen Academy Badarpur", "logo": { "@type": "ImageObject", "url": "<%= siteUrl %>/img/logo.png" } },
+        "url": "<%= typeof pageUrl !== 'undefined' ? pageUrl : siteUrl %>"
+    }
+    </script>
+    <% } %>
+
+    <!-- ── Fonts & Stylesheets ── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" href="/img/logo.png">
+    <link rel="apple-touch-icon" href="/img/logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<section id="title">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <a class="navbar-brand d-inline-flex align-items-center gap-2" href="/">
+                <img src="/img/logo.png" alt="Shaheen Academy Badarpur" class="header-brand-logo" referrerPolicy="no-referrer">
+                <span class="brand-text-group">
+                    <span class="brand-title">SHAHEEN</span>
+                    <small class="brand-subtitle">Academy Badarpur</small>
+                </span>
+            </a>
+            
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars hamburger-icon"></i>
+                <i class="fa-solid fa-xmark close-icon"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="navbar-item search-nav-item">
+                        <div class="navbar-search-container">
+                            <form class="navbar-search-form" action="/search" method="get" role="search">
+                                <input class="navbar-search-input" type="search" name="q" placeholder="Search..." aria-label="Search"
+                                    value="<%= typeof query !== 'undefined' ? query : '' %>" autocomplete="off">
+                                <button class="navbar-search-btn" type="submit">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </form>
+                            <div id="search-results-dropdown" class="search-results-dropdown"></div>
+                        </div>
+                    </li>
+                    <li class="navbar-item">
+                        <a class="nav-link" href="/"><i class="fa-solid fa-house"></i> Home</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a class="nav-link <%= (typeof pageUrl !== 'undefined' && (pageUrl.includes('/academic') || pageUrl.includes('/academics'))) ? 'active' : '' %>" href="/academic">
+                            <i class="fa-solid fa-book-bookmark"></i> Academic
+                        </a>
+                    </li>
+                    <li class="navbar-item">
+                        <a class="nav-link <%= (typeof pageUrl !== 'undefined' && (pageUrl.includes('/admission') || pageUrl.includes('/admissions'))) ? 'active' : '' %>" href="/admission">
+                            <i class="fa-solid fa-graduation-cap"></i> Admission
+                        </a>
+                    </li>
+                    <li class="navbar-item dropdown results-navbar-item">
+                        <a class="nav-link dropdown-toggle <%= (typeof pageUrl !== 'undefined' && (pageUrl.includes('/result') || pageUrl.includes('/results'))) ? 'active' : '' %>" href="/results" id="resultsNavDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-trophy"></i> Results
+                        </a>
+                        <ul class="dropdown-menu results-dropdown-menu" aria-labelledby="resultsNavDropdown">
+                            <li>
+                                <a class="dropdown-item <%= (typeof pageUrl !== 'undefined' && pageUrl.includes('/result') && (typeof selectedCategory === 'undefined' || selectedCategory === 'all' || !selectedCategory)) ? 'active' : '' %>" href="/results">
+                                    <i class="fa-solid fa-trophy text-warning"></i>
+                                    <span>All Results</span>
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider my-1"></li>
+                            <li>
+                                <a class="dropdown-item <%= (typeof selectedCategory !== 'undefined' && selectedCategory === 'NEET') ? 'active' : '' %>" href="/results?category=NEET">
+                                    <i class="fa-solid fa-user-doctor text-danger"></i>
+                                    <span>NEET (UG) Medical</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item <%= (typeof selectedCategory !== 'undefined' && selectedCategory === 'JEE') ? 'active' : '' %>" href="/results?category=JEE">
+                                    <i class="fa-solid fa-atom text-primary"></i>
+                                    <span>JEE (Main & Adv) Engineering</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item <%= (typeof selectedCategory !== 'undefined' && selectedCategory === 'Board') ? 'active' : '' %>" href="/results?category=Board">
+                                    <i class="fa-solid fa-star text-warning"></i>
+                                    <span>CBSE Board Exams</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item <%= (typeof selectedCategory !== 'undefined' && selectedCategory === 'Scholarship') ? 'active' : '' %>" href="/results?category=Scholarship">
+                                    <i class="fa-solid fa-gift text-success"></i>
+                                    <span>Scholarship & STS Merit</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="navbar-item dropdown notices-navbar-item">
+                        <a class="nav-link dropdown-toggle <%= (typeof pageUrl !== 'undefined' && (pageUrl.includes('/notice') || pageUrl.includes('/notices'))) ? 'active' : '' %>" href="/notices" id="noticesNavDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-bullhorn"></i> Notice
+                        </a>
+                        <ul class="dropdown-menu notices-dropdown-menu" aria-labelledby="noticesNavDropdown">
+                            <li>
+                                <a class="dropdown-item <%= (typeof pageUrl !== 'undefined' && pageUrl.includes('/notice') && (typeof selectedCategory === 'undefined' || selectedCategory === 'all' || !selectedCategory)) ? 'active' : '' %>" href="/notices">
+                                    <i class="fa-solid fa-bullhorn text-primary"></i>
+                                    <span>All Notices</span>
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider my-1"></li>
+                            <li>
+                                <a class="dropdown-item <%= (typeof selectedCategory !== 'undefined' && selectedCategory === 'Admission') ? 'active' : '' %>" href="/notices?category=Admission">
+                                    <i class="fa-solid fa-graduation-cap text-primary"></i>
+                                    <span>Admission Notices</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item <%= (typeof selectedCategory !== 'undefined' && selectedCategory === 'Exam') ? 'active' : '' %>" href="/notices?category=Exam">
+                                    <i class="fa-solid fa-pen-ruler text-primary"></i>
+                                    <span>Exam & Test Circulars</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item <%= (typeof selectedCategory !== 'undefined' && selectedCategory === 'Academic') ? 'active' : '' %>" href="/notices?category=Academic">
+                                    <i class="fa-solid fa-book-open text-primary"></i>
+                                    <span>Academic Circulars</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item <%= (typeof selectedCategory !== 'undefined' && selectedCategory === 'Event') ? 'active' : '' %>" href="/notices?category=Event">
+                                    <i class="fa-solid fa-calendar-check text-primary"></i>
+                                    <span>Events & Co-Curricular</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item <%= (typeof selectedCategory !== 'undefined' && selectedCategory === 'Urgent') ? 'active' : '' %>" href="/notices?category=Urgent">
+                                    <i class="fa-solid fa-triangle-exclamation text-danger"></i>
+                                    <span>Urgent Announcements</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="navbar-item dropdown gallery-navbar-item">
+                        <a class="nav-link dropdown-toggle <%= (typeof pageUrl !== 'undefined' && pageUrl.includes('/gallery')) ? 'active' : '' %>" href="/gallery" id="galleryNavDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-images"></i> Gallery
+                        </a>
+                        <ul class="dropdown-menu gallery-dropdown-menu" aria-labelledby="galleryNavDropdown">
+                            <li>
+                                <a class="dropdown-item <%= (typeof selectedCategory === 'undefined' || selectedCategory === 'all' || !selectedCategory) ? 'active' : '' %>" href="/gallery">
+                                    <i class="fa-solid fa-layer-group text-primary"></i>
+                                    <span>All Photos</span>
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider my-1"></li>
+                            <li>
+                                <a class="dropdown-item <%= (typeof selectedCategory !== 'undefined' && selectedCategory === 'Campus') ? 'active' : '' %>" href="/gallery?category=Campus">
+                                    <i class="fa-solid fa-building-columns text-primary"></i>
+                                    <span>Campus & Infrastructure</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item <%= (typeof selectedCategory !== 'undefined' && selectedCategory === 'Academic & Labs') ? 'active' : '' %>" href="/gallery?category=Academic%20%26%20Labs">
+                                    <i class="fa-solid fa-flask text-primary"></i>
+                                    <span>Academic & Labs</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item <%= (typeof selectedCategory !== 'undefined' && selectedCategory === 'Events') ? 'active' : '' %>" href="/gallery?category=Events">
+                                    <i class="fa-solid fa-calendar-star text-primary"></i>
+                                    <span>Events & Celebrations</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item <%= (typeof selectedCategory !== 'undefined' && selectedCategory === 'Sports & Activities') ? 'active' : '' %>" href="/gallery?category=Sports%20%26%20Activities">
+                                    <i class="fa-solid fa-medal text-primary"></i>
+                                    <span>Sports & Activities</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item <%= (typeof selectedCategory !== 'undefined' && selectedCategory === 'Hostel Life') ? 'active' : '' %>" href="/gallery?category=Hostel%20Life">
+                                    <i class="fa-solid fa-hotel text-primary"></i>
+                                    <span>Hostel Life</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item <%= (typeof selectedCategory !== 'undefined' && selectedCategory === 'Achievements') ? 'active' : '' %>" href="/gallery?category=Achievements">
+                                    <i class="fa-solid fa-trophy text-primary"></i>
+                                    <span>Achievements & Awards</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="navbar-item">
+                        <a class="nav-link" href="/learnings"><i class="fa-solid fa-book"></i> Learnings</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a class="nav-link" href="/blog"><i class="fa-solid fa-pen-nib"></i> Blog</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a class="nav-link" href="/about"><i class="fa-solid fa-circle-info"></i> About</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a class="nav-link" href="/contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const searchInput = document.querySelector('.navbar-search-input');
+                const resultsDropdown = document.getElementById('search-results-dropdown');
+                let debounceTimer;
+
+                if (searchInput && resultsDropdown) {
+                    searchInput.addEventListener('input', function() {
+                        clearTimeout(debounceTimer);
+                        const query = this.value.trim();
+
+                        if (query.length < 2) {
+                            resultsDropdown.style.display = 'none';
+                            return;
+                        }
+
+                        debounceTimer = setTimeout(() => {
+                            fetch(`/api/search?q=${encodeURIComponent(query)}`)
+                                .then(response => response.json())
+                                .then(data => {
+                                    resultsDropdown.innerHTML = '';
+                                    let hasResults = false;
+
+                                    const sections = [
+                                        { title: 'Academic Programs', items: data.academics, icon: 'fa-book-bookmark', type: 'academic' },
+                                        { title: 'Admissions & Batches', items: data.admissions, icon: 'fa-graduation-cap', type: 'admission' },
+                                        { title: 'Results & Merit Lists', items: data.results, icon: 'fa-trophy', type: 'result' },
+                                        { title: 'Notices & Circulars', items: data.notices, icon: 'fa-bullhorn', type: 'notice' },
+                                        { title: 'Gallery Photos', items: data.galleries, icon: 'fa-images', type: 'gallery' },
+                                        { title: 'Blog Posts', items: data.blogs, icon: 'fa-pen-nib', type: 'blog' },
+                                        { title: 'Learnings', items: data.learnings, icon: 'fa-book', type: 'learning' },
+                                        { title: 'Careers', items: data.careers, icon: 'fa-briefcase', type: 'career' }
+                                    ];
+
+                                    sections.forEach(section => {
+                                        if (section.items && section.items.length > 0) {
+                                            hasResults = true;
+                                            const header = document.createElement('div');
+                                            header.className = 'search-dropdown-header';
+                                            header.innerHTML = `<i class="fa-solid ${section.icon}"></i> ${section.title}`;
+                                            resultsDropdown.appendChild(header);
+
+                                            section.items.forEach(item => {
+                                                const link = document.createElement('a');
+                                                link.className = 'search-dropdown-item';
+                                                if (section.type === 'academic') {
+                                                    link.href = '/academic';
+                                                } else if (section.type === 'admission') {
+                                                    link.href = '/admission';
+                                                } else if (section.type === 'result') {
+                                                    link.href = '/results';
+                                                } else if (section.type === 'notice') {
+                                                    link.href = '/notices';
+                                                } else if (section.type === 'gallery') {
+                                                    link.href = '/gallery';
+                                                } else if (section.type === 'blog') {
+                                                    link.href = `/${encodeURIComponent(item.title)}`;
+                                                } else if (section.type === 'learning') {
+                                                    link.href = '/learnings';
+                                                } else {
+                                                    link.href = '/careers';
+                                                }
+                                                link.textContent = item.title;
+                                                resultsDropdown.appendChild(link);
+                                            });
+                                        }
+                                    });
+
+                                    if (hasResults) {
+                                        resultsDropdown.style.display = 'block';
+                                    } else {
+                                        resultsDropdown.innerHTML = '<div class="search-dropdown-item no-results">No results found</div>';
+                                        resultsDropdown.style.display = 'block';
+                                    }
+                                });
+                        }, 300);
+                    });
+
+                    document.addEventListener('click', function(e) {
+                        if (!searchInput.contains(e.target) && !resultsDropdown.contains(e.target)) {
+                            resultsDropdown.style.display = 'none';
+                        }
+                    });
+                }
+            });
+        </script>
+    </div>
+</section>

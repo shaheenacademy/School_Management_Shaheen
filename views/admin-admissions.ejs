@@ -1,0 +1,74 @@
+<%- include('partials/admin'); -%>
+
+<div class="page-content">
+    <div class="page-header" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;">
+        <div class="page-header-content">
+            <p class="page-label">Admin</p>
+            <h1>Manage <span>Admissions</span></h1>
+            <p class="page-subtitle">Add, edit, or remove academic batches, eligibility criteria, and enrollment listings.</p>
+        </div>
+        <a href="/admin-admissions/add" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none;">
+            <i class="fa-solid fa-plus"></i> Add Admission Batch
+        </a>
+    </div>
+
+    <% if (!admissions || admissions.length === 0) { %>
+    <div class="admin-empty-state">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <p>No admission programs listed yet. <a href="/admin-admissions/add" style="color:var(--primary); font-weight:600;">Create your first batch</a></p>
+    </div>
+    <% } %>
+
+    <div class="admin-list-stack">
+    <% for(var i=0; i<admissions.length; i++) { %>
+    <div class="blogcard admin-list-card">
+        <div class="admin-list-card-body">
+            <div class="admin-list-card-badges">
+                <span class="admin-badge admin-badge--primary"><%= admissions[i].grade || 'General Batch' %></span>
+                <% if (admissions[i].session) { %>
+                <span class="admin-badge" style="background:#eef2ff; color:#4f46e5; border:1px solid #c7d2fe;">Session <%= admissions[i].session %></span>
+                <% } %>
+                <span class="admin-badge <%= admissions[i].active ? 'admin-badge--success' : 'admin-badge--danger' %>">
+                    <%= admissions[i].active ? 'Active' : 'Inactive' %>
+                </span>
+                <% if (typeof admissions[i].order !== 'undefined') { %>
+                <span class="admin-badge" style="background:#f1f5f9; color:#475569;">Order: <%= admissions[i].order %></span>
+                <% } %>
+            </div>
+            <h3 class="admin-list-card-title"><%= admissions[i].title %></h3>
+            <p class="admin-list-card-meta">
+                <% if(admissions[i].duration){ %><i class="fa-solid fa-hourglass-half"></i> <%= admissions[i].duration %>&nbsp;&nbsp;<% } %>
+                <% if(admissions[i].mode){ %><i class="fa-solid fa-school"></i> <%= admissions[i].mode %>&nbsp;&nbsp;<% } %>
+                <% if(admissions[i].seats){ %><i class="fa-solid fa-users-line"></i> <%= admissions[i].seats %>&nbsp;&nbsp;<% } %>
+                <% if(admissions[i].deadline){ %><i class="fa-solid fa-calendar-xmark text-danger"></i> Deadline: <%= admissions[i].deadline %><% } %>
+            </p>
+            <% if (admissions[i].eligibility) { %>
+            <p style="font-size:0.83rem; color:var(--text); margin-bottom:0.35rem;">
+                <strong>Eligibility:</strong> <%= admissions[i].eligibility %>
+            </p>
+            <% } %>
+            <% if (admissions[i].fee) { %>
+            <p style="font-size:0.83rem; color:var(--primary); font-weight:500; margin-bottom:0.35rem;">
+                <strong>Fee/Scholarship:</strong> <%= admissions[i].fee %>
+            </p>
+            <% } %>
+            <p class="admin-list-card-excerpt">
+                <%= admissions[i].description ? (admissions[i].description.substring(0,140) + (admissions[i].description.length > 140 ? '...' : '')) : '' %>
+            </p>
+        </div>
+        <div class="admin-card-actions">
+            <a href="/admin-admissions/edit/<%= admissions[i]._id %>" class="btn-admin-edit">
+                <i class="fa-solid fa-pen"></i> Edit
+            </a>
+            <form action="/admin-admissions/delete/<%= admissions[i]._id %>" method="post" onsubmit="return confirm('Are you sure you want to delete this admission program?')">
+                <button type="submit" class="btn-admin-delete">
+                    <i class="fa-solid fa-trash"></i> Delete
+                </button>
+            </form>
+        </div>
+    </div>
+    <% } %>
+    </div>
+</div>
+
+<%- include('partials/footer'); -%>

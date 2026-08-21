@@ -1,0 +1,126 @@
+<%- include('partials/admin'); -%>
+
+<div class="page-content">
+    <div class="compose">
+        <h2><i class="fa-solid fa-graduation-cap me-2 text-primary"></i> <span><%= academic ? 'Edit' : 'Add' %></span> Academic Program</h2>
+        <p class="text-muted">Create and manage academic wings, curricula, teaching methodology, and educational frameworks.</p>
+    </div>
+    <div class="admin-form-card border rounded shadow-sm bg-white p-4">
+        <form action="<%= action %>" method="post">
+            <div class="row">
+                <div class="col-md-8 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-pen-nib text-primary"></i> Program / Stream Title
+                    </label>
+                    <input class="form-control" type="text" name="academicTitle" placeholder="e.g. Senior Secondary Integrated Medical Wing (PCB)" value="<%= academic ? academic.title : '' %>" required>
+                    <small class="text-muted d-block mt-1">Specify clear title for the academic wing or department.</small>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-tag text-primary"></i> Category / Stream
+                    </label>
+                    <input class="form-control" type="text" name="academicCategory" placeholder="e.g. Medical Stream, Engineering Stream, Foundation Wing" value="<%= academic ? (academic.category || 'Academic Stream') : 'Academic Stream' %>">
+                    <small class="text-muted d-block mt-1">Academic stream classification.</small>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-layer-group text-primary"></i> Target Classes / Grades
+                    </label>
+                    <input class="form-control" type="text" name="academicGrades" placeholder="e.g. Classes XI & XII (Medical)" value="<%= academic ? (academic.grades || '') : '' %>" required>
+                    <small class="text-muted d-block mt-1">Target standard or academic group.</small>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-award text-primary"></i> Board / Affiliation
+                    </label>
+                    <input class="form-control" type="text" name="academicBoard" placeholder="e.g. CBSE & State Board + NEET Integrated" value="<%= academic ? (academic.board || '') : '' %>">
+                    <small class="text-muted d-block mt-1">Accreditation, board, or competitive synergy.</small>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-icons text-primary"></i> FontAwesome Icon Class
+                    </label>
+                    <input class="form-control" type="text" name="academicIcon" placeholder="e.g. fa-solid fa-microscope" value="<%= academic ? (academic.icon || 'fa-solid fa-graduation-cap') : 'fa-solid fa-graduation-cap' %>">
+                    <small class="text-muted d-block mt-1">Icon class (e.g. fa-solid fa-atom, fa-solid fa-microscope).</small>
+                </div>
+
+                <div class="col-12 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-book-open text-primary"></i> Curriculum & Core Subjects
+                    </label>
+                    <input class="form-control" type="text" name="academicCurriculum" placeholder="e.g. Core Physics, Organic & Inorganic Chemistry, Botany, Zoology, English" value="<%= academic ? (academic.curriculum || '') : '' %>">
+                    <small class="text-muted d-block mt-1">Core subjects, syllabus modules, or special study units.</small>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-chalkboard-user text-primary"></i> Teaching Methodology & Pedagogy
+                    </label>
+                    <input class="form-control" type="text" name="academicPedagogy" placeholder="e.g. Daily Practice Problems (DPP), chapter-wise micro drills, daily 2-hour doubt clinics" value="<%= academic ? (academic.pedagogy || '') : '' %>">
+                    <small class="text-muted d-block mt-1">Pedagogical strategy, drills, problem clinics.</small>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-user-tie text-primary"></i> Faculty & Mentorship
+                    </label>
+                    <input class="form-control" type="text" name="academicFaculty" placeholder="e.g. Senior entrance faculty with 15+ years coaching pedigree and AIIMS ranker track record" value="<%= academic ? (academic.faculty || '') : '' %>">
+                    <small class="text-muted d-block mt-1">Mentor qualifications and teaching credentials.</small>
+                </div>
+
+                <div class="col-12 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-star text-primary"></i> Key Facilities & Highlights
+                    </label>
+                    <input class="form-control" type="text" name="academicFeatures" placeholder="e.g. Advanced 3D Anatomy models, dedicated Bio-Lab, 24/7 silent study hall, 1-on-1 mentorship" value="<%= academic ? (academic.features || '') : '' %>">
+                    <small class="text-muted d-block mt-1">Specific labs, facilities, or study aids.</small>
+                </div>
+
+                <div class="col-12 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-align-left text-primary"></i> Detailed Academic Description
+                    </label>
+                    <textarea class="form-control" name="academicDescription" rows="6" placeholder="Describe the academic incubation system, learning outcomes, test series, and mentorship structure..." required><%= academic ? (academic.description || '') : '' %></textarea>
+                    <small class="text-muted d-block mt-1">Provide comprehensive academic details for students, parents, and visitors.</small>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-arrow-down-1-9 text-primary"></i> Display Order
+                    </label>
+                    <input class="form-control" type="number" name="academicOrder" placeholder="0" value="<%= academic ? (academic.order || 0) : 0 %>">
+                    <small class="text-muted d-block mt-1">Lower numbers appear first.</small>
+                </div>
+
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                    <div class="admin-checkbox-row d-inline-flex align-items-center gap-2 p-3 bg-light rounded border w-100">
+                        <input type="checkbox" name="academicActive" id="academicActive" <%= !academic || academic.active ? 'checked' : '' %>>
+                        <label for="academicActive" class="user-select-none mb-0 fw-medium">
+                            <i class="fa-solid fa-eye text-success me-1"></i> Active (visible on public /academic page)
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note mb-4 p-3 bg-light border-start border-primary border-3 rounded">
+                <p class="mb-0 text-muted">
+                    <i class="fa-solid fa-circle-info me-1 text-primary"></i> 
+                    <strong>Live Preview:</strong> Public visitors can view all active academic programs at 
+                    <a href="/academic" target="_blank" class="text-decoration-none">/academic</a>.
+                </p>
+            </div>
+
+            <div class="admin-form-actions d-flex align-items-center gap-3">
+                <button class="btn btn-primary d-inline-flex align-items-center gap-2" type="submit">
+                    <i class="fa-solid <%= academic ? 'fa-check' : 'fa-plus' %>"></i>
+                    <%= academic ? 'Update Academic Program' : 'Publish Academic Program' %>
+                </button>
+                <a href="/admin-academics" class="admin-back-link text-decoration-none d-inline-flex align-items-center gap-1">
+                    <i class="fa-solid fa-arrow-left"></i> Back to list
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<%- include('partials/footer'); -%>

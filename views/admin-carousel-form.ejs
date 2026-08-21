@@ -1,0 +1,137 @@
+<%- include('partials/admin'); -%>
+
+<div class="page-content">
+    <div class="compose">
+        <h2>
+            <i class="fa-solid fa-images me-2 text-primary"></i> 
+            <span><%= slide ? 'Edit' : 'Add New' %></span> Carousel Slide
+        </h2>
+        <p class="text-muted">Configure banner images and call-to-action text displayed in the rotating home page carousel.</p>
+    </div>
+
+    <div class="admin-form-card border rounded shadow-sm bg-white p-4" style="max-width: 850px;">
+        <form action="<%= action %>" method="post" enctype="multipart/form-data">
+            
+            <!-- Slide Title -->
+            <div class="mb-4">
+                <label class="form-label d-flex align-items-center gap-2">
+                    <i class="fa-solid fa-heading text-primary"></i> Slide Title / Heading
+                </label>
+                <input class="form-control" type="text" name="slideTitle" placeholder="e.g. Welcome to Shaheen Academy Badarpur" value="<%= slide ? slide.title : '' %>" required>
+                <small class="text-muted d-block mt-1">Main prominent headline overlaid on the carousel slide.</small>
+            </div>
+
+            <!-- Slide Subtitle -->
+            <div class="mb-4">
+                <label class="form-label d-flex align-items-center gap-2">
+                    <i class="fa-solid fa-paragraph text-primary"></i> Subtitle / Description
+                </label>
+                <textarea class="form-control" name="slideSubtitle" rows="3" placeholder="e.g. Empowering students with cutting-edge STEM labs, dedicated faculty, and ethical leadership."><%= slide ? slide.subtitle : '' %></textarea>
+                <small class="text-muted d-block mt-1">Supporting description or slogan displayed under the title.</small>
+            </div>
+
+            <!-- Image Upload & URL Fallback -->
+            <div class="mb-4 p-3 bg-light rounded border">
+                <label class="form-label d-flex align-items-center gap-2 fw-semibold">
+                    <i class="fa-solid fa-cloud-arrow-up text-primary"></i> Carousel Image
+                </label>
+                
+                <div class="row g-3">
+                    <div class="col-md-7">
+                        <label class="form-label text-muted small">Upload Image File (Recommended)</label>
+                        <input type="file" name="carouselImage" id="carouselImageInput" class="form-control" accept="image/*" onchange="previewSelectedImage(this)">
+                        <small class="text-muted d-block mt-1">Accepts JPG, PNG, WEBP, GIF. Suggested ratio: 16:9 (e.g. 1920x1080 or 1280x720).</small>
+                    </div>
+                    <div class="col-md-5">
+                        <label class="form-label text-muted small">Or Provide Image URL / Path</label>
+                        <input type="text" name="imageUrl" id="imageUrlInput" class="form-control" placeholder="e.g. /img/slide1.jpg or https://..." value="<%= (slide && slide.image && !slide.image.startsWith('data:')) ? slide.image : '' %>" oninput="previewUrlImage(this.value)">
+                        <small class="text-muted d-block mt-1">Alternative path or remote web URL.</small>
+                    </div>
+                </div>
+
+                <!-- Current / Preview Thumbnail -->
+                <div id="imagePreviewContainer" class="mt-3 <%= (slide && slide.image) ? '' : 'd-none' %>">
+                    <span class="text-muted small d-block mb-1">Image Preview:</span>
+                    <div class="position-relative d-inline-block border rounded overflow-hidden shadow-sm" style="max-width: 360px; max-height: 200px;">
+                        <img id="imagePreview" src="<%= (slide && slide.image) ? slide.image : '' %>" alt="Slide preview" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action Controls -->
+            <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-square-arrow-up-right text-primary"></i> Button Label (Optional)
+                    </label>
+                    <input class="form-control" type="text" name="buttonText" placeholder="e.g. Apply for Admission, Explore Labs" value="<%= slide ? slide.buttonText : '' %>">
+                    <small class="text-muted d-block mt-1">Text shown on the action button (leave empty for no button).</small>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-link text-primary"></i> Button Target Link
+                    </label>
+                    <input class="form-control" type="text" name="buttonLink" placeholder="e.g. /book, /learnings, /about, /contact" value="<%= slide ? slide.link : '' %>">
+                    <small class="text-muted d-block mt-1">Page route or URL opened when clicking the button.</small>
+                </div>
+            </div>
+
+            <!-- Display Order & Active Toggle -->
+            <div class="row g-3 mb-4 align-items-center">
+                <div class="col-md-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-sort text-primary"></i> Display Order Index
+                    </label>
+                    <input class="form-control" type="number" name="slideOrder" placeholder="1" value="<%= slide ? slide.order : 1 %>">
+                    <small class="text-muted d-block mt-1">Lowest numbers show first.</small>
+                </div>
+                <div class="col-md-8 pt-3">
+                    <div class="form-check form-switch d-flex align-items-center gap-2">
+                        <input class="form-check-input" type="checkbox" name="slideActive" id="slideActive" role="switch" <%= (!slide || slide.active) ? 'checked' : '' %> style="width: 2.5em; height: 1.3em;">
+                        <label class="form-check-label fw-semibold" for="slideActive">
+                            Show in Home Page Carousel (Active)
+                        </label>
+                    </div>
+                    <small class="text-muted d-block ms-5">Toggle off to hide slide without deleting it.</small>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="admin-form-actions d-flex align-items-center gap-3 pt-3 border-top">
+                <button class="btn btn-primary d-inline-flex align-items-center gap-2" type="submit">
+                    <i class="fa-solid <%= slide ? 'fa-check-double' : 'fa-cloud-arrow-up' %>"></i>
+                    <%= slide ? 'Update Carousel Slide' : 'Save & Publish Slide' %>
+                </button>
+                <a href="/admin-carousel" class="admin-back-link text-decoration-none d-inline-flex align-items-center gap-1">
+                    <i class="fa-solid fa-arrow-left"></i> Cancel &amp; Return
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+function previewSelectedImage(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            var preview = document.getElementById('imagePreview');
+            var container = document.getElementById('imagePreviewContainer');
+            preview.src = e.target.result;
+            container.classList.remove('d-none');
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+function previewUrlImage(url) {
+    if (url && url.trim().length > 3) {
+        var preview = document.getElementById('imagePreview');
+        var container = document.getElementById('imagePreviewContainer');
+        preview.src = url.trim();
+        container.classList.remove('d-none');
+    }
+}
+</script>
+
+<%- include('partials/footer'); -%>

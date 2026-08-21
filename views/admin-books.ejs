@@ -1,0 +1,66 @@
+<%- include('partials/admin'); -%>
+
+<div class="page-content">
+    <div class="page-header">
+    <div class="page-header-content">
+        <p class="page-label">Admin</p>
+        <h1>Manage <span>Bookings</span></h1>
+        <p class="page-subtitle">Appointment requests submitted through the booking form.</p>
+    </div>
+</div>
+
+    <% if (bookings.length === 0) { %>
+    <div class="admin-empty-state">
+        <i class="fa-solid fa-calendar-check"></i>
+        <p>No bookings yet.</p>
+    </div>
+    <% } %>
+
+    <div class="admin-list-stack">
+    <% for(var i=0; i<bookings.length; i++) { %>
+    <div class="contact-entry">
+        <div class="admin-list-card" style="margin-bottom:0.5rem;">
+            <div>
+                <h3 style="margin:0;"><%= bookings[i].name %></h3>
+                <p class="admin-list-card-meta" style="margin:0.25rem 0 0;">
+                    <i class="fa-solid fa-briefcase"></i> <%= bookings[i].service %>
+                </p>
+            </div>
+            <div class="admin-card-actions">
+                <span class="admin-badge <%= bookings[i].status==='Confirmed' ? 'admin-badge--success' : bookings[i].status==='Cancelled' ? 'admin-badge--danger' : 'admin-badge--warning' %>">
+                    <%= bookings[i].status %>
+                </span>
+            </div>
+        </div>
+
+        <p><i class="fa-solid fa-envelope" style="color:var(--primary); margin-right:6px;"></i><%= bookings[i].email %></p>
+        <% if(bookings[i].phone){ %><p><i class="fa-solid fa-phone" style="color:var(--primary); margin-right:6px;"></i><%= bookings[i].phone %></p><% } %>
+        <p>
+            <i class="fa-solid fa-calendar" style="color:var(--primary); margin-right:6px;"></i><%= bookings[i].date %>
+            <% if(bookings[i].time){ %> &nbsp;at&nbsp; <i class="fa-solid fa-clock" style="color:var(--primary); margin-right:6px;"></i><%= bookings[i].time %><% } %>
+        </p>
+        <% if(bookings[i].message){ %>
+        <div class="msg"><p><%= bookings[i].message %></p></div>
+        <% } %>
+
+        <div class="admin-card-actions" style="margin-top:0.75rem; flex-wrap:wrap;">
+            <form class="booking-status-form" action="/admin-books/status/<%= bookings[i]._id %>" method="post">
+                <select name="status" class="booking-status-select">
+                    <option value="Pending" <%= bookings[i].status==='Pending' ? 'selected' : '' %>>Pending</option>
+                    <option value="Confirmed" <%= bookings[i].status==='Confirmed' ? 'selected' : '' %>>Confirmed</option>
+                    <option value="Cancelled" <%= bookings[i].status==='Cancelled' ? 'selected' : '' %>>Cancelled</option>
+                </select>
+                <button type="submit" class="btn-admin-update">Update</button>
+            </form>
+            <form action="/admin-books/delete/<%= bookings[i]._id %>" method="post" onsubmit="return confirm('Delete this booking?')">
+                <button type="submit" class="btn-admin-delete">
+                    <i class="fa-solid fa-trash"></i> Delete
+                </button>
+            </form>
+        </div>
+    </div>
+    <% } %>
+    </div>
+</div>
+
+<%- include('partials/footer'); -%>

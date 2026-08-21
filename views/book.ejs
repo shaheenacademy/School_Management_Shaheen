@@ -1,0 +1,99 @@
+<%- include('partials/header'); -%>
+
+<div class="page-content">
+    <div class="page-header text-center">
+        <div class="page-header-content">
+            <p class="page-label mono-text">Direct Counseling &amp; Admission</p>
+            <h1>Schedule an <span>Appointment</span></h1>
+            <p class="page-subtitle">Configure appointment parameters. Our admissions and academic team will confirm your session within 24 hours.</p>
+        </div>
+    </div>
+
+    <div class="contact-card" style="max-width: 760px;">
+        <div class="squad-header">
+            <div class="squad-header-icon">
+                <i class="fa-solid fa-calendar-plus"></i>
+            </div>
+            <div>
+                <h2 style="font-size: 1.25rem; font-weight: 700; margin: 0 0 0.2rem 0;">Book Academic Consultation</h2>
+                <p style="font-size: 0.83rem; color: var(--text-muted); margin: 0;">Fill in the applicant parameter metrics below.</p>
+            </div>
+        </div>
+
+        <form action="/book" method="post">
+            <!-- 1. APPLICANT IDENTITY -->
+            <div class="form-section-title">
+                <span>1. APPLICANT IDENTITY METRICS</span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">
+                        <span>Full Name (full_name) *</span>
+                    </label>
+                    <input class="form-control" type="text" name="bookName" placeholder="e.g. Jackson Mongbam" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">
+                        <span>Email Address (email) *</span>
+                    </label>
+                    <input class="form-control" type="email" name="bookEmail" placeholder="e.g. applicant@gmail.com" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">
+                        <span>Contact Number (phone) *</span>
+                    </label>
+                    <input class="form-control" type="tel" name="bookPhone" placeholder="e.g. 8837092377" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">
+                        <span>Target Program (service_id) *</span>
+                        <span class="param-badge">Dropdown Selection</span>
+                    </label>
+                    <select class="form-control" name="bookService" required>
+                        <option value="NEET / JEE Integrated Foundation">NEET / JEE Integrated Foundation</option>
+                        <option value="Senior Secondary (Class 11 & 12 Science)">Senior Secondary (Class 11 &amp; 12 Science)</option>
+                        <option value="Junior Secondary Foundation (Class 8-10)">Junior Secondary Foundation (Class 8-10)</option>
+                        <option value="Hostel & Campus Immersion Consultation">Hostel &amp; Campus Immersion Consultation</option>
+                        <option value="General Academic Counseling">General Academic Counseling</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- 2. APPOINTMENT TIME & DETAILS -->
+            <div class="form-section-title">
+                <span>2. SCHEDULING PARAMETERS</span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">
+                        <span>Preferred Date (scheduled_date) *</span>
+                    </label>
+                    <input class="form-control" type="date" name="bookDate" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">
+                        <span>Preferred Time (scheduled_time)</span>
+                    </label>
+                    <input class="form-control" type="time" name="bookTime">
+                </div>
+                <div class="col-12 mb-3">
+                    <label class="form-label">
+                        <span>Consultation Notes / Objectives (notes)</span>
+                    </label>
+                    <textarea class="form-control" name="bookMessage" rows="4" placeholder="Detail any specific questions regarding courses, syllabus, or hostel facilities..."></textarea>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 pt-3 border-top">
+                <p class="note m-0">* Verified appointment booking confirmation will be dispatched via email and SMS.</p>
+                <button type="submit" class="btn btn-admin-style">
+                    <i class="fa-regular fa-calendar-check me-1"></i> Confirm Appointment
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<%- include('partials/footer'); -%>

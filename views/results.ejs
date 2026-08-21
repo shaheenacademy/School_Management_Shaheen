@@ -1,0 +1,223 @@
+<%- include('partials/header'); -%>
+
+<div class="page-content">
+    <!-- Hero Banner -->
+    <div class="admission-hero-banner" style="background: linear-gradient(135deg, #064e3b 0%, #0f766e 50%, #0369a1 100%); color: #fff; border-radius: var(--radius, 12px); padding: 3rem 2rem; margin-bottom: 2.5rem; position: relative; overflow: hidden; box-shadow: 0 10px 25px -5px rgba(15, 118, 110, 0.25);">
+        <div style="position: absolute; right: -20px; bottom: -30px; opacity: 0.12; font-size: 15rem; pointer-events: none;">
+            <i class="fa-solid fa-trophy"></i>
+        </div>
+        <div style="max-width: 800px; position: relative; z-index: 2;">
+            <span class="badge" style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); color: #fef08a; font-size: 0.85rem; font-weight: 600; padding: 0.4rem 0.9rem; border-radius: 999px; margin-bottom: 1rem; display: inline-flex; align-items: center; gap: 0.4rem; border: 1px solid rgba(255,255,255,0.3);">
+                <i class="fa-solid fa-award"></i> Academic & Competitive Glory
+            </span>
+            <h1 style="font-size: 2.3rem; font-weight: 800; line-height: 1.2; margin-bottom: 0.8rem; color: #fff;">
+                Exam Results & <span style="color: #fef08a;">Top Rankers</span>
+            </h1>
+            <p style="font-size: 1.05rem; line-height: 1.6; opacity: 0.95; margin-bottom: 1.5rem; color: #f1f5f9;">
+                Celebrating our students' unmatched success across NEET (Medical), JEE (Engineering), Senior Secondary Board Examinations, and Shaheen Talent Search (STS) Scholarship programs.
+            </p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="#results-grid" class="btn" style="background: #fef08a; color: #0f172a; font-weight: 700; padding: 0.65rem 1.4rem; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: transform 0.2s;">
+                    <i class="fa-solid fa-medal"></i> View Merit Lists
+                </a>
+                <a href="/admission" class="btn" style="background: rgba(255,255,255,0.15); color: #fff; font-weight: 600; padding: 0.65rem 1.4rem; border-radius: 8px; text-decoration: none; border: 1px solid rgba(255,255,255,0.4); display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <i class="fa-solid fa-graduation-cap"></i> Join Next Batch
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Achievement KPI Highlights -->
+    <div class="row g-3 mb-5">
+        <div class="col-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm text-center p-3" style="background: #ffffff; border-radius: 12px; border-bottom: 4px solid #10b981 !important;">
+                <div style="width: 44px; height: 44px; background: #ecfdf5; color: #059669; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; font-size: 1.3rem; margin: 0 auto 0.75rem;">
+                    <i class="fa-solid fa-user-doctor"></i>
+                </div>
+                <h3 class="fw-bold mb-1" style="color: #0f172a; font-size: 1.6rem;">48+</h3>
+                <p class="text-muted mb-0 small fw-medium">Govt Medical College Selections (2025)</p>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm text-center p-3" style="background: #ffffff; border-radius: 12px; border-bottom: 4px solid #0284c7 !important;">
+                <div style="width: 44px; height: 44px; background: #e0f2fe; color: #0284c7; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; font-size: 1.3rem; margin: 0 auto 0.75rem;">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <h3 class="fw-bold mb-1" style="color: #0f172a; font-size: 1.6rem;">99.42%</h3>
+                <p class="text-muted mb-0 small fw-medium">Highest JEE NTA Percentile Score</p>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm text-center p-3" style="background: #ffffff; border-radius: 12px; border-bottom: 4px solid #8b5cf6 !important;">
+                <div style="width: 44px; height: 44px; background: #f5f3ff; color: #7c3aed; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; font-size: 1.3rem; margin: 0 auto 0.75rem;">
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3 class="fw-bold mb-1" style="color: #0f172a; font-size: 1.6rem;">100%</h3>
+                <p class="text-muted mb-0 small fw-medium">Class 12 Board Pass & Distinction Rate</p>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm text-center p-3" style="background: #ffffff; border-radius: 12px; border-bottom: 4px solid #f59e0b !important;">
+                <div style="width: 44px; height: 44px; background: #fef3c7; color: #d97706; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; font-size: 1.3rem; margin: 0 auto 0.75rem;">
+                    <i class="fa-solid fa-gift"></i>
+                </div>
+                <h3 class="fw-bold mb-1" style="color: #0f172a; font-size: 1.6rem;">₹30L+</h3>
+                <p class="text-muted mb-0 small fw-medium">Merit Scholarships Awarded (STS)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section Header & Active Filter Indicator -->
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4" id="results-grid">
+        <div>
+            <h2 style="font-size: 1.5rem; font-weight: 700; color: #0f172a; margin-bottom: 0.2rem;">
+                <i class="fa-solid fa-square-poll-vertical text-primary me-2"></i> Published Results & Merit Lists
+            </h2>
+            <p class="text-muted small mb-0">Browse through verified competitive entrance scorecards and academic board honours.</p>
+        </div>
+    </div>
+
+    <% if (typeof selectedCategory !== 'undefined' && selectedCategory && selectedCategory !== 'all') { %>
+    <div class="gallery-active-category-banner mb-4 d-flex justify-content-between align-items-center p-3 rounded flex-wrap gap-2" style="background:#f0f9ff; color:#0369a1; border:1px solid #bae6fd;">
+        <span><i class="fa-solid fa-filter text-primary me-1"></i> Category Filter: <strong><%= selectedCategory %></strong> (<%= results.length %> <%= results.length === 1 ? 'result' : 'results' %>)</span>
+        <a href="/results" class="btn btn-sm btn-outline-primary bg-white text-decoration-none"><i class="fa-solid fa-xmark me-1"></i> Show All Results</a>
+    </div>
+    <% } %>
+
+    <!-- Results Cards Grid -->
+    <% if (!results || results.length === 0) { %>
+    <div class="text-center p-5 bg-white border rounded shadow-sm">
+        <i class="fa-solid fa-award text-muted mb-3" style="font-size: 3rem;"></i>
+        <h4 class="fw-bold"><%= (typeof selectedCategory !== 'undefined' && selectedCategory && selectedCategory !== 'all') ? `No Results Found in "${selectedCategory}"` : 'No Examination Results Published Yet' %></h4>
+        <p class="text-muted"><%= (typeof selectedCategory !== 'undefined' && selectedCategory && selectedCategory !== 'all') ? 'There are no published results matching this selected filter.' : 'Stay tuned as upcoming entrance and board results will be published here.' %></p>
+        <% if (typeof selectedCategory !== 'undefined' && selectedCategory && selectedCategory !== 'all') { %>
+        <a href="/results" class="btn btn-primary mt-2">
+            <i class="fa-solid fa-arrow-left me-1"></i> View All Results
+        </a>
+        <% } %>
+    </div>
+    <% } else { %>
+    <div class="row g-4 mb-5">
+        <% results.forEach(function(item) { %>
+        <div class="col-lg-6 result-card-item" data-category="<%= (item.category || '') + ' ' + (item.title || '') %>">
+            <div class="card h-100 border-0 shadow-sm bg-white" style="border-radius: 14px; overflow: hidden; border: 1px solid #e2e8f0;">
+                <div style="background: #f8fafc; border-bottom: 1px solid #e2e8f0; padding: 1.25rem 1.5rem; display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap;">
+                    <div>
+                        <div class="d-flex align-items-center gap-2 mb-2 flex-wrap">
+                            <span class="badge" style="background: #0284c7; color: #fff; font-size: 0.75rem; padding: 0.35rem 0.65rem; border-radius: 6px;">
+                                <i class="fa-solid fa-tag me-1"></i> <%= item.category || 'Examination' %>
+                            </span>
+                            <span class="badge" style="background: #eef2ff; color: #4338ca; border: 1px solid #c7d2fe; font-size: 0.75rem; padding: 0.35rem 0.65rem; border-radius: 6px;">
+                                <i class="fa-regular fa-calendar me-1"></i> Session <%= item.session || '2024 - 2025' %>
+                            </span>
+                            <% if (item.badge) { %>
+                            <span class="badge bg-success-subtle text-success border border-success-subtle font-monospace" style="font-size: 0.72rem; padding: 0.35rem 0.6rem;">
+                                <i class="fa-solid fa-shield-halved me-1"></i> <%= item.badge %>
+                            </span>
+                            <% } %>
+                        </div>
+                        <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f172a; margin-bottom: 0;">
+                            <%= item.title %>
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="card-body p-4">
+                    <% if (item.highlight) { %>
+                    <div class="p-3 mb-3 rounded" style="background: #f0fdf4; border-left: 4px solid #10b981;">
+                        <p class="mb-0 fw-bold" style="color: #065f46; font-size: 0.92rem;">
+                            <i class="fa-solid fa-fire me-1 text-danger"></i> <%= item.highlight %>
+                        </p>
+                    </div>
+                    <% } %>
+
+                    <% if (item.toppersCount) { %>
+                    <p style="font-size: 0.88rem; color: #475569; margin-bottom: 0.75rem;">
+                        <strong class="text-dark"><i class="fa-solid fa-trophy text-warning me-1"></i> Benchmark Score:</strong> <%= item.toppersCount %>
+                    </p>
+                    <% } %>
+
+                    <% if (item.description) { %>
+                    <p style="font-size: 0.88rem; color: #475569; line-height: 1.6; margin-bottom: 1rem;">
+                        <%= item.description %>
+                    </p>
+                    <% } %>
+
+                    <% if (item.toppersList) { %>
+                    <div class="p-3 rounded mb-3" style="background: #f8fafc; border: 1px solid #e2e8f0;">
+                        <h5 style="font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.6px; color: #64748b; font-weight: 700; margin-bottom: 0.5rem;">
+                            <i class="fa-solid fa-medal text-warning me-1"></i> Star Performers & Selections:
+                        </h5>
+                        <div style="font-size: 0.84rem; color: #1e293b; line-height: 1.7; white-space: pre-line; font-family: inherit;">
+                            <%= item.toppersList %>
+                        </div>
+                    </div>
+                    <% } %>
+
+                    <div class="d-flex justify-content-between align-items-center pt-2 flex-wrap gap-2">
+                        <% if (item.pdfUrl && item.pdfUrl.trim() !== "" && item.pdfUrl !== "#") { %>
+                        <a href="<%= item.pdfUrl %>" target="_blank" class="btn btn-sm btn-outline-primary d-inline-flex align-items-center gap-2">
+                            <i class="fa-solid fa-file-pdf"></i> Download Official Scorecard
+                        </a>
+                        <% } else { %>
+                        <a href="/admission" class="btn btn-sm btn-primary d-inline-flex align-items-center gap-2">
+                            <i class="fa-solid fa-user-plus"></i> Enquire for Admission
+                        </a>
+                        <% } %>
+                        <a href="/contact" class="btn btn-sm btn-outline-secondary d-inline-flex align-items-center gap-1">
+                            <i class="fa-solid fa-phone"></i> Verify Score
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+    <% } %>
+
+    <!-- Success Pillars Section -->
+    <div class="card border-0 shadow-sm mb-5 p-4 p-md-5" style="background: #f8fafc; border-radius: 16px; border: 1px solid #e2e8f0;">
+        <div class="text-center max-w-2xl mx-auto mb-4">
+            <span class="badge bg-primary-subtle text-primary fw-bold mb-2 px-3 py-2 rounded-pill">The Shaheen Methodology</span>
+            <h2 class="fw-bold text-dark" style="font-size: 1.8rem;">How We Build National Rankers</h2>
+            <p class="text-muted">A structured, disciplined, and stress-free academic ecosystem engineered for consistent competitive breakthroughs.</p>
+        </div>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="d-flex gap-3">
+                    <div style="width: 48px; height: 48px; min-width: 48px; background: #e0e7ff; color: #4338ca; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                    </div>
+                    <div>
+                        <h4 class="fw-bold mb-1" style="font-size: 1.05rem;">National-Level Entrance Faculty</h4>
+                        <p class="text-muted small mb-0">Master teachers with proven track records of grooming top medical and engineering ranks from Assam and Northeast India.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="d-flex gap-3">
+                    <div style="width: 48px; height: 48px; min-width: 48px; background: #ecfdf5; color: #059669; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">
+                        <i class="fa-solid fa-list-check"></i>
+                    </div>
+                    <div>
+                        <h4 class="fw-bold mb-1" style="font-size: 1.05rem;">Daily Practice & Micro-Drills</h4>
+                        <p class="text-muted small mb-0">Daily Practice Problems (DPP), computer-based mock tests, and deep individual error-log analysis to ensure 100% mastery.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="d-flex gap-3">
+                    <div style="width: 48px; height: 48px; min-width: 48px; background: #fef3c7; color: #d97706; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">
+                        <i class="fa-solid fa-hotel"></i>
+                    </div>
+                    <div>
+                        <h4 class="fw-bold mb-1" style="font-size: 1.05rem;">Supervised Residential Study</h4>
+                        <p class="text-muted small mb-0">Distraction-free residential hostel atmosphere with 24/7 dedicated faculty mentors, silent study halls, and doubt clinics.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer'); -%>

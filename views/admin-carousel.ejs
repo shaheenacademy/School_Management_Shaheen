@@ -1,0 +1,66 @@
+<%- include('partials/admin'); -%>
+
+<div class="page-content">
+    <div class="page-header" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;">
+        <div class="page-header-content">
+            <p class="page-label">Admin Management</p>
+            <h1>Home Page <span>Carousel</span></h1>
+            <p class="page-subtitle">Upload, customize, reorder, or delete rotating banner slides displayed on the home page.</p>
+        </div>
+        <a href="/admin-carousel/add" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none;">
+            <i class="fa-solid fa-plus"></i> Add New Slide
+        </a>
+    </div>
+
+    <% if (carousels.length === 0) { %>
+    <div class="admin-empty-state">
+        <i class="fa-solid fa-images"></i>
+        <p>No carousel slides found. <a href="/admin-carousel/add" style="color:var(--primary); font-weight:600;">Add your first slide</a></p>
+    </div>
+    <% } else { %>
+    
+    <div class="admin-carousel-grid">
+        <% for(var i=0; i<carousels.length; i++) { %>
+        <div class="admin-carousel-card">
+            <div class="admin-carousel-img-wrapper">
+                <img src="<%= carousels[i].image %>" alt="<%= carousels[i].title || 'Slide Image' %>" class="admin-carousel-preview" onerror="this.src='/img/logo.png'">
+                <div class="admin-carousel-badges">
+                    <span class="admin-badge <%= carousels[i].active ? 'admin-badge--success' : 'admin-badge--danger' %>">
+                        <%= carousels[i].active ? 'Active' : 'Hidden' %>
+                    </span>
+                    <span class="admin-badge admin-badge--neutral">
+                        <i class="fa-solid fa-sort me-1"></i> Order: <%= carousels[i].order %>
+                    </span>
+                </div>
+            </div>
+            
+            <div class="admin-carousel-body">
+                <h3 class="admin-carousel-title"><%= carousels[i].title || 'Untitled Slide' %></h3>
+                <p class="admin-carousel-sub"><%= carousels[i].subtitle || 'No subtitle provided.' %></p>
+                
+                <% if (carousels[i].buttonText && carousels[i].link) { %>
+                <div class="admin-carousel-cta-preview">
+                    <span class="badge bg-light text-dark border">
+                        <i class="fa-solid fa-link text-primary me-1"></i> <%= carousels[i].buttonText %> &rarr; <code><%= carousels[i].link %></code>
+                    </span>
+                </div>
+                <% } %>
+                
+                <div class="admin-carousel-footer">
+                    <a href="/admin-carousel/edit/<%= carousels[i]._id %>" class="btn-admin-edit">
+                        <i class="fa-solid fa-pen"></i> Edit Slide
+                    </a>
+                    <form action="/admin-carousel/delete/<%= carousels[i]._id %>" method="post" onsubmit="return confirm('Are you sure you want to delete this carousel slide?');" style="margin:0;">
+                        <button type="submit" class="btn-admin-delete">
+                            <i class="fa-solid fa-trash"></i> Delete
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <% } %>
+    </div>
+    <% } %>
+</div>
+
+<%- include('partials/footer'); -%>

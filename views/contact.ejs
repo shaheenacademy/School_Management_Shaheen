@@ -1,0 +1,218 @@
+<%- include('partials/header'); -%>
+
+<div class="page-content">
+    <div class="page-header text-center">
+        <div class="page-header-content">
+            <p class="page-label mono-text">Direct Communications Channel</p>
+            <h1>Let's <span>Connect</span></h1>
+            <p class="page-subtitle">Have an inquiry regarding admissions, faculties, or institutional programs? Reach out to the Shaheen desk.</p>
+        </div>
+    </div>
+
+    <div class="contact-grid">
+        <div class="contact-info-card">
+            <div class="squad-header" style="margin-bottom: 1.25rem;">
+                <div class="squad-header-icon">
+                    <i class="fa-solid fa-address-card"></i>
+                </div>
+                <div>
+                    <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0 0 0.15rem 0;">Institutional Desk</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Direct campus contact coordinates.</p>
+                </div>
+            </div>
+
+            <div class="form-section-title" style="margin-top: 0;">
+                <span>DIRECTORY RECORDS</span>
+            </div>
+
+            <div class="contact-info-item">
+                <i class="fa-solid fa-building-columns"></i>
+                <div>
+                    <span class="contact-label mono-text">Institution</span>
+                    <span class="contact-value">Shaheen Academy Badarpur</span>
+                </div>
+            </div>
+            <div class="contact-info-item">
+                <i class="fa-solid fa-envelope"></i>
+                <div>
+                    <span class="contact-label mono-text">Official Email (email)</span>
+                    <a href="mailto:explorealmamater@gmail.com" class="contact-value">explorealmamater@gmail.com</a>
+                </div>
+            </div>
+            <div class="contact-info-item">
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                    <span class="contact-label mono-text">Direct Line (telephone)</span>
+                    <a href="tel:+918837092377" class="contact-value">+91 8837092377</a>
+                </div>
+            </div>
+            <div class="contact-info-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                    <span class="contact-label mono-text">Campus Coordinates</span>
+                    <span class="contact-value">Badarpur, Assam, India</span>
+                </div>
+            </div>
+
+            <div class="contact-social">
+                <a href="#" class="social-link" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" class="social-link" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="social-link" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="social-link" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <div class="contact-form-card">
+            <div class="squad-header" style="margin-bottom: 1.25rem;">
+                <div class="squad-header-icon">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </div>
+                <div>
+                    <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0 0 0.15rem 0;">Dispatch Message</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Submit message parameters directly to administration.</p>
+                </div>
+            </div>
+
+            <form action="/contact" method="post">
+                <div class="form-section-title" style="margin-top: 0;">
+                    <span>SENDER PARAMETERS</span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        <span>Full Name (sender_name) *</span>
+                    </label>
+                    <input class="form-control" type="text" name="contactName" placeholder="e.g. Jackson Mongbam" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">
+                        <span>Email Address (sender_email) *</span>
+                    </label>
+                    <input class="form-control" type="email" name="contactMail" placeholder="e.g. jacson@gmail.com" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">
+                        <span>Contact Number (phone)</span>
+                    </label>
+                    <input class="form-control" type="number" name="contactNumber" placeholder="e.g. 8837092370">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">
+                        <span>Message Payload (body) *</span>
+                    </label>
+                    <textarea class="form-control" name="contactMessage" rows="4" placeholder="Type message payload..." required></textarea>
+                </div>
+                <button class="btn btn-admin-style w-100" type="submit">
+                    <i class="fa-solid fa-paper-plane me-1"></i> Dispatch Message Payload
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+.contact-info-card,
+.contact-form-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.5rem, 3.5vw, 2.25rem);
+    box-shadow: var(--card-shadow);
+}
+
+.contact-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.contact-info-item:last-of-type {
+    border-bottom: none;
+    margin-bottom: 1.25rem;
+}
+
+.contact-info-item i {
+    color: var(--primary);
+    font-size: 1.1rem;
+    margin-top: 0.2rem;
+    width: 20px;
+    text-align: center;
+}
+
+.contact-info-item > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.contact-label {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.contact-value {
+    font-size: 0.92rem;
+    color: var(--text);
+    font-weight: 600;
+}
+
+.contact-value a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.contact-value a:hover {
+    text-decoration: underline;
+}
+
+.contact-social {
+    display: flex;
+    gap: 0.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-light);
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.social-link:hover {
+    background: var(--primary-light);
+    border-color: var(--primary-border);
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+</style>
+
+<%- include('partials/footer'); -%>

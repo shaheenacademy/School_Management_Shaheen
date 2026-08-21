@@ -1,0 +1,132 @@
+<%- include('partials/admin'); -%>
+
+<div class="page-content">
+    <div class="compose">
+        <h2><i class="fa-solid fa-graduation-cap me-2 text-primary"></i> <span><%= admission ? 'Edit' : 'Add' %></span> Admission Program</h2>
+        <p class="text-muted">Create and manage academic programs, target batches, criteria, and intake schedules.</p>
+    </div>
+    <div class="admin-form-card border rounded shadow-sm bg-white p-4">
+        <form action="<%= action %>" method="post">
+            <div class="row">
+                <div class="col-md-8 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-pen-nib text-primary"></i> Program / Batch Title
+                    </label>
+                    <input class="form-control" type="text" name="admissionTitle" placeholder="e.g. NEET (UG) 2-Year Integrated Medical Batch" value="<%= admission ? admission.title : '' %>" required>
+                    <small class="text-muted d-block mt-1">Specify clear title for the admission program.</small>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-layer-group text-primary"></i> Target Grade / Class
+                    </label>
+                    <input class="form-control" type="text" name="admissionGrade" placeholder="e.g. Class 11 & 12 (Medical)" value="<%= admission ? (admission.grade || '') : '' %>" required>
+                    <small class="text-muted d-block mt-1">Target standard or academic group.</small>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-calendar-days text-primary"></i> Academic Session
+                    </label>
+                    <input class="form-control" type="text" name="admissionSession" placeholder="e.g. 2026 - 2027" value="<%= admission ? (admission.session || '2026 - 2027') : '2026 - 2027' %>">
+                    <small class="text-muted d-block mt-1">Applicable academic term or intake year.</small>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-hourglass-half text-primary"></i> Course Duration
+                    </label>
+                    <input class="form-control" type="text" name="admissionDuration" placeholder="e.g. 2 Academic Years" value="<%= admission ? (admission.duration || '') : '' %>">
+                    <small class="text-muted d-block mt-1">Course timeline or study length.</small>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-school text-primary"></i> Study Mode / Option
+                    </label>
+                    <input class="form-control" type="text" name="admissionMode" placeholder="e.g. Regular + Residential / Day Scholar" value="<%= admission ? (admission.mode || 'Regular Classroom') : 'Regular Classroom' %>">
+                    <small class="text-muted d-block mt-1">Classroom, residential, or evening batch.</small>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-users-line text-primary"></i> Intake / Seat Capacity
+                    </label>
+                    <input class="form-control" type="text" name="admissionSeats" placeholder="e.g. 60 Seats" value="<%= admission ? (admission.seats || '') : '' %>">
+                    <small class="text-muted d-block mt-1">Batch strength or limited intake.</small>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-calendar-xmark text-primary"></i> Application Deadline
+                    </label>
+                    <input class="form-control" type="text" name="admissionDeadline" placeholder="e.g. 15 Nov 2026" value="<%= admission ? (admission.deadline || '') : '' %>">
+                    <small class="text-muted d-block mt-1">Last date to submit inquiry/apply.</small>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-arrow-down-1-9 text-primary"></i> Display Order
+                    </label>
+                    <input class="form-control" type="number" name="admissionOrder" placeholder="0" value="<%= admission ? (admission.order || 0) : 0 %>">
+                    <small class="text-muted d-block mt-1">Lower numbers appear first.</small>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-certificate text-primary"></i> Eligibility Criteria
+                    </label>
+                    <input class="form-control" type="text" name="admissionEligibility" placeholder="e.g. Class 10 Passed with min 70% in Science & Math" value="<%= admission ? (admission.eligibility || '') : '' %>">
+                    <small class="text-muted d-block mt-1">Prerequisites or minimum scores required.</small>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-hand-holding-dollar text-primary"></i> Fee & Scholarship Details
+                    </label>
+                    <input class="form-control" type="text" name="admissionFee" placeholder="e.g. Scholarships up to 100% via STS exam" value="<%= admission ? (admission.fee || '') : '' %>">
+                    <small class="text-muted d-block mt-1">Concessions, waivers, or fee framework.</small>
+                </div>
+
+                <div class="col-12 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-star text-primary"></i> Key Highlights
+                    </label>
+                    <input class="form-control" type="text" name="admissionHighlights" placeholder="e.g. Daily DPPs, AI Performance Analytics, Supervised Library, Doubt Clinics" value="<%= admission ? (admission.highlights || '') : '' %>">
+                    <small class="text-muted d-block mt-1">Comma-separated key features of the program.</small>
+                </div>
+
+                <div class="col-12 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-align-left text-primary"></i> Detailed Program Description
+                    </label>
+                    <textarea class="form-control" name="admissionDescription" rows="6" placeholder="Describe the curriculum, coaching methodology, test schedules, and student support..." required><%= admission ? (admission.description || '') : '' %></textarea>
+                    <small class="text-muted d-block mt-1">Provide comprehensive course information for parents and students.</small>
+                </div>
+
+                <div class="col-12 mb-4">
+                    <div class="admin-checkbox-row d-inline-flex align-items-center gap-2 p-3 bg-light rounded border">
+                        <input type="checkbox" name="admissionActive" id="admissionActive" <%= !admission || admission.active ? 'checked' : '' %>>
+                        <label for="admissionActive" class="user-select-none mb-0 fw-medium">
+                            <i class="fa-solid fa-eye text-success me-1"></i> Active (visible on public /admission page)
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note mb-4 p-3 bg-light border-start border-primary border-3 rounded">
+                <p class="mb-0 text-muted">
+                    <i class="fa-solid fa-circle-info me-1 text-primary"></i> 
+                    <strong>Live Preview:</strong> Public applicants can view all active batches at 
+                    <a href="/admission" target="_blank" class="text-decoration-none">/admission</a>.
+                </p>
+            </div>
+
+            <div class="admin-form-actions d-flex align-items-center gap-3">
+                <button class="btn btn-primary d-inline-flex align-items-center gap-2" type="submit">
+                    <i class="fa-solid <%= admission ? 'fa-check' : 'fa-plus' %>"></i>
+                    <%= admission ? 'Update Program' : 'Publish Admission Batch' %>
+                </button>
+                <a href="/admin-admissions" class="admin-back-link text-decoration-none d-inline-flex align-items-center gap-1">
+                    <i class="fa-solid fa-arrow-left"></i> Back to list
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<%- include('partials/footer'); -%>

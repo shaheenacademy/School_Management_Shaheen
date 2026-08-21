@@ -1,0 +1,212 @@
+<%- include('partials/header'); -%>
+
+<style>
+.squad-login-wrapper {
+    min-height: 80vh;
+    padding: 3rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg);
+}
+
+.squad-login-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--card-shadow);
+    width: 100%;
+    max-width: 520px;
+    padding: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.squad-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.squad-header-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--primary-light);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+}
+
+.squad-header-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 0.25rem 0;
+    letter-spacing: -0.02em;
+}
+
+.squad-header-sub {
+    font-size: 0.83rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.squad-section-title {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin: 1.25rem 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 0.45rem;
+}
+
+.squad-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.38rem;
+}
+
+.squad-badge {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--accent);
+    font-weight: 500;
+}
+
+.password-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-toggle-btn {
+    position: absolute;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    transition: color 0.2s ease;
+}
+
+.password-toggle-btn:hover {
+    color: var(--primary);
+}
+
+.squad-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border-light);
+}
+
+.squad-footnote {
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    margin: 0;
+    font-style: italic;
+}
+</style>
+
+<div class="squad-login-wrapper">
+    <div class="squad-login-card">
+        <div class="squad-header">
+            <div class="squad-header-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div>
+                <h1 class="squad-header-title">Admin Authentication</h1>
+                <p class="squad-header-sub">Authenticate administrative credentials to access Shaheen Management system parameters.</p>
+            </div>
+        </div>
+
+        <% if (loginError) { %>
+        <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:0.75rem 1rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:0.6rem;">
+            <i class="fa-solid fa-circle-exclamation" style="color:#dc2626;font-size:1rem;"></i>
+            <span style="color:#dc2626;font-size:0.85rem;font-weight:600;">Invalid username or password. Please verify your credentials.</span>
+        </div>
+        <% } %>
+
+        <form action="/adminlogin" method="post">
+            <div class="squad-section-title">
+                <span>1. IDENTITY CREDENTIALS</span>
+            </div>
+
+            <div class="mb-3">
+                <label class="squad-label">
+                    <span>Admin Email / Username *</span>
+                    <span class="squad-badge">Verified ID</span>
+                </label>
+                <input type="email" class="form-control" name="username" placeholder="e.g. admin@shaheenacademy.in" required>
+            </div>
+
+            <div class="squad-section-title">
+                <span>2. AUTHENTICATION KEY</span>
+            </div>
+
+            <div class="mb-3">
+                <label class="squad-label">
+                    <span>Password (password) *</span>
+                    <span class="squad-badge" id="revealKeyBtn" style="cursor: pointer;" onclick="togglePasswordVisibility()">Reveal Key</span>
+                </label>
+                <div class="password-input-wrap">
+                    <input type="password" class="form-control" id="passwordInput" name="password" placeholder="••••••••" required style="padding-right: 2.75rem;">
+                    <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility()" title="Toggle password visibility">
+                        <i class="fa-solid fa-lock" id="lockIcon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="squad-footer">
+                <p class="squad-footnote">* Session authorization verified upon login.</p>
+                <button type="submit" class="btn btn-admin-style">
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In to SQUAD
+                </button>
+            </div>
+            
+            <div class="text-center mt-3">
+                <span class="text-muted" style="font-size: 0.82rem;">Need access? <a href="/adminregister" style="color: var(--primary); font-weight: 600; text-decoration: none;">Register New Member</a></span>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+function togglePasswordVisibility() {
+    const input = document.getElementById('passwordInput');
+    const badge = document.getElementById('revealKeyBtn');
+    const icon = document.getElementById('lockIcon');
+    if (input.type === 'password') {
+        input.type = 'text';
+        badge.textContent = 'Hide Key';
+        icon.className = 'fa-solid fa-lock-open';
+    } else {
+        input.type = 'password';
+        badge.textContent = 'Reveal Key';
+        icon.className = 'fa-solid fa-lock';
+    }
+}
+</script>
+
+<%- include('partials/footer'); -%>

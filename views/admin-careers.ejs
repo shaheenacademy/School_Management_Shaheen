@@ -1,0 +1,53 @@
+<%- include('partials/admin'); -%>
+
+<div class="page-content">
+    <div class="page-header" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;">
+    <div class="page-header-content">
+        <p class="page-label">Admin</p>
+        <h1>Manage <span>Careers</span></h1>
+        <p class="page-subtitle">All career listings. Add, edit, or remove positions.</p>
+    </div>
+    <a href="/admin-careers/add" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none;"><i class="fa-solid fa-plus"></i> Add Career</a>
+</div>
+
+    <% if (careers.length === 0) { %>
+    <div class="admin-empty-state">
+        <i class="fa-solid fa-briefcase"></i>
+        <p>No career listings yet. <a href="/admin-careers/add" style="color:var(--primary); font-weight:600;">Add one</a></p>
+    </div>
+    <% } %>
+
+    <div class="admin-list-stack">
+    <% for(var i=0; i<careers.length; i++) { %>
+    <div class="blogcard admin-list-card">
+        <div class="admin-list-card-body">
+            <div class="admin-list-card-badges">
+                <span class="admin-badge admin-badge--primary"><%= careers[i].type %></span>
+                <span class="admin-badge <%= careers[i].active ? 'admin-badge--success' : 'admin-badge--danger' %>">
+                    <%= careers[i].active ? 'Active' : 'Inactive' %>
+                </span>
+            </div>
+            <h3 class="admin-list-card-title"><%= careers[i].title %></h3>
+            <p class="admin-list-card-meta">
+                <% if(careers[i].location){ %><i class="fa-solid fa-location-dot"></i> <%= careers[i].location %>&nbsp;&nbsp;<% } %>
+                <% if(careers[i].salary){ %><i class="fa-solid fa-money-bill-wave"></i> <%= careers[i].salary %>&nbsp;&nbsp;<% } %>
+                <% if(careers[i].deadline){ %><i class="fa-solid fa-clock"></i> <%= careers[i].deadline %><% } %>
+            </p>
+            <p class="admin-list-card-excerpt"><%= careers[i].description.substring(0,120) %><%= careers[i].description.length > 120 ? '...' : '' %></p>
+        </div>
+        <div class="admin-card-actions">
+            <a href="/admin-careers/edit/<%= careers[i]._id %>" class="btn-admin-edit">
+                <i class="fa-solid fa-pen"></i> Edit
+            </a>
+            <form action="/admin-careers/delete/<%= careers[i]._id %>" method="post" onsubmit="return confirm('Delete this career listing?')">
+                <button type="submit" class="btn-admin-delete">
+                    <i class="fa-solid fa-trash"></i> Delete
+                </button>
+            </form>
+        </div>
+    </div>
+    <% } %>
+    </div>
+</div>
+
+<%- include('partials/footer'); -%>

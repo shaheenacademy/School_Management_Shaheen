@@ -1,0 +1,186 @@
+<%- include('partials/header'); -%>
+
+<section class="page-content">
+    <div class="page-header text-center">
+        <div class="page-header-content mx-auto" style="max-width: 780px;">
+            <p class="page-label"><i class="fa-solid fa-graduation-cap me-1"></i> Admissions 2026 - 2027</p>
+            <h1>Academic <span>Admissions</span></h1>
+            <p class="page-subtitle">Shape your competitive and academic future with Shaheen Academy's proven integrated mentoring, NEET/JEE coaching, and foundation programs.</p>
+        </div>
+    </div>
+
+    <!-- ADMISSION STEPS STRIP -->
+    <div class="card border mb-5 p-4 bg-white" style="border-radius: var(--radius); box-shadow: var(--card-shadow);">
+        <h3 class="h5 mb-3 d-flex align-items-center gap-2" style="color: var(--text);">
+            <i class="fa-solid fa-route text-primary"></i> 3-Step Admission Process
+        </h3>
+        <div class="row g-3">
+            <div class="col-md-4">
+                <div class="p-3 bg-light rounded h-100 border">
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span class="badge bg-primary rounded-circle" style="width:26px; height:26px; display:inline-flex; align-items:center; justify-content:center;">1</span>
+                        <strong style="color: var(--text); font-size: 0.95rem;">Select Program & Apply</strong>
+                    </div>
+                    <p class="text-muted small mb-0">Browse active batches below and book an admission appointment or submit your inquiry online.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-3 bg-light rounded h-100 border">
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span class="badge bg-primary rounded-circle" style="width:26px; height:26px; display:inline-flex; align-items:center; justify-content:center;">2</span>
+                        <strong style="color: var(--text); font-size: 0.95rem;">Scholarship (STS) & Counseling</strong>
+                    </div>
+                    <p class="text-muted small mb-0">Appear for Shaheen Talent Search (STS) assessment to avail merit scholarships up to 100%.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-3 bg-light rounded h-100 border">
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span class="badge bg-primary rounded-circle" style="width:26px; height:26px; display:inline-flex; align-items:center; justify-content:center;">3</span>
+                        <strong style="color: var(--text); font-size: 0.95rem;">Enrollment & Hostel Allotment</strong>
+                    </div>
+                    <p class="text-muted small mb-0">Complete document verification, fee settlement, and book orientation batch schedules.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADMISSION BATCHES LIST -->
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+        <div>
+            <h2 class="h4 mb-0" style="color: var(--text); font-weight: 700;">
+                <i class="fa-solid fa-list-check text-primary me-2"></i> Available Programs & Batches
+            </h2>
+            <p class="text-muted small mb-0">Select your preferred course stream to review details and eligibility.</p>
+        </div>
+        <a href="/book" class="btn btn-outline-primary btn-sm d-inline-flex align-items-center gap-1">
+            <i class="fa-solid fa-calendar-check"></i> Book Campus Counseling
+        </a>
+    </div>
+
+    <% if (!admissions || admissions.length === 0) { %>
+    <div class="about-card text-center py-5">
+        <i class="fa-solid fa-graduation-cap" style="font-size:2.5rem; color:var(--text-muted); margin-bottom:1rem;"></i>
+        <p class="mb-2">No admission batches are currently accepting applications online.</p>
+        <p class="text-muted small">Please contact our admission desk at <a href="/contact">our contact page</a> or call <strong>+91 98765 43210</strong>.</p>
+    </div>
+    <% } %>
+
+    <div class="row g-4 mb-5">
+    <% for(var i=0; i<admissions.length; i++) { %>
+        <div class="col-lg-6">
+            <div class="card h-100 border p-4 bg-white" style="border-radius: var(--radius); box-shadow: var(--card-shadow); display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <div class="d-flex justify-content-between align-items-start gap-2 mb-3 flex-wrap">
+                        <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill font-monospace" style="font-size: 0.8rem; font-weight: 600;">
+                            <%= admissions[i].grade || 'General Stream' %>
+                        </span>
+                        <% if (admissions[i].session) { %>
+                        <span class="badge bg-light text-muted border px-2 py-1" style="font-size: 0.78rem;">
+                            <i class="fa-regular fa-calendar me-1"></i> Session <%= admissions[i].session %>
+                        </span>
+                        <% } %>
+                    </div>
+
+                    <h3 class="h5 mb-3" style="color: var(--text); font-weight: 700; line-height: 1.35;">
+                        <%= admissions[i].title %>
+                    </h3>
+
+                    <div class="p-3 bg-light rounded border mb-3">
+                        <div class="row g-2 small text-muted">
+                            <% if (admissions[i].duration) { %>
+                            <div class="col-sm-6">
+                                <i class="fa-solid fa-hourglass-half text-primary me-1"></i> <strong>Duration:</strong> <%= admissions[i].duration %>
+                            </div>
+                            <% } %>
+                            <% if (admissions[i].mode) { %>
+                            <div class="col-sm-6">
+                                <i class="fa-solid fa-school text-primary me-1"></i> <strong>Mode:</strong> <%= admissions[i].mode %>
+                            </div>
+                            <% } %>
+                            <% if (admissions[i].seats) { %>
+                            <div class="col-sm-6">
+                                <i class="fa-solid fa-users-line text-primary me-1"></i> <strong>Capacity:</strong> <%= admissions[i].seats %>
+                            </div>
+                            <% } %>
+                            <% if (admissions[i].deadline) { %>
+                            <div class="col-sm-6">
+                                <i class="fa-solid fa-calendar-xmark text-danger me-1"></i> <strong>Apply by:</strong> <%= admissions[i].deadline %>
+                            </div>
+                            <% } %>
+                        </div>
+                    </div>
+
+                    <% if (admissions[i].eligibility) { %>
+                    <div class="mb-3">
+                        <small class="text-uppercase text-muted fw-bold d-block" style="font-size: 0.72rem; letter-spacing: 0.5px;">Eligibility Criteria</small>
+                        <p class="mb-0 small" style="color: var(--text);"><i class="fa-solid fa-check-circle text-success me-1"></i> <%= admissions[i].eligibility %></p>
+                    </div>
+                    <% } %>
+
+                    <% if (admissions[i].highlights) { %>
+                    <div class="mb-3">
+                        <small class="text-uppercase text-muted fw-bold d-block" style="font-size: 0.72rem; letter-spacing: 0.5px;">Key Highlights</small>
+                        <p class="mb-0 small text-muted"><i class="fa-solid fa-star text-warning me-1"></i> <%= admissions[i].highlights %></p>
+                    </div>
+                    <% } %>
+
+                    <% if (admissions[i].fee) { %>
+                    <div class="mb-3">
+                        <small class="text-uppercase text-muted fw-bold d-block" style="font-size: 0.72rem; letter-spacing: 0.5px;">Fee & Scholarship</small>
+                        <p class="mb-0 small text-primary fw-medium"><i class="fa-solid fa-award me-1"></i> <%= admissions[i].fee %></p>
+                    </div>
+                    <% } %>
+
+                    <div class="mb-4">
+                        <small class="text-uppercase text-muted fw-bold d-block mb-1" style="font-size: 0.72rem; letter-spacing: 0.5px;">Program Overview</small>
+                        <p class="text-muted small mb-0" style="line-height: 1.6; white-space: pre-wrap;"><%= admissions[i].description %></p>
+                    </div>
+                </div>
+
+                <div class="pt-3 border-top d-flex gap-2 flex-wrap">
+                    <a href="/book" class="btn btn-primary btn-sm flex-grow-1 text-center d-inline-flex justify-content-center align-items-center gap-1">
+                        <i class="fa-solid fa-calendar-check"></i> Book Admission Slot
+                    </a>
+                    <a href="/contact" class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center gap-1">
+                        <i class="fa-solid fa-envelope"></i> Inquire
+                    </a>
+                </div>
+            </div>
+        </div>
+    <% } %>
+    </div>
+
+    <!-- ADMISSION HELPDESK & DOCUMENTS REQUIRED -->
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card border p-4 bg-white h-100" style="border-radius: var(--radius); box-shadow: var(--card-shadow);">
+                <h3 class="h5 mb-3" style="color: var(--text);">
+                    <i class="fa-solid fa-folder-open text-primary me-2"></i> Documents Required
+                </h3>
+                <ul class="list-unstyled mb-0 d-flex flex-column gap-2 small text-muted">
+                    <li><i class="fa-solid fa-check text-success me-2"></i> Recent passport size color photographs (4 copies)</li>
+                    <li><i class="fa-solid fa-check text-success me-2"></i> Attested copy of Class 10 / Previous grade marksheet</li>
+                    <li><i class="fa-solid fa-check text-success me-2"></i> Birth Certificate / Aadhaar Card proof of age</li>
+                    <li><i class="fa-solid fa-check text-success me-2"></i> Transfer Certificate (TC) from previous institution</li>
+                    <li><i class="fa-solid fa-check text-success me-2"></i> Category / Merit certificate for STS scholarship claims</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card border p-4 bg-white h-100" style="border-radius: var(--radius); box-shadow: var(--card-shadow);">
+                <h3 class="h5 mb-3" style="color: var(--text);">
+                    <i class="fa-solid fa-headset text-primary me-2"></i> Admission Helpdesk
+                </h3>
+                <p class="text-muted small mb-3">Our counseling team is available Monday to Saturday (9:00 AM to 6:00 PM) for personalized academic guidance.</p>
+                <div class="d-flex flex-column gap-2 small">
+                    <div><i class="fa-solid fa-location-dot text-primary me-2"></i> Shaheen Academy, Badarpur Campus, Assam</div>
+                    <div><i class="fa-solid fa-phone text-primary me-2"></i> +91 98765 43210 &nbsp;/&nbsp; +91 98765 43211</div>
+                    <div><i class="fa-solid fa-envelope text-primary me-2"></i> admissions@shaheenacademybadarpur.in</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer'); -%>

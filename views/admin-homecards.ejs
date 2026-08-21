@@ -1,0 +1,46 @@
+<%- include('partials/admin'); -%>
+
+<div class="page-content">
+    <div class="page-header" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;">
+    <div class="page-header-content">
+        <p class="page-label">Admin</p>
+        <h1>Manage <span>Home Cards</span></h1>
+        <p class="page-subtitle">Feature cards displayed on the home page.</p>
+    </div>
+    <a href="/admin-homecards/add" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none;"><i class="fa-solid fa-plus"></i> Add Card</a>
+</div>
+
+    <% if (homecards.length === 0) { %>
+    <div class="admin-empty-state">
+        <i class="fa-solid fa-rectangle-list"></i>
+        <p>No home cards yet. <a href="/admin-homecards/add" style="color:var(--primary); font-weight:600;">Add one</a></p>
+    </div>
+    <% } %>
+
+    <div class="cards-grid">
+    <% for(var i=0; i<homecards.length; i++) { %>
+    <div class="feature-box" style="position:relative;">
+        <div class="feature-box-badges">
+            <span class="admin-badge <%= homecards[i].active ? 'admin-badge--success' : 'admin-badge--danger' %>">
+                <%= homecards[i].active ? 'Active' : 'Hidden' %>
+            </span>
+        </div>
+        <i class="<%= homecards[i].icon %>"></i>
+        <h3><%= homecards[i].title %></h3>
+        <p><%= homecards[i].description %></p>
+        <div class="feature-box-actions">
+            <a href="/admin-homecards/edit/<%= homecards[i]._id %>" class="btn-admin-edit">
+                <i class="fa-solid fa-pen"></i> Edit
+            </a>
+            <form action="/admin-homecards/delete/<%= homecards[i]._id %>" method="post" onsubmit="return confirm('Delete this card?')">
+                <button type="submit" class="btn-admin-delete">
+                    <i class="fa-solid fa-trash"></i> Delete
+                </button>
+            </form>
+        </div>
+    </div>
+    <% } %>
+    </div>
+</div>
+
+<%- include('partials/footer'); -%>

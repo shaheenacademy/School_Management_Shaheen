@@ -1,0 +1,104 @@
+<%- include('partials/admin'); -%>
+
+<div class="page-content">
+    <div class="compose">
+        <h2><i class="fa-solid fa-bullhorn me-2 text-primary"></i> <span><%= notice ? 'Edit' : 'Post' %></span> Notice / Circular</h2>
+        <p class="text-muted">Broadcast official announcements, exam circulars, holiday notices, and time-sensitive alerts to students and parents.</p>
+    </div>
+    <div class="admin-form-card border rounded shadow-sm bg-white p-4">
+        <form action="<%= action %>" method="post">
+            <div class="row">
+                <div class="col-md-8 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-heading text-primary"></i> Notice Subject / Title
+                    </label>
+                    <input class="form-control" type="text" name="noticeTitle" placeholder="e.g. Admissions Open for Integrated NEET / JEE Batches (Session 2026-2027)" value="<%= notice ? notice.title : '' %>" required>
+                    <small class="text-muted d-block mt-1">Clear, descriptive title for the announcement.</small>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-tag text-primary"></i> Category
+                    </label>
+                    <input class="form-control" type="text" name="noticeCategory" placeholder="e.g. Admission Notice, Examination Circular, Academic Circular, Event" value="<%= notice ? (notice.category || 'Academic Circular') : 'Academic Circular' %>">
+                    <small class="text-muted d-block mt-1">Notice category for filtering.</small>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-regular fa-calendar text-primary"></i> Notice Date
+                    </label>
+                    <input class="form-control" type="text" name="noticeDate" placeholder="e.g. 21 Aug 2026" value="<%= notice ? (notice.noticeDate || '') : new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) %>">
+                    <small class="text-muted d-block mt-1">Date displayed on the circular.</small>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-users text-primary"></i> Target Audience
+                    </label>
+                    <input class="form-control" type="text" name="noticeAudience" placeholder="e.g. All Students & Parents, Class 11 & 12 Medical" value="<%= notice ? (notice.targetAudience || 'All Students & Parents') : 'All Students & Parents' %>">
+                    <small class="text-muted d-block mt-1">Who this announcement is intended for.</small>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-paperclip text-primary"></i> Document / Web Link (Optional)
+                    </label>
+                    <input class="form-control" type="text" name="noticeAttachmentUrl" placeholder="e.g. /admission or https://..." value="<%= notice ? (notice.attachmentUrl || '') : '' %>">
+                    <small class="text-muted d-block mt-1">Direct link or related action page.</small>
+                </div>
+
+                <div class="col-12 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-file-lines text-primary"></i> Notice Content & Instructions
+                    </label>
+                    <textarea class="form-control" name="noticeContent" rows="6" placeholder="Enter the complete text of the notice, guidelines, schedule, or instructions..." required><%= notice ? (notice.content || '') : '' %></textarea>
+                    <small class="text-muted d-block mt-1">Full content will be formatted and displayed with line breaks preserved.</small>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <label class="form-label d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-arrow-down-1-9 text-primary"></i> Display Order
+                    </label>
+                    <input class="form-control" type="number" name="noticeOrder" placeholder="0" value="<%= notice ? (notice.order || 0) : 0 %>">
+                    <small class="text-muted d-block mt-1">Lower numbers appear first.</small>
+                </div>
+
+                <div class="col-md-4 mb-4 d-flex align-items-center">
+                    <div class="admin-checkbox-row d-inline-flex align-items-center gap-2 p-3 bg-light rounded border w-100">
+                        <input type="checkbox" name="noticeUrgent" id="noticeUrgent" <%= notice && notice.isUrgent ? 'checked' : '' %>>
+                        <label for="noticeUrgent" class="user-select-none mb-0 fw-bold text-danger">
+                            <i class="fa-solid fa-triangle-exclamation me-1"></i> Mark as Urgent Notice
+                        </label>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4 d-flex align-items-center">
+                    <div class="admin-checkbox-row d-inline-flex align-items-center gap-2 p-3 bg-light rounded border w-100">
+                        <input type="checkbox" name="noticeActive" id="noticeActive" <%= !notice || notice.active ? 'checked' : '' %>>
+                        <label for="noticeActive" class="user-select-none mb-0 fw-medium">
+                            <i class="fa-solid fa-eye text-success me-1"></i> Active (visible on /notices)
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note mb-4 p-3 bg-light border-start border-primary border-3 rounded">
+                <p class="mb-0 text-muted">
+                    <i class="fa-solid fa-circle-info me-1 text-primary"></i> 
+                    <strong>Live Notice Board:</strong> Students and parents can access all live circulars at 
+                    <a href="/notices" target="_blank" class="text-decoration-none">/notices</a>.
+                </p>
+            </div>
+
+            <div class="admin-form-actions d-flex align-items-center gap-3">
+                <button class="btn btn-primary d-inline-flex align-items-center gap-2" type="submit">
+                    <i class="fa-solid <%= notice ? 'fa-check' : 'fa-paper-plane' %>"></i>
+                    <%= notice ? 'Update Notice' : 'Publish Notice Circular' %>
+                </button>
+                <a href="/admin-notices" class="admin-back-link text-decoration-none d-inline-flex align-items-center gap-1">
+                    <i class="fa-solid fa-arrow-left"></i> Back to list
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<%- include('partials/footer'); -%>
