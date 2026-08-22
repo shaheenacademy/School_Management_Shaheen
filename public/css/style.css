@@ -203,14 +203,13 @@ span { color: inherit; }
 }
 
 .header-brand-logo {
-    height: 42px;
-    width: 42px;
+    height: 38px;
+    width: 38px;
     object-fit: contain;
-    border-radius: 8px;
+    border-radius: 6px;
     background: #ffffff;
     padding: 2px;
     border: 1px solid var(--border);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .brand-text-group {
@@ -2188,14 +2187,13 @@ span { color: inherit; }
 }
 
 .footer-brand-logo {
-    height: 36px;
-    width: 36px;
+    height: 28px;
+    width: 28px;
     object-fit: contain;
-    border-radius: 6px;
+    border-radius: 4px;
     background: #ffffff;
     padding: 2px;
     border: 1px solid var(--border);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .inner-footer {
