@@ -6,9 +6,12 @@
     </div>
 
     <!-- Search bar on results page -->
-    <form action="/search" method="get" style="display:flex;gap:0.5rem;margin-bottom:2rem;max-width:400px;align-items: center;margin-left:auto;margin-right:auto;">
+    <form action="/search" method="get" style="display:flex;gap:0.5rem;margin-bottom:2rem;max-width:440px;align-items: center;margin-left:auto;margin-right:auto;">
         <input class="form-control" type="text" name="q" value="<%= query %>" placeholder="Search..." style="font-size: 0.85rem; padding: 0.4rem 0.75rem; height: auto;">
-        <button class="btn btn-primary" type="submit" style="width:auto; white-space:nowrap; font-size: 0.85rem; padding: 0.4rem 1rem; height: auto;">Search</button>
+        <button class="btn btn-primary d-inline-flex align-items-center gap-1.5" type="submit" style="width:auto; white-space:nowrap; font-size: 0.85rem; padding: 0.4rem 1rem; height: auto;">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Search</span>
+        </button>
     </form>
 
     <% if (query) { %>
@@ -74,95 +77,31 @@
     </div>
     <% } %>
 
-    <% if (typeof academics !== 'undefined' && academics.length > 0) { %>
-    <div style="margin-bottom:2rem;">
-        <h4 style="margin-bottom:1rem;color:var(--text);"><i class="fa-solid fa-book-bookmark" style="color:var(--primary);margin-right:0.4rem;"></i>Academic Programs & Wings <span style="font-size:0.85rem;color:var(--text-muted);font-weight:400;">(<%= academics.length %>)</span></h4>
-        <% academics.forEach(function(item) { %>
-        <div class="result-card" style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem 1.4rem;margin-bottom:0.85rem;box-shadow:var(--card-shadow);">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap;">
-                <a href="/academic" style="text-decoration:none;">
-                    <strong style="font-size:1rem;color:var(--primary);"><%= item.title %></strong>
-                </a>
-                <span class="badge bg-primary-subtle text-primary border border-primary-subtle" style="font-size:0.75rem;"><%= item.category || item.grades %></span>
-            </div>
-            <% if (item.description) { %>
-            <p style="margin:0.35rem 0 0.5rem;font-size:0.88rem;color:var(--text-muted);"><%= item.description.substring(0,160).replace(/\n/g,' ') %>...</p>
-            <% } %>
-            <div style="font-size:0.78rem;color:var(--text-muted);display:flex;gap:1rem;flex-wrap:wrap;">
-                <% if (item.grades) { %><span><i class="fa-solid fa-layer-group"></i> <%= item.grades %></span><% } %>
-                <% if (item.board) { %><span><i class="fa-solid fa-award"></i> <%= item.board %></span><% } %>
-            </div>
-        </div>
-        <% }); %>
-    </div>
-    <% } %>
-
     <% if (typeof admissions !== 'undefined' && admissions.length > 0) { %>
     <div style="margin-bottom:2rem;">
-        <h4 style="margin-bottom:1rem;color:var(--text);"><i class="fa-solid fa-graduation-cap" style="color:var(--primary);margin-right:0.4rem;"></i>Admissions & Programs <span style="font-size:0.85rem;color:var(--text-muted);font-weight:400;">(<%= admissions.length %>)</span></h4>
-        <% admissions.forEach(function(item) { %>
+        <h4 style="margin-bottom:1rem;color:var(--text);"><i class="fa-solid fa-user-graduate" style="color:var(--primary);margin-right:0.4rem;"></i>Admissions <span style="font-size:0.85rem;color:var(--text-muted);font-weight:400;">(<%= admissions.length %>)</span></h4>
+        <% admissions.forEach(function(adm) { %>
         <div class="result-card" style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem 1.4rem;margin-bottom:0.85rem;box-shadow:var(--card-shadow);">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap;">
-                <a href="/admission" style="text-decoration:none;">
-                    <strong style="font-size:1rem;color:var(--primary);"><%= item.title %></strong>
-                </a>
-                <span class="badge bg-primary-subtle text-primary border border-primary-subtle" style="font-size:0.75rem;"><%= item.grade || item.session %></span>
-            </div>
-            <% if (item.description) { %>
-            <p style="margin:0.35rem 0 0.5rem;font-size:0.88rem;color:var(--text-muted);"><%= item.description.substring(0,160).replace(/\n/g,' ') %>...</p>
-            <% } %>
-            <div style="font-size:0.78rem;color:var(--text-muted);display:flex;gap:1rem;flex-wrap:wrap;">
-                <% if (item.duration) { %><span><i class="fa-solid fa-clock"></i> <%= item.duration %></span><% } %>
-                <% if (item.mode) { %><span><i class="fa-solid fa-school"></i> <%= item.mode %></span><% } %>
-                <% if (item.deadline) { %><span><i class="fa-solid fa-calendar-check"></i> Apply by: <%= item.deadline %></span><% } %>
-            </div>
+            <a href="/admission" style="text-decoration:none;">
+                <strong style="font-size:1rem;color:var(--primary);"><%= adm.title %></strong>
+            </a>
+            <p style="margin:0.35rem 0 0;font-size:0.88rem;color:var(--text-muted);"><%= adm.description.substring(0,160).replace(/\n/g,' ') %>...</p>
+            <span style="font-size:0.76rem;color:var(--text-muted);"><i class="fa-solid fa-tag"></i> <%= adm.category %> &nbsp;·&nbsp; <i class="fa-regular fa-calendar"></i> <%= adm.deadline || 'Open' %></span>
         </div>
         <% }); %>
     </div>
     <% } %>
 
-    <% if (typeof results !== 'undefined' && results.length > 0) { %>
+    <% if (typeof academics !== 'undefined' && academics.length > 0) { %>
     <div style="margin-bottom:2rem;">
-        <h4 style="margin-bottom:1rem;color:var(--text);"><i class="fa-solid fa-trophy" style="color:var(--primary);margin-right:0.4rem;"></i>Exam Results & Toppers <span style="font-size:0.85rem;color:var(--text-muted);font-weight:400;">(<%= results.length %>)</span></h4>
-        <% results.forEach(function(item) { %>
+        <h4 style="margin-bottom:1rem;color:var(--text);"><i class="fa-solid fa-graduation-cap" style="color:var(--primary);margin-right:0.4rem;"></i>Academic Streams <span style="font-size:0.85rem;color:var(--text-muted);font-weight:400;">(<%= academics.length %>)</span></h4>
+        <% academics.forEach(function(acd) { %>
         <div class="result-card" style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem 1.4rem;margin-bottom:0.85rem;box-shadow:var(--card-shadow);">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap;">
-                <a href="/results" style="text-decoration:none;">
-                    <strong style="font-size:1rem;color:var(--primary);"><%= item.title %></strong>
-                </a>
-                <span class="badge bg-warning-subtle text-dark border border-warning-subtle" style="font-size:0.75rem;"><%= item.category || 'Exam Result' %></span>
-            </div>
-            <% if (item.highlight) { %>
-            <p style="margin:0.35rem 0 0.25rem;font-size:0.88rem;color:#059669;font-weight:600;"><i class="fa-solid fa-fire text-danger"></i> <%= item.highlight %></p>
-            <% } %>
-            <% if (item.description) { %>
-            <p style="margin:0 0 0.5rem;font-size:0.85rem;color:var(--text-muted);"><%= item.description.substring(0,160).replace(/\n/g,' ') %>...</p>
-            <% } %>
-            <div style="font-size:0.78rem;color:var(--text-muted);display:flex;gap:1rem;flex-wrap:wrap;">
-                <% if (item.session) { %><span><i class="fa-regular fa-calendar"></i> Session: <%= item.session %></span><% } %>
-                <% if (item.toppersCount) { %><span><i class="fa-solid fa-medal text-warning"></i> <%= item.toppersCount %></span><% } %>
-            </div>
-        </div>
-        <% }); %>
-    </div>
-    <% } %>
-
-    <% if (typeof notices !== 'undefined' && notices.length > 0) { %>
-    <div style="margin-bottom:2rem;">
-        <h4 style="margin-bottom:1rem;color:var(--text);"><i class="fa-solid fa-bullhorn" style="color:var(--primary);margin-right:0.4rem;"></i>Notices & Circulars <span style="font-size:0.85rem;color:var(--text-muted);font-weight:400;">(<%= notices.length %>)</span></h4>
-        <% notices.forEach(function(item) { %>
-        <div class="result-card" style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem 1.4rem;margin-bottom:0.85rem;box-shadow:var(--card-shadow);<%= item.isUrgent ? 'border-left:4px solid #ef4444;' : '' %>">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap;">
-                <a href="/notices" style="text-decoration:none;">
-                    <strong style="font-size:1rem;color:var(--primary);"><%= item.title %></strong>
-                </a>
-                <span class="badge <%= item.isUrgent ? 'bg-danger text-white' : 'bg-primary-subtle text-primary border border-primary-subtle' %>" style="font-size:0.75rem;"><%= item.category || 'Circular' %></span>
-            </div>
-            <p style="margin:0.35rem 0 0.5rem;font-size:0.88rem;color:var(--text-muted);"><%= item.content ? (item.content.substring(0,160).replace(/\n/g,' ') + '...') : '' %></p>
-            <div style="font-size:0.78rem;color:var(--text-muted);display:flex;gap:1rem;flex-wrap:wrap;">
-                <% if (item.noticeDate) { %><span><i class="fa-regular fa-calendar"></i> <%= item.noticeDate %></span><% } %>
-                <% if (item.targetAudience) { %><span><i class="fa-solid fa-users"></i> <%= item.targetAudience %></span><% } %>
-            </div>
+            <a href="/academic" style="text-decoration:none;">
+                <strong style="font-size:1rem;color:var(--primary);"><%= acd.title %></strong>
+            </a>
+            <p style="margin:0.35rem 0 0;font-size:0.88rem;color:var(--text-muted);"><%= acd.description.substring(0,160).replace(/\n/g,' ') %>...</p>
+            <span style="font-size:0.76rem;color:var(--text-muted);"><i class="fa-solid fa-layer-group"></i> <%= acd.stream %> &nbsp;·&nbsp; <%= acd.grade %></span>
         </div>
         <% }); %>
     </div>

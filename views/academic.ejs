@@ -1,204 +1,158 @@
 <%- include('partials/header'); -%>
 
-<section class="page-content">
-    <div class="page-header text-center">
-        <div class="page-header-content mx-auto" style="max-width: 780px;">
-            <p class="page-label"><i class="fa-solid fa-book-bookmark me-1"></i> Academic Ecosystem</p>
-            <h1>Curriculum & <span>Academics</span></h1>
-            <p class="page-subtitle">A harmonious synthesis of rigorous board excellence, integrated competitive coaching (NEET & JEE), modern STEM research labs, and value-based character mentorship.</p>
-        </div>
-    </div>
-
-    <!-- ACADEMIC PILLARS STRIP -->
-    <div class="card border mb-5 p-4 bg-white" style="border-radius: var(--radius); box-shadow: var(--card-shadow);">
-        <h3 class="h5 mb-3 d-flex align-items-center gap-2" style="color: var(--text);">
-            <i class="fa-solid fa-shapes text-primary"></i> Shaheen Academic Excellence Framework
-        </h3>
-        <div class="row g-3">
-            <div class="col-md-3 col-sm-6">
-                <div class="p-3 bg-light rounded h-100 border text-center">
-                    <div class="mb-2">
-                        <span class="badge bg-primary rounded-circle" style="width:36px; height:36px; display:inline-flex; align-items:center; justify-content:center; font-size:1.05rem;">
-                            <i class="fa-solid fa-atom"></i>
-                        </span>
-                    </div>
-                    <strong class="d-block mb-1" style="color: var(--text); font-size: 0.95rem;">Integrated Coaching</strong>
-                    <p class="text-muted small mb-0">Dual-track mastery of board syllabus + NEET / JEE Advanced concepts simultaneously.</p>
+<div class="container-fluid page-content my-4">
+    <!-- HERO HEADER -->
+    <div class="p-4 p-md-5 mb-4 rounded-3 text-white" style="background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); border-left: 4px solid #8b5cf6;">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <span class="badge bg-light text-primary px-3 py-2 text-uppercase fw-bold mb-3">
+                    <i class="fa-solid fa-graduation-cap me-1"></i> Academic Pedagogy & Curricula
+                </span>
+                <h1 class="display-6 fw-bold text-white mb-2">Academics at Shaheen Academy</h1>
+                <p class="lead mb-4 text-light" style="font-size: 1.05rem; opacity: 0.9;">
+                    A holistic learning framework blending foundational concepts, analytical thinking, hands-on scientific experimentation, and comprehensive coaching for national competitive examinations.
+                </p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="/admission" class="btn btn-primary px-4 py-2 fw-semibold">
+                        <i class="fa-solid fa-user-graduate me-1"></i> View Admissions & Batches
+                    </a>
+                    <a href="/learnings" class="btn btn-outline-light px-4 py-2">
+                        <i class="fa-solid fa-book-open me-1"></i> Student Learning Modules
+                    </a>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="p-3 bg-light rounded h-100 border text-center">
-                    <div class="mb-2">
-                        <span class="badge bg-success rounded-circle" style="width:36px; height:36px; display:inline-flex; align-items:center; justify-content:center; font-size:1.05rem;">
-                            <i class="fa-solid fa-flask"></i>
-                        </span>
-                    </div>
-                    <strong class="d-block mb-1" style="color: var(--text); font-size: 0.95rem;">Experiential Labs</strong>
-                    <p class="text-muted small mb-0">Hands-on experimentation across Physics, Chemistry, Biology, and STEM Computing labs.</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="p-3 bg-light rounded h-100 border text-center">
-                    <div class="mb-2">
-                        <span class="badge bg-warning text-dark rounded-circle" style="width:36px; height:36px; display:inline-flex; align-items:center; justify-content:center; font-size:1.05rem;">
-                            <i class="fa-solid fa-chart-line"></i>
-                        </span>
-                    </div>
-                    <strong class="d-block mb-1" style="color: var(--text); font-size: 0.95rem;">Daily Diagnostics</strong>
-                    <p class="text-muted small mb-0">Daily practice sets (DPPs), chapter-wise micro drills, and AI-enabled test score analytics.</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="p-3 bg-light rounded h-100 border text-center">
-                    <div class="mb-2">
-                        <span class="badge bg-info text-white rounded-circle" style="width:36px; height:36px; display:inline-flex; align-items:center; justify-content:center; font-size:1.05rem;">
-                            <i class="fa-solid fa-heart-pulse"></i>
-                        </span>
-                    </div>
-                    <strong class="d-block mb-1" style="color: var(--text); font-size: 0.95rem;">Moral Guidance</strong>
-                    <p class="text-muted small mb-0">Unwavering ethical upbringing, disciplined daily schedule, and dedicated mental health care.</p>
+            <div class="col-lg-4 d-none d-lg-block text-center">
+                <div class="p-3 bg-white bg-opacity-10 rounded border border-light border-opacity-25 text-white text-start">
+                    <h6 class="fw-bold mb-1"><i class="fa-solid fa-award text-warning me-1"></i> Excellence Guarantee</h6>
+                    <p class="small mb-0 text-light opacity-75">100% conceptual clarity through Daily Practice Papers (DPP) and personal mentoring.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- ACADEMIC STREAMS & PROGRAMS LIST -->
-    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+    <!-- STREAM SECTION HEADER -->
+    <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center mb-4 border-bottom pb-3">
         <div>
-            <h2 class="h4 mb-0" style="color: var(--text); font-weight: 700;">
-                <i class="fa-solid fa-graduation-cap text-primary me-2"></i> Academic Programs & Specialized Wings
+            <h2 class="h3 fw-bold text-dark mb-0">
+                <% if (typeof selectedStream !== 'undefined' && selectedStream && selectedStream !== 'all') { %>
+                    <%= selectedStream %> Stream Curricula
+                <% } else { %>
+                    Academic Disciplines & Streams
+                <% } %>
             </h2>
-            <p class="text-muted small mb-0">Explore our structured curricula, teaching methodologies, and faculty mentoring programs.</p>
+            <p class="text-muted small mb-0">
+                <% if (typeof selectedStream !== 'undefined' && selectedStream && selectedStream !== 'all') { %>
+                    Showing dedicated academic programs for <%= selectedStream %>. <a href="/academic" class="text-primary fw-semibold ms-1">View all streams &rarr;</a>
+                <% } else { %>
+                    Explore our structured curricula across all grade levels, disciplines, and career tracks.
+                <% } %>
+            </p>
         </div>
-        <div class="d-flex gap-2">
-            <a href="/admission" class="btn btn-primary btn-sm d-inline-flex align-items-center gap-1">
-                <i class="fa-solid fa-id-card"></i> View Admissions
-            </a>
-            <a href="/book" class="btn btn-outline-primary btn-sm d-inline-flex align-items-center gap-1">
-                <i class="fa-solid fa-calendar-check"></i> Book Campus Tour
+        <% if (typeof selectedStream !== 'undefined' && selectedStream && selectedStream !== 'all') { %>
+        <div>
+            <a href="/academic" class="btn btn-sm btn-outline-secondary d-inline-flex align-items-center gap-1.5">
+                <i class="fa-solid fa-layer-group text-primary"></i>
+                <span>View All Streams</span>
             </a>
         </div>
+        <% } %>
     </div>
 
+    <!-- ACADEMIC CARDS LISTING -->
     <% if (!academics || academics.length === 0) { %>
-    <div class="about-card text-center py-5">
-        <i class="fa-solid fa-book-open" style="font-size:2.5rem; color:var(--text-muted); margin-bottom:1rem;"></i>
-        <p class="mb-2">Academic programs are currently being updated.</p>
-        <p class="text-muted small">Please contact our academic desk at <a href="/contact">our contact page</a> or call <strong>+91 98765 43210</strong>.</p>
+    <div class="text-center p-5 bg-white border rounded shadow-sm">
+        <i class="fa-solid fa-graduation-cap fa-3x text-muted mb-3"></i>
+        <h4 class="fw-bold text-dark">Academic Programs Loading</h4>
+        <p class="text-muted">Explore our educational syllabus and contact our academic counselor for subject selections.</p>
+        <a href="/contact" class="btn btn-primary">Contact Academic Desk</a>
     </div>
-    <% } %>
+    <% } else { %>
+    
+    <div class="row g-4 mb-5" id="publicAcademicsGrid">
+        <% for(var i=0; i<academics.length; i++) { %>
+        <div class="col-md-6 col-lg-4 public-academic-col" data-stream="<%= academics[i].stream %>">
+            <div class="academic-card">
+                <div class="academic-image-wrap">
+                    <img src="<%= academics[i].image || '/img/slide2.jpg' %>" alt="<%= academics[i].title %>" onerror="this.src='/img/slide2.jpg'">
+                </div>
 
-    <div class="row g-4 mb-5">
-    <% for(var i=0; i<academics.length; i++) { %>
-        <div class="col-lg-6">
-            <div class="card h-100 border p-4 bg-white" style="border-radius: var(--radius); box-shadow: var(--card-shadow); display: flex; flex-direction: column; justify-content: space-between;">
-                <div>
-                    <div class="d-flex justify-content-between align-items-start gap-2 mb-3 flex-wrap">
-                        <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill font-monospace" style="font-size: 0.8rem; font-weight: 600;">
-                            <%= academics[i].category || 'Academic Wing' %>
-                        </span>
-                        <% if (academics[i].grades) { %>
-                        <span class="badge bg-light text-muted border px-2 py-1" style="font-size: 0.78rem;">
-                            <i class="fa-solid fa-layer-group me-1"></i> <%= academics[i].grades %>
-                        </span>
-                        <% } %>
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                    <span class="academic-meta-badge bg-primary-subtle text-primary border border-primary-subtle">
+                        <%= academics[i].stream || 'General' %>
+                    </span>
+                    <span class="badge bg-light text-dark border small">
+                        <i class="fa-solid fa-layer-group me-1"></i> <%= academics[i].grade || 'All Grades' %>
+                    </span>
+                </div>
+
+                <h3 class="academic-card-title"><%= academics[i].title %></h3>
+                <p class="text-muted small mb-3" style="line-height: 1.5; flex-grow: 1;"><%= academics[i].description %></p>
+
+                <div class="bg-light p-2.5 rounded border small mb-3">
+                    <div class="mb-1">
+                        <span class="text-muted d-block" style="font-size: 0.72rem; text-transform: uppercase;">Curriculum Focus:</span>
+                        <strong class="text-dark"><%= academics[i].curriculum || 'NCERT / Board Standard' %></strong>
                     </div>
-
-                    <div class="d-flex align-items-center gap-3 mb-3">
-                        <div style="width: 44px; height: 44px; min-width: 44px; border-radius: 10px; background: rgba(37,99,235,0.1); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.3rem;">
-                            <i class="<%= academics[i].icon || 'fa-solid fa-graduation-cap' %>"></i>
-                        </div>
-                        <h3 class="h5 mb-0" style="color: var(--text); font-weight: 700; line-height: 1.35;">
-                            <%= academics[i].title %>
-                        </h3>
-                    </div>
-
-                    <% if (academics[i].board) { %>
-                    <div class="p-2 px-3 bg-light rounded border mb-3 small d-flex align-items-center gap-2">
-                        <i class="fa-solid fa-award text-primary"></i>
-                        <span><strong>Board / Affiliation:</strong> <%= academics[i].board %></span>
-                    </div>
-                    <% } %>
-
-                    <% if (academics[i].curriculum) { %>
-                    <div class="mb-3">
-                        <small class="text-uppercase text-muted fw-bold d-block" style="font-size: 0.72rem; letter-spacing: 0.5px;">Curriculum & Core Subjects</small>
-                        <p class="mb-0 small" style="color: var(--text);"><i class="fa-solid fa-book-open-reader text-primary me-1"></i> <%= academics[i].curriculum %></p>
-                    </div>
-                    <% } %>
-
-                    <% if (academics[i].pedagogy) { %>
-                    <div class="mb-3">
-                        <small class="text-uppercase text-muted fw-bold d-block" style="font-size: 0.72rem; letter-spacing: 0.5px;">Teaching Methodology</small>
-                        <p class="mb-0 small text-muted"><i class="fa-solid fa-chalkboard-user text-success me-1"></i> <%= academics[i].pedagogy %></p>
-                    </div>
-                    <% } %>
-
-                    <% if (academics[i].faculty) { %>
-                    <div class="mb-3">
-                        <small class="text-uppercase text-muted fw-bold d-block" style="font-size: 0.72rem; letter-spacing: 0.5px;">Faculty Mentorship</small>
-                        <p class="mb-0 small text-primary fw-medium"><i class="fa-solid fa-user-tie me-1"></i> <%= academics[i].faculty %></p>
-                    </div>
-                    <% } %>
-
                     <% if (academics[i].features) { %>
-                    <div class="mb-3">
-                        <small class="text-uppercase text-muted fw-bold d-block" style="font-size: 0.72rem; letter-spacing: 0.5px;">Key Facilities & Highlights</small>
-                        <p class="mb-0 small text-muted"><i class="fa-solid fa-star text-warning me-1"></i> <%= academics[i].features %></p>
+                    <div class="mt-2">
+                        <span class="text-muted d-block" style="font-size: 0.72rem; text-transform: uppercase;">Methodology:</span>
+                        <span class="text-secondary"><%= academics[i].features %></span>
                     </div>
                     <% } %>
-
-                    <div class="mb-4">
-                        <small class="text-uppercase text-muted fw-bold d-block mb-1" style="font-size: 0.72rem; letter-spacing: 0.5px;">Academic Overview</small>
-                        <p class="text-muted small mb-0" style="line-height: 1.6; white-space: pre-wrap;"><%= academics[i].description %></p>
-                    </div>
                 </div>
 
-                <div class="pt-3 border-top d-flex gap-2 flex-wrap">
-                    <a href="/admission" class="btn btn-primary btn-sm flex-grow-1 text-center d-inline-flex justify-content-center align-items-center gap-1">
-                        <i class="fa-solid fa-user-plus"></i> Apply for this Wing
+                <div class="d-flex gap-2 pt-2 border-top">
+                    <a href="/admission" class="btn btn-primary btn-sm flex-grow-1 fw-semibold">
+                        <i class="fa-solid fa-user-graduate me-1"></i> Enroll in Stream
                     </a>
-                    <a href="/contact" class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center gap-1">
-                        <i class="fa-solid fa-envelope"></i> Inquire
+                    <a href="/book" class="btn btn-outline-secondary btn-sm" title="Schedule Counseling">
+                        <i class="fa-solid fa-calendar-check"></i>
                     </a>
                 </div>
             </div>
         </div>
+        <% } %>
+    </div>
     <% } %>
-    </div>
 
-    <!-- DAILY ACADEMIC ROUTINE & PEDAGOGICAL HIGHLIGHTS -->
-    <div class="row g-4">
-        <div class="col-md-6">
-            <div class="card border p-4 bg-white h-100" style="border-radius: var(--radius); box-shadow: var(--card-shadow);">
-                <h3 class="h5 mb-3" style="color: var(--text);">
-                    <i class="fa-solid fa-clock text-primary me-2"></i> Structured Academic Day
-                </h3>
-                <p class="text-muted small mb-3">Shaheen Academy's disciplined daily timetable balances classroom lectures, self-study, doubt clearance, and recreational sports:</p>
-                <ul class="list-unstyled mb-0 d-flex flex-column gap-2 small text-muted">
-                    <li><strong style="color:var(--text);">06:30 AM - 07:30 AM:</strong> Morning Physical Fitness & Mindful Contemplation</li>
-                    <li><strong style="color:var(--text);">08:30 AM - 01:30 PM:</strong> Interactive Theory Lectures & Conceptual Workshops</li>
-                    <li><strong style="color:var(--text);">02:30 PM - 04:30 PM:</strong> Science Labs & Supervised DPP Solving Sessions</li>
-                    <li><strong style="color:var(--text);">05:00 PM - 07:00 PM:</strong> Dedicated 1-on-1 Faculty Doubt Clearance Clinics</li>
-                    <li><strong style="color:var(--text);">08:00 PM - 10:30 PM:</strong> Silent Reading Hall Guided Self-Study & Revision</li>
-                </ul>
-            </div>
+    <!-- PILLARS OF ACADEMIC EXCELLENCE -->
+    <div class="p-4 bg-white border rounded-3 shadow-sm my-5">
+        <div class="text-center mb-4">
+            <span class="text-primary fw-bold text-uppercase small letter-spacing-1">Shaheen Advantage</span>
+            <h2 class="h3 fw-bold text-dark">5 Pillars of Our Educational Framework</h2>
+            <p class="text-muted small">Empowering every learner with clarity, confidence, and competitive competence.</p>
         </div>
-        <div class="col-md-6">
-            <div class="card border p-4 bg-white h-100" style="border-radius: var(--radius); box-shadow: var(--card-shadow);">
-                <h3 class="h5 mb-3" style="color: var(--text);">
-                    <i class="fa-solid fa-microscope text-primary me-2"></i> Academic Infrastructure
-                </h3>
-                <p class="text-muted small mb-3">State-of-the-art academic spaces empowering conceptual understanding and hands-on learning:</p>
-                <div class="d-flex flex-column gap-2 small">
-                    <div><i class="fa-solid fa-check text-success me-2"></i> <strong>Modern Science Labs:</strong> Fully equipped Physics, Chemistry & Biology laboratory stations.</div>
-                    <div><i class="fa-solid fa-check text-success me-2"></i> <strong>Smart Digital Classrooms:</strong> Interactive touch displays and audio-visual concept simulations.</div>
-                    <div><i class="fa-solid fa-check text-success me-2"></i> <strong>Central Library & Reading Room:</strong> Over 5,000 reference volumes and competitive entrance periodicals.</div>
-                    <div><i class="fa-solid fa-check text-success me-2"></i> <strong>Computer & STEM Center:</strong> High-speed internet stations for online mock tests and coding drills.</div>
+
+        <div class="row g-4 text-center">
+            <div class="col-md-4">
+                <div class="p-3 border rounded h-100 bg-light">
+                    <div class="mb-3" style="width: 44px; height: 44px; border-radius: 50%; background: #e0e7ff; color: #4338ca; display: inline-flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                    </div>
+                    <h5 class="fw-bold h6 text-dark mb-2">Expert Subject Faculty</h5>
+                    <p class="text-muted small mb-0">Experienced educators with proven track records in national exams and conceptual mastery.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-3 border rounded h-100 bg-light">
+                    <div class="mb-3" style="width: 44px; height: 44px; border-radius: 50%; background: #fef3c7; color: #b45309; display: inline-flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <h5 class="fw-bold h6 text-dark mb-2">Robotics & Digital Labs</h5>
+                    <p class="text-muted small mb-0">State-of-the-art computational facilities, coding sandboxes, and interactive physics labs.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-3 border rounded h-100 bg-light">
+                    <div class="mb-3" style="width: 44px; height: 44px; border-radius: 50%; background: #dcfce7; color: #15803d; display: inline-flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h5 class="fw-bold h6 text-dark mb-2">Bi-Weekly Analytics</h5>
+                    <p class="text-muted small mb-0">Granular performance diagnosis with continuous feedback loops for parents and mentors.</p>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 
 <%- include('partials/footer'); -%>

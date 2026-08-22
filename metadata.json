@@ -1,6 +1,6 @@
 {
   "name": "School Management Shaheen",
-  "description": "Shaheen Academy School Management System with public portal, campus photo gallery, course learnings, blog, career applications, booking system, and administration dashboard.",
+  "description": "Shaheen Academy School Management System with public portal, academic streams & pedagogy, admission batches & entrance notices, campus photo gallery, learnings, blog, career applications, booking system, and comprehensive admin dashboard.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

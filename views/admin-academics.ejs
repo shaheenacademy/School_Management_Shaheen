@@ -3,79 +3,122 @@
 <div class="page-content">
     <div class="page-header" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;">
         <div class="page-header-content">
-            <p class="page-label">Admin</p>
-            <h1>Manage <span>Academics</span></h1>
-            <p class="page-subtitle">Add, edit, or remove academic wings, curriculum details, pedagogy frameworks, and faculty highlights.</p>
+            <p class="page-label">Admin Management</p>
+            <h1>Academic <span>Streams & Curricula</span></h1>
+            <p class="page-subtitle">Manage streams (Science, Commerce, Arts, STEM), grade levels, pedagogical features, and syllabi.</p>
         </div>
-        <a href="/admin-academics/add" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none;">
-            <i class="fa-solid fa-plus"></i> Add Academic Program
+        <div class="d-flex gap-2">
+            <a href="/academic" target="_blank" class="btn btn-outline-secondary" style="display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none;">
+                <i class="fa-solid fa-eye"></i> View Public Academic Page
+            </a>
+            <a href="/admin-academics/add" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none;">
+                <i class="fa-solid fa-plus-circle"></i> Add Academic Stream
+            </a>
+        </div>
+    </div>
+
+    <!-- Quick Stats Bar -->
+    <div class="d-flex flex-wrap gap-3 mb-4 p-3 bg-white rounded border shadow-sm align-items-center">
+        <div class="d-flex align-items-center gap-2">
+            <span class="badge bg-primary px-2.5 py-1.5" style="font-size:0.85rem;"><i class="fa-solid fa-graduation-cap me-1"></i> Total Streams: <%= academics.length %></span>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+            <span class="badge bg-success px-2.5 py-1.5" style="font-size:0.85rem;"><i class="fa-solid fa-circle-check me-1"></i> Active: <%= academics.filter(a => a.active).length %></span>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+            <span class="badge bg-secondary px-2.5 py-1.5" style="font-size:0.85rem;"><i class="fa-solid fa-eye-slash me-1"></i> Hidden: <%= academics.filter(a => !a.active).length %></span>
+        </div>
+        <div class="ms-auto d-flex align-items-center gap-2">
+            <label class="small text-muted fw-semibold">Filter Stream:</label>
+            <select id="adminStreamFilter" class="form-select form-select-sm" style="width: auto; font-size: 0.82rem;" onchange="filterAdminAcademics(this.value)">
+                <option value="all">All Streams</option>
+                <option value="Science">Science</option>
+                <option value="Commerce">Commerce</option>
+                <option value="Arts & Humanities">Arts & Humanities</option>
+                <option value="STEM & Coding">STEM & Coding</option>
+                <option value="Foundational">Foundational (Middle / High School)</option>
+            </select>
+        </div>
+    </div>
+
+    <% if (academics.length === 0) { %>
+    <div class="admin-empty-state text-center p-5 bg-white border rounded shadow-sm my-4">
+        <i class="fa-solid fa-graduation-cap fa-3x text-muted mb-3"></i>
+        <h3 class="fw-bold">No Academic Streams Added</h3>
+        <p class="text-muted">Introduce your academic offerings, subject combinations, faculty frameworks, and laboratory syllabi.</p>
+        <a href="/admin-academics/add" class="btn btn-primary mt-2">
+            <i class="fa-solid fa-plus me-1"></i> Add First Academic Stream
         </a>
     </div>
+    <% } else { %>
+    
+    <div class="row g-4" id="adminAcademicsGrid">
+        <% for(var i=0; i<academics.length; i++) { %>
+        <div class="col-md-6 col-lg-4 admin-academic-item" data-stream="<%= academics[i].stream %>">
+            <div class="card h-100 border shadow-sm p-3 bg-white d-flex flex-column justify-content-between">
+                <div>
+                    <div style="height: 160px; border-radius: 6px; overflow: hidden; background: #0f172a; margin-bottom: 0.75rem; border: 1px solid var(--border);" class="position-relative">
+                        <img src="<%= academics[i].image || '/img/slide2.jpg' %>" alt="<%= academics[i].title %>" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='/img/slide2.jpg'">
+                        <span class="badge position-absolute top-0 end-0 m-2 <%= academics[i].active ? 'bg-success' : 'bg-secondary' %>">
+                            <%= academics[i].active ? 'Active' : 'Hidden' %>
+                        </span>
+                        <span class="badge bg-dark bg-opacity-75 position-absolute bottom-0 start-0 m-2">
+                            <i class="fa-solid fa-layer-group me-1"></i> <%= academics[i].grade || 'All Grades' %>
+                        </span>
+                    </div>
 
-    <% if (!academics || academics.length === 0) { %>
-    <div class="admin-empty-state">
-        <i class="fa-solid fa-book-open"></i>
-        <p>No academic programs listed yet. <a href="/admin-academics/add" style="color:var(--primary); font-weight:600;">Create your first academic wing</a></p>
-    </div>
-    <% } %>
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span class="badge bg-primary-subtle text-primary border border-primary-subtle"><%= academics[i].stream || 'General' %></span>
+                    </div>
 
-    <div class="admin-list-stack">
-    <% for(var i=0; i<academics.length; i++) { %>
-    <div class="blogcard admin-list-card">
-        <div class="admin-list-card-body">
-            <div class="admin-list-card-badges">
-                <span class="admin-badge admin-badge--primary"><%= academics[i].category || 'Academic Wing' %></span>
-                <% if (academics[i].grades) { %>
-                <span class="admin-badge" style="background:#eef2ff; color:#4f46e5; border:1px solid #c7d2fe;"><%= academics[i].grades %></span>
-                <% } %>
-                <span class="admin-badge <%= academics[i].active ? 'admin-badge--success' : 'admin-badge--danger' %>">
-                    <%= academics[i].active ? 'Active' : 'Inactive' %>
-                </span>
-                <% if (typeof academics[i].order !== 'undefined') { %>
-                <span class="admin-badge" style="background:#f1f5f9; color:#475569;">Order: <%= academics[i].order %></span>
-                <% } %>
+                    <h4 class="fw-bold mb-2 text-dark" style="font-size: 1.05rem;"><%= academics[i].title %></h4>
+                    <p class="text-muted small mb-3" style="line-height: 1.5;"><%= academics[i].description %></p>
+
+                    <div class="bg-light p-2.5 rounded border small mb-3">
+                        <div class="mb-1">
+                            <strong class="text-secondary d-block" style="font-size: 0.72rem; text-transform: uppercase;">Curriculum Alignment:</strong>
+                            <span class="text-dark"><%= academics[i].curriculum || 'Standard Academic Framework' %></span>
+                        </div>
+                        <% if (academics[i].features) { %>
+                        <div class="mt-2">
+                            <strong class="text-secondary d-block" style="font-size: 0.72rem; text-transform: uppercase;">Key Pedagogy Highlights:</strong>
+                            <span class="text-dark"><%= academics[i].features %></span>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center pt-2 border-top mt-2">
+                    <span class="text-muted small font-monospace"><i class="fa-solid fa-sort me-1"></i> Order: #<%= academics[i].order || 0 %></span>
+                    <div class="d-flex gap-2">
+                        <a href="/admin-academics/edit/<%= academics[i]._id %>" class="btn btn-sm btn-outline-primary" style="text-decoration:none;">
+                            <i class="fa-solid fa-pen-to-square me-1"></i> Edit
+                        </a>
+                        <form action="/admin-academics/delete/<%= academics[i]._id %>" method="post" onsubmit="return confirm('Are you sure you want to delete this academic stream?');" style="margin:0;">
+                            <button type="submit" class="btn btn-sm btn-outline-danger">
+                                <i class="fa-solid fa-trash me-1"></i> Delete
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <h3 class="admin-list-card-title d-flex align-items-center gap-2">
-                <i class="<%= academics[i].icon || 'fa-solid fa-graduation-cap' %> text-primary" style="font-size: 1.1rem;"></i>
-                <%= academics[i].title %>
-            </h3>
-            <% if (academics[i].board) { %>
-            <p class="admin-list-card-meta">
-                <i class="fa-solid fa-award"></i> Board: <%= academics[i].board %>
-            </p>
-            <% } %>
-            <% if (academics[i].curriculum) { %>
-            <p style="font-size:0.83rem; color:var(--text); margin-bottom:0.35rem;">
-                <strong>Curriculum:</strong> <%= academics[i].curriculum %>
-            </p>
-            <% } %>
-            <% if (academics[i].pedagogy) { %>
-            <p style="font-size:0.83rem; color:var(--text-muted); margin-bottom:0.35rem;">
-                <strong>Pedagogy:</strong> <%= academics[i].pedagogy %>
-            </p>
-            <% } %>
-            <% if (academics[i].faculty) { %>
-            <p style="font-size:0.83rem; color:var(--primary); font-weight:500; margin-bottom:0.35rem;">
-                <strong>Faculty:</strong> <%= academics[i].faculty %>
-            </p>
-            <% } %>
-            <p class="admin-list-card-excerpt">
-                <%= academics[i].description ? (academics[i].description.substring(0,140) + (academics[i].description.length > 140 ? '...' : '')) : '' %>
-            </p>
         </div>
-        <div class="admin-card-actions">
-            <a href="/admin-academics/edit/<%= academics[i]._id %>" class="btn-admin-edit">
-                <i class="fa-solid fa-pen"></i> Edit
-            </a>
-            <form action="/admin-academics/delete/<%= academics[i]._id %>" method="post" onsubmit="return confirm('Are you sure you want to delete this academic program?')">
-                <button type="submit" class="btn-admin-delete">
-                    <i class="fa-solid fa-trash"></i> Delete
-                </button>
-            </form>
-        </div>
+        <% } %>
     </div>
     <% } %>
-    </div>
 </div>
+
+<script>
+    function filterAdminAcademics(stream) {
+        const cards = document.querySelectorAll('#adminAcademicsGrid .admin-academic-item');
+        cards.forEach(card => {
+            if (stream === 'all' || card.getAttribute('data-stream') === stream) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+</script>
 
 <%- include('partials/footer'); -%>

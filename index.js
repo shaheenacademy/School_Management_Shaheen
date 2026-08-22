@@ -238,68 +238,56 @@ const memoryDB = {
     admissions: [
         {
             _id: "adm1",
-            title: "NEET (UG) 2-Year Integrated Medical Batch (Class XI & XII)",
-            grade: "Class 11 & 12 (Medical)",
-            session: "2026 - 2027",
-            eligibility: "Class 10 Passed with min 70% in Science & Mathematics",
-            duration: "2 Academic Years",
-            mode: "Regular Classroom + Residential / Day Scholar",
-            seats: "60 Seats",
-            fee: "Scholarships up to 100% via Shaheen Talent Search (STS)",
-            deadline: "15 Nov 2026",
-            highlights: "Daily DPPs, Dedicated Medical Faculty, 24/7 Supervised Reading Room, Full Syllabus Mock Tests",
-            description: "Comprehensive CBSE/State board integrated coaching program designed for high-ranking success in NEET (UG). Combines rigorous theoretical clarity with structured OMR-based test series, doubt clearing workshops, and AI-enabled test performance analytics.",
+            title: "Class XI Science Integrated Batch (NEET / JEE 2026-27)",
+            category: "Senior Secondary",
+            eligibility: "Minimum 75% in Class 10 Board + Shaheen Entrance Evaluation Test",
+            feeStructure: "₹45,000 / Academic Year (Installments & Merit Waivers Available)",
+            seats: "60 Seats (Merit & Entrance Based)",
+            deadline: "30 Nov 2026",
+            description: "Integrated 2-year classroom coaching for CBSE/State Board + NEET/JEE Main & Advanced with hostel and daily doubt mentoring.",
+            icon: "fa-solid fa-user-graduate",
             order: 1,
             active: true,
             createdAt: new Date()
         },
         {
             _id: "adm2",
-            title: "JEE (Main + Advanced) 2-Year Engineering Super-30 Batch",
-            grade: "Class 11 & 12 (Non-Medical)",
-            session: "2026 - 2027",
-            eligibility: "Class 10 Passed with strong foundation in Physics & Mathematics",
-            duration: "2 Academic Years",
-            mode: "Regular Classroom + Computational Physics Lab",
-            seats: "45 Seats",
-            fee: "Merit concessions available for top scorers",
-            deadline: "20 Nov 2026",
-            highlights: "IIT Alumnus Faculty, Weekly CBT Mock Tests, Multi-Concept Problem Solving Drills",
-            description: "Advanced preparatory curriculum focusing on conceptual mastery in Physics, Chemistry, and Advanced Mathematics for IIT-JEE and Top Engineering institutions. Students receive personalized tracking and national benchmarking.",
+            title: "Class XI Commerce & Applied Economics Batch",
+            category: "Senior Secondary",
+            eligibility: "Minimum 65% in Class 10 Board + Personal Interview",
+            feeStructure: "₹38,000 / Academic Year (Installments Available)",
+            seats: "50 Seats",
+            deadline: "15 Dec 2026",
+            description: "Structured Accountancy, Business Studies, Economics, and Mathematics with CA-Foundation / CUET foundation guidance.",
+            icon: "fa-solid fa-chart-line",
             order: 2,
             active: true,
             createdAt: new Date()
         },
         {
             _id: "adm3",
-            title: "Pre-Foundation & Olympiad Program (Grades 8, 9 & 10)",
-            grade: "Class 8, 9 & 10",
-            session: "2026 - 2027",
-            eligibility: "Students currently enrolled in or moving to Grades 8-10",
-            duration: "1 Academic Year (Renewable)",
-            mode: "Weekday Evening & Weekend Batches",
-            seats: "40 Seats per batch",
-            fee: "Affordable Term Fee / STS Scholarship Discount",
-            deadline: "30 Nov 2026",
-            highlights: "Mental Aptitude, Science Olympiad Prep, NTSE Drills, Science Lab Experimentation",
-            description: "Early-stage competitive incubation strengthening foundational sciences, logical reasoning, and mental math. Builds unshakeable academic fundamentals early for smooth transition into senior secondary competitive streams.",
+            title: "Pre-Foundation & Olympiad Batch (Grades 8, 9 & 10)",
+            category: "Pre-Foundation",
+            eligibility: "Passing grade in previous academic year + Diagnostic Test",
+            feeStructure: "₹32,000 / Academic Year",
+            seats: "80 Seats",
+            deadline: "Rolling Admissions",
+            description: "Early conceptual foundation in Mathematics, Science, Mental Ability, and Robotics for NTSE, PRMO, and Olympiads.",
+            icon: "fa-solid fa-atom",
             order: 3,
             active: true,
             createdAt: new Date()
         },
         {
             _id: "adm4",
-            title: "NEET / JEE Target Repeater & Dropper Intensive Course",
-            grade: "12th Passed / Repeaters",
-            session: "2026 - 2027",
-            eligibility: "Passed Class 12 with Science Stream (PCB / PCM)",
-            duration: "1 Year Full-Time Intensive",
-            mode: "Residential / Day Intensive",
-            seats: "50 Seats",
-            fee: "Percentile-linked scholarship waivers",
-            deadline: "31 Dec 2026",
-            highlights: "100+ Full Mock Exams, Daily Doubt Resolution, Personal Rank Mentors",
-            description: "Fast-paced, comprehensive revision and test practice module focused on eliminating exam weaknesses, building high test endurance, and maximizing competitive rank.",
+            title: "Shaheen Talent Search & Merit Scholarship Test (STST)",
+            category: "Scholarship",
+            eligibility: "Students entering Grades 6 through 11",
+            feeStructure: "Exam Fee: ₹100 | Up to 100% Scholarship on Tuition",
+            seats: "100 Scholarship Seats",
+            deadline: "15 Oct 2026",
+            description: "Annual national talent evaluation offering fee waivers, complimentary study materials, and special residential mentorship.",
+            icon: "fa-solid fa-medal",
             order: 4,
             active: true,
             createdAt: new Date()
@@ -307,211 +295,54 @@ const memoryDB = {
     ],
     academics: [
         {
-            _id: "acad1",
-            title: "Senior Secondary Integrated Medical Wing (PCB)",
-            category: "Medical Stream",
-            grades: "Classes XI & XII (Medical)",
-            board: "CBSE & State Board + NEET (UG) Integrated",
-            curriculum: "Core Physics, Organic & Inorganic Chemistry, Botany, Zoology, English & Bio-practical modules strictly following NCERT mastery.",
-            pedagogy: "Daily Practice Problems (DPP), chapter-wise micro-level error analysis, daily 2-hour supervised doubt clinics, and national rank benchmarking mock series.",
-            faculty: "Ex-Aakash/Allen senior faculty with 15+ years of entrance coaching pedigree and track record of producing AIIMS & GMC rankers.",
-            features: "Advanced 3D Anatomy models, dedicated Bio-Lab, 24/7 silent study hall, and 1-on-1 personal mentorship.",
-            description: "An intensive two-year academic incubation system designed for high-ranking success in the National Eligibility cum Entrance Test (NEET-UG) alongside outstanding board examination scores. Students are trained in rapid problem solving, elimination strategies, and stress management.",
-            icon: "fa-solid fa-microscope",
+            _id: "acd1",
+            title: "Senior Secondary Science Stream (PCMB / Integrated Medical & Engineering)",
+            stream: "Science",
+            grade: "Class 11 - 12",
+            curriculum: "NCERT / State Board mapped with National Competitive Entrance Syllabus (NEET & JEE)",
+            features: "Daily Practice Papers (DPP), Smart Digital Labs, Faculty Mentorship, Bi-weekly Computerized Assessments",
+            description: "A comprehensive program designed for aspiring doctors, engineers, and scientists with deep concept immersion in Physics, Chemistry, Mathematics, and Biology.",
+            image: "/img/slide2.jpg",
             order: 1,
             active: true,
             createdAt: new Date()
         },
         {
-            _id: "acad2",
-            title: "Senior Secondary Engineering Super-Batch (PCM)",
-            category: "Engineering Stream",
-            grades: "Classes XI & XII (Non-Medical)",
-            board: "CBSE & State Board + JEE (Main + Advanced) Integrated",
-            curriculum: "Theoretical & Computational Physics, Physical & Inorganic Chemistry, Higher Mathematics, Calculus, Analytical Geometry, and Computer Science.",
-            pedagogy: "Multi-concept problem workshops, timed CBT mock examinations, personalized performance heatmaps, and advanced problem-solving masterclasses.",
-            faculty: "IIT/NIT alumnus master teachers specialized in JEE Advanced problem conceptualization.",
-            features: "High-performance Physics Simulation Lab, Computer-based testing laboratory, weekly challenge sheets, and peer study circles.",
-            description: "Rigorous academic curriculum designed to develop deep analytical intuition and conceptual clarity needed for top percentiles in JEE Main, JEE Advanced, BITSAT, and state engineering entrance evaluations.",
-            icon: "fa-solid fa-atom",
+            _id: "acd2",
+            title: "Senior Secondary Commerce & Financial Literacy",
+            stream: "Commerce",
+            grade: "Class 11 - 12",
+            curriculum: "CBSE / State Board Aligned + Foundation CA/CS & CUET Orientation",
+            features: "Case Studies, Business Simulations, Financial Analytics, Expert Guest Seminars",
+            description: "Equips future entrepreneurs and corporate leaders with mastery in Financial Accounting, Economics, Business Studies, and Informatics.",
+            image: "/img/meeting.png",
             order: 2,
             active: true,
             createdAt: new Date()
         },
         {
-            _id: "acad3",
-            title: "Pre-Foundation & Competitive Incubation Wing",
-            category: "Foundation Wing",
-            grades: "Classes VIII, IX & X",
-            board: "NCERT Aligned + Olympiad & NTSE Advanced Curriculum",
-            curriculum: "Foundational Physics, Chemistry, Biology, Mathematics, Mental Ability & Logical Reasoning (MAT), and Scientific Inquiry.",
-            pedagogy: "Activity-based experiential learning, mathematical puzzle solving, mental aptitude drills, science laboratory demonstrations, and foundational diagnostic assessments.",
-            faculty: "Dedicated foundation mentors with expertise in child psychology, curiosity cultivation, and competitive entrance fundamentals.",
-            features: "Junior Science & Robotics Corner, Science Fair Exhibitions, speed math coaching, and public speaking development.",
-            description: "Early-stage competitive incubation strengthening cognitive reasoning, core STEM fundamentals, and academic stamina, setting a strong launching pad for senior secondary competitive exams.",
-            icon: "fa-solid fa-seedling",
+            _id: "acd3",
+            title: "Secondary School High-Impact Curriculum (Grades 6 to 10)",
+            stream: "Foundational",
+            grade: "Class 6 - 10",
+            curriculum: "Holistic Multi-Disciplinary Curriculum with STEM Integration",
+            features: "Language Fluency Labs, Science Practical Workshops, Remedial Doubt Clinics",
+            description: "Nurturing curiosity, logical reasoning, moral values, and academic discipline during crucial developmental years.",
+            image: "/img/slide1.jpg",
             order: 3,
             active: true,
             createdAt: new Date()
         },
         {
-            _id: "acad4",
-            title: "Holistic Moral Education, Character & Life Skills",
-            category: "Moral & Character Building",
-            grades: "All Grades (VIII - XII)",
-            board: "Integrated Academy Character Building Framework",
-            curriculum: "Value-based ethics, moral philosophy, civic awareness, time management, emotional resilience, community service, and environmental stewardship.",
-            pedagogy: "Interactive group discussions, reflective journaling, community outreach projects, leadership workshops, and daily morning contemplative assemblies.",
-            faculty: "Eminent scholars, counsellors, and life-skills mentors nurturing empathy and disciplined lifestyle.",
-            features: "Daily moral reflection sessions, campus library ethics section, social impact drives, and peer mentorship networks.",
-            description: "At Shaheen Academy, academic brilliance is harmonized with unwavering moral integrity, humility, compassion, and discipline, shaping responsible leaders of tomorrow.",
-            icon: "fa-solid fa-book-open",
+            _id: "acd4",
+            title: "Applied STEM, Robotics & Artificial Intelligence Wing",
+            stream: "STEM & Coding",
+            grade: "Class 6 - 12",
+            curriculum: "Hands-on Practical Computing, Robotics Microcontrollers & Python",
+            features: "Hardware Sandbox, Hackathons, Project Showcases, IoT Test Benches",
+            description: "Empowers students with future-ready technological skills including algorithmic problem solving, micro-robotics, and full-stack web basics.",
+            image: "/img/technology.png",
             order: 4,
-            active: true,
-            createdAt: new Date()
-        },
-        {
-            _id: "acad5",
-            title: "Advanced STEM, AI & Computer Applications Laboratory",
-            category: "Technology & STEM",
-            grades: "Classes IX to XII",
-            board: "Applied Computer Science & CBSE Informatics Practices",
-            curriculum: "Python Programming, Algorithmic Thinking, Data Structures fundamentals, Database Systems (SQL), Web Technologies, and Artificial Intelligence basics.",
-            pedagogy: "Hands-on coding labs, project-based collaborative sprints, hackathons, and real-world technology problem modeling.",
-            faculty: "Experienced computer science educators and software engineering practitioners.",
-            features: "Gigabit-connected modern PC laboratory, interactive smart screens, cloud-based learning tools, and robotics kits.",
-            description: "Equipping young minds with future-ready computational skills, modern digital literacy, coding competencies, and technological problem-solving acumen.",
-            icon: "fa-solid fa-laptop-code",
-            order: 5,
-            active: true,
-            createdAt: new Date()
-        }
-    ],
-    results: [
-        {
-            _id: "res1",
-            title: "NEET (UG) 2025 Historic Medical Selections",
-            category: "NEET (UG)",
-            session: "2024 - 2025",
-            highlight: "48+ Students Qualified for Govt Medical Colleges (MBBS/BDS)",
-            toppersCount: "Top AIR 382 | Highest Score 692/720",
-            toppersList: "• Tahir Hussain - 692/720 (AIR 382) -> AIIMS Guwahati\n• Amina Sultana - 681/720 (AIR 840) -> Gauhati Medical College\n• Farhan Ahmed - 674/720 (AIR 1240) -> Silchar Medical College\n• Zubair Mazumder - 665/720 (AIR 1890) -> Assam Medical College\n• Naznin Begum - 658/720 (AIR 2410) -> FAAMC Barpeta",
-            description: "Shaheen Academy Badarpur once again delivered remarkable results in NEET-UG 2025 with 48+ students securing seats in prestigious Government Medical Colleges across India and Assam. Our dedicated residential coaching, daily doubt clinics, and rigorous test series proved pivotal.",
-            pdfUrl: "",
-            badge: "Medical Record",
-            order: 1,
-            active: true,
-            createdAt: new Date()
-        },
-        {
-            _id: "res2",
-            title: "JEE (Main & Advanced) 2025 Engineering Triumphs",
-            category: "JEE (Main & Adv)",
-            session: "2024 - 2025",
-            highlight: "99.42 Highest NTA Percentile | 24+ NIT & IIT Qualifiers",
-            toppersCount: "Top Percentile 99.42% | 100% Qualified in Main",
-            toppersList: "• Rohit Paul - 99.42 Percentile (JEE Adv Rank 1840) -> IIT Guwahati (CSE)\n• Salman Choudhury - 98.85 Percentile -> NIT Silchar (ECE)\n• Pritam Deb - 98.10 Percentile -> NIT Durgapur (Mechanical)\n• Imran Laskar - 97.60 Percentile -> IIIT Guwahati (CSE)",
-            description: "Sensational performance in JEE Main & Advanced 2025 by our Super-30 PCM batch. Over 24 students secured qualifying percentiles above 95% with admissions in premier IITs, NITs, and IIITs.",
-            pdfUrl: "",
-            badge: "Engineering Glory",
-            order: 2,
-            active: true,
-            createdAt: new Date()
-        },
-        {
-            _id: "res3",
-            title: "CBSE Senior Secondary Board Exam (Class 12) 2025",
-            category: "CBSE Class 12",
-            session: "2024 - 2025",
-            highlight: "100% First Division | 38 Students Scored Above 90%",
-            toppersCount: "School Topper: 98.4% (Science PCB/PCM)",
-            toppersList: "• Maryam Khatun - 98.4% (PCB) - District Rank 1\n• Arshad Ali - 97.6% (PCM)\n• Sumit Singha - 96.8% (PCB)\n• Afsana Yasmin - 96.2% (PCM)",
-            description: "A 100% pass rate with over 80% of our Class 12 batch securing distinctions. Perfect 100/100 scored in Chemistry and Biology by multiple students.",
-            pdfUrl: "",
-            badge: "100% Distinction",
-            order: 3,
-            active: true,
-            createdAt: new Date()
-        },
-        {
-            _id: "res4",
-            title: "Shaheen Talent Search (STS) Scholarship Exam 2026 Merit List",
-            category: "Scholarship & STS",
-            session: "2025 - 2026",
-            highlight: "₹30 Lakhs Merit Scholarship Awarded to Top 100 Scorers",
-            toppersCount: "Over 2,400 Candidates Participated",
-            toppersList: "• Rank 1: Rehan Uddin (100% Tuition Waiver + Free Hostel)\n• Rank 2: Debolina Roy (100% Tuition Waiver)\n• Rank 3: Danish Khan (75% Tuition Waiver)\n• Rank 4-10: 50% Tuition Waiver",
-            description: "Official merit list and fee concession allocation for the Shaheen Talent Search (STS) Scholarship examination conducted across Karimganj, Cachar, and Hailakandi centers.",
-            pdfUrl: "",
-            badge: "STS Merit",
-            order: 4,
-            active: true,
-            createdAt: new Date()
-        }
-    ],
-    notices: [
-        {
-            _id: "not1",
-            title: "Admissions Open for Integrated NEET / JEE Batches (Session 2026-2027)",
-            category: "Admission Notice",
-            noticeDate: "21 Aug 2026",
-            targetAudience: "Class 11 & Repeater Batches",
-            isUrgent: true,
-            content: "Registrations are now open for the 2-Year Integrated Senior Secondary Medical (PCB) and Engineering (PCM) batches for Academic Session 2026-2027. Early-bird entrance test and direct counseling are ongoing at the Badarpur campus administrative office. Limited residential hostel seats available.",
-            attachmentUrl: "/admission",
-            order: 1,
-            active: true,
-            createdAt: new Date()
-        },
-        {
-            _id: "not2",
-            title: "Shaheen Talent Search (STS) Phase-II Exam Date & Center Announcement",
-            category: "Examination Circular",
-            noticeDate: "18 Aug 2026",
-            targetAudience: "Classes 8, 9, 10 & 11 Aspirants",
-            isUrgent: true,
-            content: "The Phase-II offline competitive scholarship test (STS 2026) is scheduled for Sunday, September 14, 2026. Hall tickets and center allocations can be downloaded online or collected from the reception desk. Syllabus: Science, Mathematics & Mental Aptitude.",
-            attachmentUrl: "/academic",
-            order: 2,
-            active: true,
-            createdAt: new Date()
-        },
-        {
-            _id: "not3",
-            title: "Mid-Term Comprehensive Assessment & Parent-Teacher Meeting (PTM)",
-            category: "Academic Circular",
-            noticeDate: "15 Aug 2026",
-            targetAudience: "All Enrolled Students & Parents",
-            isUrgent: false,
-            content: "The Mid-Term Examination report cards for Classes 9 to 12 will be discussed during the upcoming Parent-Teacher Conference on Saturday, August 30, from 10:00 AM to 3:00 PM. Parents are cordially requested to attend and interact with subject faculties.",
-            attachmentUrl: "",
-            order: 3,
-            active: true,
-            createdAt: new Date()
-        },
-        {
-            _id: "not4",
-            title: "Schedule for Special Weekend Biology & Physics Doubt-Solving Clinics",
-            category: "Special Batch",
-            noticeDate: "10 Aug 2026",
-            targetAudience: "Class 12 Medical & Engineering Wings",
-            isUrgent: false,
-            content: "Intensive problem-solving sessions focusing on Mechanics, Electrodynamics, and Genetics will be held every Saturday evening from 5:30 PM to 8:00 PM in Lecture Hall 3 under the guidance of our senior entrance faculty.",
-            attachmentUrl: "",
-            order: 4,
-            active: true,
-            createdAt: new Date()
-        },
-        {
-            _id: "not5",
-            title: "Annual Inter-School Science & Robotics Innovation Expo 2026",
-            category: "Events & Co-Curricular",
-            noticeDate: "05 Aug 2026",
-            targetAudience: "Junior & Senior Secondary Students",
-            isUrgent: false,
-            content: "Shaheen Academy is hosting the Regional Science & Robotics Expo on October 10, 2026. Students interested in submitting scientific working models, AI automation projects, or renewable energy prototypes must submit abstracts by September 20.",
-            attachmentUrl: "",
-            order: 5,
             active: true,
             createdAt: new Date()
         }
@@ -527,25 +358,19 @@ let isMongoConnected = false;
 
 mongoose.set('bufferCommands', false);
 
-// Prevent uncaught error events if connection drops or cannot be established
-mongoose.connection.on('error', () => {
-    isMongoConnected = false;
-});
-
-if (MONGODB_URI && MONGODB_URI.trim() !== "" && !MONGODB_URI.includes("MY_MONGODB_URI")) {
-    console.log("Connecting to MongoDB database...");
+if (MONGODB_URI) {
+    console.log("Connecting to MongoDB at:", MONGODB_URI.split("@").pop());
     mongoose.connect(MONGODB_URI, {
-        serverSelectionTimeoutMS: 2500,
-        connectTimeoutMS: 2500
+        serverSelectionTimeoutMS: 3000,
+        connectTimeoutMS: 3000
     }).then(() => {
         isMongoConnected = true;
         console.log("✅ MongoDB connected successfully");
     }).catch(err => {
-        isMongoConnected = false;
-        console.log("ℹ️ MongoDB remote instance unreachable (" + (err.message.includes("whitelist") ? "IP whitelist constraint" : err.message) + "). Operating smoothly in built-in hybrid data store mode.");
+        console.warn("⚠️ MongoDB connection failed, using in-memory store fallback:", err.message);
     });
 } else {
-    console.log("ℹ️ In-memory data store active.");
+    console.log("ℹ️ No MONGODB_URI provided. Running in high-performance in-memory mock mode.");
 }
 
 // ── Schemas & Models ────────────────────────────────────────────────────────
@@ -660,16 +485,13 @@ const Candidate = mongoose.model("candidate", candidateSchema);
 
 const admissionSchema = new mongoose.Schema({
     title: { type: String, required: true },
-    grade: String,
-    session: { type: String, default: "2026 - 2027" },
+    category: { type: String, default: "Senior Secondary" },
     eligibility: String,
-    duration: String,
-    mode: { type: String, default: "Regular Classroom" },
+    feeStructure: String,
     seats: String,
-    fee: String,
     deadline: String,
-    highlights: String,
-    description: String,
+    description: { type: String, required: true },
+    icon: { type: String, default: "fa-solid fa-user-graduate" },
     order: { type: Number, default: 0 },
     active: { type: Boolean, default: true },
     createdAt: { type: Date, default: Date.now }
@@ -678,50 +500,17 @@ const Admission = mongoose.model("admission", admissionSchema);
 
 const academicSchema = new mongoose.Schema({
     title: { type: String, required: true },
-    category: { type: String, default: "Academic Stream" },
-    grades: String,
-    board: String,
+    stream: { type: String, default: "Science" },
+    grade: { type: String, default: "Class 11 - 12" },
     curriculum: String,
-    pedagogy: String,
-    faculty: String,
     features: String,
-    description: String,
-    icon: { type: String, default: "fa-solid fa-graduation-cap" },
+    description: { type: String, required: true },
+    image: { type: String, default: "/img/slide2.jpg" },
     order: { type: Number, default: 0 },
     active: { type: Boolean, default: true },
     createdAt: { type: Date, default: Date.now }
 });
 const Academic = mongoose.model("academic", academicSchema);
-
-const resultSchema = new mongoose.Schema({
-    title: { type: String, required: true },
-    category: { type: String, default: "Competitive Exam" },
-    session: { type: String, default: "2024 - 2025" },
-    highlight: String,
-    toppersCount: String,
-    toppersList: String,
-    description: String,
-    pdfUrl: String,
-    badge: { type: String, default: "Achievement" },
-    order: { type: Number, default: 0 },
-    active: { type: Boolean, default: true },
-    createdAt: { type: Date, default: Date.now }
-});
-const Result = mongoose.model("result", resultSchema);
-
-const noticeSchema = new mongoose.Schema({
-    title: { type: String, required: true },
-    category: { type: String, default: "Academic Circular" },
-    noticeDate: { type: String, default: () => new Date().toLocaleDateString("en-GB", { day: '2-digit', month: 'short', year: 'numeric' }) },
-    targetAudience: { type: String, default: "All Students & Parents" },
-    isUrgent: { type: Boolean, default: false },
-    content: { type: String, required: true },
-    attachmentUrl: String,
-    order: { type: Number, default: 0 },
-    active: { type: Boolean, default: true },
-    createdAt: { type: Date, default: Date.now }
-});
-const Notice = mongoose.model("notice", noticeSchema);
 
 // ── Model Helpers (Mongo + Memory Fallback) ─────────────────────────────────
 const DB = {
@@ -872,6 +661,90 @@ const DB = {
         }
         memoryDB.galleries = memoryDB.galleries.filter(g => g._id !== id);
     },
+    async getAdmissions(activeOnly = false, category = null) {
+        if (mongoose.connection.readyState === 1) {
+            try {
+                let query = {};
+                if (activeOnly) query.active = true;
+                if (category && category !== "all") query.category = category;
+                return await Admission.find(query).sort({ order: 1, createdAt: -1 });
+            } catch (e) {}
+        }
+        let list = memoryDB.admissions.slice();
+        if (activeOnly) list = list.filter(a => a.active);
+        if (category && category !== "all") list = list.filter(a => a.category === category);
+        list.sort((a, b) => (a.order || 0) - (b.order || 0));
+        return list;
+    },
+    async getAdmission(id) {
+        if (mongoose.connection.readyState === 1) {
+            try { return await Admission.findById(id); } catch (e) {}
+        }
+        return memoryDB.admissions.find(a => a._id === id) || null;
+    },
+    async addAdmission(data) {
+        if (mongoose.connection.readyState === 1) {
+            try { return await new Admission(data).save(); } catch (e) {}
+        }
+        const newAdmission = { _id: "adm_" + Date.now(), createdAt: new Date(), ...data };
+        memoryDB.admissions.push(newAdmission);
+        return newAdmission;
+    },
+    async updateAdmission(id, data) {
+        if (mongoose.connection.readyState === 1) {
+            try { return await Admission.findByIdAndUpdate(id, data); } catch (e) {}
+        }
+        const idx = memoryDB.admissions.findIndex(a => a._id === id);
+        if (idx !== -1) Object.assign(memoryDB.admissions[idx], data);
+    },
+    async deleteAdmission(id) {
+        if (mongoose.connection.readyState === 1) {
+            try { return await Admission.findByIdAndDelete(id); } catch (e) {}
+        }
+        memoryDB.admissions = memoryDB.admissions.filter(a => a._id !== id);
+    },
+    async getAcademics(activeOnly = false, stream = null) {
+        if (mongoose.connection.readyState === 1) {
+            try {
+                let query = {};
+                if (activeOnly) query.active = true;
+                if (stream && stream !== "all") query.stream = stream;
+                return await Academic.find(query).sort({ order: 1, createdAt: -1 });
+            } catch (e) {}
+        }
+        let list = memoryDB.academics.slice();
+        if (activeOnly) list = list.filter(a => a.active);
+        if (stream && stream !== "all") list = list.filter(a => a.stream === stream);
+        list.sort((a, b) => (a.order || 0) - (b.order || 0));
+        return list;
+    },
+    async getAcademic(id) {
+        if (mongoose.connection.readyState === 1) {
+            try { return await Academic.findById(id); } catch (e) {}
+        }
+        return memoryDB.academics.find(a => a._id === id) || null;
+    },
+    async addAcademic(data) {
+        if (mongoose.connection.readyState === 1) {
+            try { return await new Academic(data).save(); } catch (e) {}
+        }
+        const newAcademic = { _id: "acd_" + Date.now(), createdAt: new Date(), ...data };
+        memoryDB.academics.push(newAcademic);
+        return newAcademic;
+    },
+    async updateAcademic(id, data) {
+        if (mongoose.connection.readyState === 1) {
+            try { return await Academic.findByIdAndUpdate(id, data); } catch (e) {}
+        }
+        const idx = memoryDB.academics.findIndex(a => a._id === id);
+        if (idx !== -1) Object.assign(memoryDB.academics[idx], data);
+    },
+    async deleteAcademic(id) {
+        if (mongoose.connection.readyState === 1) {
+            try { return await Academic.findByIdAndDelete(id); } catch (e) {}
+        }
+        memoryDB.academics = memoryDB.academics.filter(a => a._id !== id);
+    },
     async getBlogs(limit = 0) {
         if (mongoose.connection.readyState === 1) {
             try {
@@ -980,210 +853,6 @@ const DB = {
             try { return await Career.findByIdAndDelete(id); } catch (e) {}
         }
         memoryDB.careers = memoryDB.careers.filter(c => c._id !== id);
-    },
-    async getAdmissions(activeOnly = false) {
-        if (mongoose.connection.readyState === 1) {
-            try {
-                return activeOnly ? await Admission.find({ active: true }).sort({ order: 1, createdAt: -1 }) : await Admission.find({}).sort({ order: 1, createdAt: -1 });
-            } catch (e) {}
-        }
-        let list = memoryDB.admissions || [];
-        if (activeOnly) list = list.filter(a => a.active);
-        return list.slice().sort((a, b) => (a.order || 0) - (b.order || 0));
-    },
-    async getAdmission(id) {
-        if (mongoose.connection.readyState === 1) {
-            try { return await Admission.findById(id); } catch (e) {}
-        }
-        return (memoryDB.admissions || []).find(a => a._id === id) || null;
-    },
-    async addAdmission(data) {
-        if (mongoose.connection.readyState === 1) {
-            try { return await new Admission(data).save(); } catch (e) {}
-        }
-        const newAdm = { _id: "adm_" + Date.now(), createdAt: new Date(), ...data };
-        if (!memoryDB.admissions) memoryDB.admissions = [];
-        memoryDB.admissions.push(newAdm);
-        return newAdm;
-    },
-    async updateAdmission(id, data) {
-        if (mongoose.connection.readyState === 1) {
-            try { return await Admission.findByIdAndUpdate(id, data); } catch (e) {}
-        }
-        if (!memoryDB.admissions) memoryDB.admissions = [];
-        const idx = memoryDB.admissions.findIndex(a => a._id === id);
-        if (idx !== -1) Object.assign(memoryDB.admissions[idx], data);
-    },
-    async deleteAdmission(id) {
-        if (mongoose.connection.readyState === 1) {
-            try { return await Admission.findByIdAndDelete(id); } catch (e) {}
-        }
-        if (memoryDB.admissions) {
-            memoryDB.admissions = memoryDB.admissions.filter(a => a._id !== id);
-        }
-    },
-    async getAcademics(activeOnly = false) {
-        if (mongoose.connection.readyState === 1) {
-            try {
-                return activeOnly ? await Academic.find({ active: true }).sort({ order: 1, createdAt: -1 }) : await Academic.find({}).sort({ order: 1, createdAt: -1 });
-            } catch (e) {}
-        }
-        let list = memoryDB.academics || [];
-        if (activeOnly) list = list.filter(a => a.active);
-        return list.slice().sort((a, b) => (a.order || 0) - (b.order || 0));
-    },
-    async getAcademic(id) {
-        if (mongoose.connection.readyState === 1) {
-            try { return await Academic.findById(id); } catch (e) {}
-        }
-        return (memoryDB.academics || []).find(a => a._id === id) || null;
-    },
-    async addAcademic(data) {
-        if (mongoose.connection.readyState === 1) {
-            try { return await new Academic(data).save(); } catch (e) {}
-        }
-        const newAcad = { _id: "acad_" + Date.now(), createdAt: new Date(), ...data };
-        if (!memoryDB.academics) memoryDB.academics = [];
-        memoryDB.academics.push(newAcad);
-        return newAcad;
-    },
-    async updateAcademic(id, data) {
-        if (mongoose.connection.readyState === 1) {
-            try { return await Academic.findByIdAndUpdate(id, data); } catch (e) {}
-        }
-        if (!memoryDB.academics) memoryDB.academics = [];
-        const idx = memoryDB.academics.findIndex(a => a._id === id);
-        if (idx !== -1) Object.assign(memoryDB.academics[idx], data);
-    },
-    async deleteAcademic(id) {
-        if (mongoose.connection.readyState === 1) {
-            try { return await Academic.findByIdAndDelete(id); } catch (e) {}
-        }
-        if (memoryDB.academics) {
-            memoryDB.academics = memoryDB.academics.filter(a => a._id !== id);
-        }
-    },
-    async getResults(activeOnly = false, category = "all") {
-        if (mongoose.connection.readyState === 1) {
-            try {
-                let query = {};
-                if (activeOnly) query.active = true;
-                if (category && category !== "all") {
-                    query.$or = [
-                        { category: new RegExp(category, 'i') },
-                        { title: new RegExp(category, 'i') }
-                    ];
-                }
-                return await Result.find(query).sort({ order: 1, createdAt: -1 });
-            } catch (e) {}
-        }
-        let list = memoryDB.results || [];
-        if (activeOnly) list = list.filter(r => r.active);
-        if (category && category !== "all") {
-            const catLower = category.toLowerCase();
-            list = list.filter(r => 
-                (r.category && r.category.toLowerCase().includes(catLower)) ||
-                (r.title && r.title.toLowerCase().includes(catLower))
-            );
-        }
-        return list.slice().sort((a, b) => (a.order || 0) - (b.order || 0));
-    },
-    async getResult(id) {
-        if (mongoose.connection.readyState === 1) {
-            try { return await Result.findById(id); } catch (e) {}
-        }
-        return (memoryDB.results || []).find(r => r._id === id) || null;
-    },
-    async addResult(data) {
-        if (mongoose.connection.readyState === 1) {
-            try { return await new Result(data).save(); } catch (e) {}
-        }
-        const newRes = { _id: "res_" + Date.now(), createdAt: new Date(), ...data };
-        if (!memoryDB.results) memoryDB.results = [];
-        memoryDB.results.push(newRes);
-        return newRes;
-    },
-    async updateResult(id, data) {
-        if (mongoose.connection.readyState === 1) {
-            try { return await Result.findByIdAndUpdate(id, data); } catch (e) {}
-        }
-        if (!memoryDB.results) memoryDB.results = [];
-        const idx = memoryDB.results.findIndex(r => r._id === id);
-        if (idx !== -1) Object.assign(memoryDB.results[idx], data);
-    },
-    async deleteResult(id) {
-        if (mongoose.connection.readyState === 1) {
-            try { return await Result.findByIdAndDelete(id); } catch (e) {}
-        }
-        if (memoryDB.results) {
-            memoryDB.results = memoryDB.results.filter(r => r._id !== id);
-        }
-    },
-    async getNotices(activeOnly = false, category = "all") {
-        if (mongoose.connection.readyState === 1) {
-            try {
-                let query = {};
-                if (activeOnly) query.active = true;
-                if (category && category !== "all") {
-                    if (category.toLowerCase() === "urgent") {
-                        query.isUrgent = true;
-                    } else {
-                        query.$or = [
-                            { category: new RegExp(category, 'i') },
-                            { title: new RegExp(category, 'i') },
-                            { targetAudience: new RegExp(category, 'i') }
-                        ];
-                    }
-                }
-                return await Notice.find(query).sort({ order: 1, createdAt: -1 });
-            } catch (e) {}
-        }
-        let list = memoryDB.notices || [];
-        if (activeOnly) list = list.filter(n => n.active);
-        if (category && category !== "all") {
-            const catLower = category.toLowerCase();
-            if (catLower === "urgent") {
-                list = list.filter(n => n.isUrgent);
-            } else {
-                list = list.filter(n => 
-                    (n.category && n.category.toLowerCase().includes(catLower)) ||
-                    (n.title && n.title.toLowerCase().includes(catLower)) ||
-                    (n.targetAudience && n.targetAudience.toLowerCase().includes(catLower))
-                );
-            }
-        }
-        return list.slice().sort((a, b) => (a.order || 0) - (b.order || 0));
-    },
-    async getNotice(id) {
-        if (mongoose.connection.readyState === 1) {
-            try { return await Notice.findById(id); } catch (e) {}
-        }
-        return (memoryDB.notices || []).find(n => n._id === id) || null;
-    },
-    async addNotice(data) {
-        if (mongoose.connection.readyState === 1) {
-            try { return await new Notice(data).save(); } catch (e) {}
-        }
-        const newNot = { _id: "not_" + Date.now(), createdAt: new Date(), ...data };
-        if (!memoryDB.notices) memoryDB.notices = [];
-        memoryDB.notices.push(newNot);
-        return newNot;
-    },
-    async updateNotice(id, data) {
-        if (mongoose.connection.readyState === 1) {
-            try { return await Notice.findByIdAndUpdate(id, data); } catch (e) {}
-        }
-        if (!memoryDB.notices) memoryDB.notices = [];
-        const idx = memoryDB.notices.findIndex(n => n._id === id);
-        if (idx !== -1) Object.assign(memoryDB.notices[idx], data);
-    },
-    async deleteNotice(id) {
-        if (mongoose.connection.readyState === 1) {
-            try { return await Notice.findByIdAndDelete(id); } catch (e) {}
-        }
-        if (memoryDB.notices) {
-            memoryDB.notices = memoryDB.notices.filter(n => n._id !== id);
-        }
     },
     async getTerms() {
         if (mongoose.connection.readyState === 1) {
@@ -1330,8 +999,6 @@ const DB = {
         const galleriesList = await this.getGalleries();
         const admissionsList = await this.getAdmissions();
         const academicsList = await this.getAcademics();
-        const resultsList = await this.getResults();
-        const noticesList = await this.getNotices();
 
         return {
             blogs,
@@ -1340,18 +1007,6 @@ const DB = {
             bookings: bookingsList.length,
             totalCareers: careersList.length,
             activeCareers: careersList.filter(c => c.active).length,
-            totalAdmissions: admissionsList.length,
-            activeAdmissions: admissionsList.filter(a => a.active).length,
-            admissions: admissionsList.length,
-            totalAcademics: academicsList.length,
-            activeAcademics: academicsList.filter(a => a.active).length,
-            academics: academicsList.length,
-            totalResults: resultsList.length,
-            activeResults: resultsList.filter(r => r.active).length,
-            results: resultsList.length,
-            totalNotices: noticesList.length,
-            activeNotices: noticesList.filter(n => n.active).length,
-            notices: noticesList.length,
             candidates: candidatesList.length,
             totalCards: homeCardsList.length,
             activeCards: homeCardsList.filter(c => c.active).length,
@@ -1359,6 +1014,10 @@ const DB = {
             activeSlides: carouselsList.filter(c => c.active).length,
             galleries: galleriesList.length,
             activeGalleries: galleriesList.filter(g => g.active).length,
+            admissions: admissionsList.length,
+            activeAdmissions: admissionsList.filter(a => a.active).length,
+            academics: academicsList.length,
+            activeAcademics: academicsList.filter(a => a.active).length,
             terms: termsList.length,
             bookingsPending: bookingsList.filter(b => b.status === "Pending").length,
             bookingsConfirmed: bookingsList.filter(b => b.status === "Confirmed").length,
@@ -1427,7 +1086,7 @@ app.get("/robots.txt", function(req, res) {
 app.get("/sitemap.xml", async function(req, res) {
     const su = req.protocol + "://" + req.get("host");
     const iso = new Date().toISOString().split("T")[0];
-    const pages = ["/", "/academic", "/admission", "/results", "/notices", "/gallery", "/blog", "/learnings", "/about", "/contact", "/careers", "/terms", "/book"].map(u =>
+    const pages = ["/", "/academic", "/admission", "/gallery", "/blog", "/learnings", "/about", "/contact", "/careers", "/terms", "/book"].map(u =>
         `<url><loc>${su}${u}</loc><lastmod>${iso}</lastmod><priority>0.8</priority></url>`);
     try {
         const blogs = await DB.getBlogs();
@@ -1470,6 +1129,34 @@ app.get("/", async function(req, res) {
         });
     }
 });
+
+app.get("/admission", async function(req, res) {
+    const su = req.protocol + "://" + req.get("host");
+    const admissions = await DB.getAdmissions(true);
+    res.render("admission", {
+        admissions,
+        pageTitle: "Admissions 2026-27 | Shaheen Academy",
+        pageDesc: "Explore admission criteria, integrated coaching batches, seat intake, and scholarships at Shaheen Academy.",
+        pageUrl: su + "/admission"
+    });
+});
+app.get("/admissions", function(req, res) { res.redirect("/admission"); });
+
+app.get("/academic", async function(req, res) {
+    const su = req.protocol + "://" + req.get("host");
+    const stream = (req.query.stream || "all").trim();
+    const academics = await DB.getAcademics(true, stream);
+    const allAcademics = await DB.getAcademics(true);
+    res.render("academic", {
+        academics,
+        selectedStream: stream,
+        totalCount: allAcademics.length,
+        pageTitle: (stream && stream !== "all") ? `${stream} — Academic Curricula | Shaheen Academy` : "Academic Streams & Pedagogy | Shaheen Academy",
+        pageDesc: "Discover our academic curricula across Science, Commerce, Arts, STEM, and foundational school wings.",
+        pageUrl: su + "/academic" + (stream && stream !== "all" ? "?stream=" + encodeURIComponent(stream) : "")
+    });
+});
+app.get("/academics", function(req, res) { res.redirect("/academic"); });
 
 app.get("/gallery", async function(req, res) {
     const su = req.protocol + "://" + req.get("host");
@@ -1544,74 +1231,6 @@ app.post("/contact", async function(req, res) {
         minute: String(today.getMinutes())
     });
     res.redirect("/success");
-});
-
-app.get("/admission", async function(req, res) {
-    const su = req.protocol + "://" + req.get("host");
-    const admissions = await DB.getAdmissions(true);
-    res.render("admission", { 
-        admissions, 
-        pageTitle: "Admissions & Programs 2026-2027 | Shaheen Academy", 
-        pageDesc: "Explore integrated NEET, JEE, Pre-Foundation, and secondary admission batches at Shaheen Academy Badarpur.", 
-        pageUrl: su + "/admission" 
-    });
-});
-
-app.get("/admissions", function(req, res) {
-    res.redirect("/admission");
-});
-
-app.get("/academic", async function(req, res) {
-    const su = req.protocol + "://" + req.get("host");
-    const academics = await DB.getAcademics(true);
-    res.render("academic", { 
-        academics, 
-        pageTitle: "Academics, Curriculum & Pedagogy | Shaheen Academy", 
-        pageDesc: "Discover the academic curriculum, integrated science & engineering wings, pre-foundation programs, and modern learning pedagogy at Shaheen Academy.", 
-        pageUrl: su + "/academic" 
-    });
-});
-
-app.get("/academics", function(req, res) {
-    res.redirect("/academic");
-});
-
-app.get("/results", async function(req, res) {
-    const su = req.protocol + "://" + req.get("host");
-    const category = (req.query.category || "all").trim();
-    const results = await DB.getResults(true, category);
-    const allResults = await DB.getResults(true);
-    res.render("results", { 
-        results, 
-        selectedCategory: category,
-        totalCount: allResults.length,
-        pageTitle: (category && category !== "all") ? `${category} — Exam Results & Merit | Shaheen Academy` : "Results, Toppers & Merit Lists | Shaheen Academy", 
-        pageDesc: "Celebrate the exceptional achievements, NEET & JEE qualifiers, board toppers, and merit scholars of Shaheen Academy Badarpur.", 
-        pageUrl: su + "/results" + (category && category !== "all" ? "?category=" + encodeURIComponent(category) : "")
-    });
-});
-
-app.get("/result", function(req, res) {
-    res.redirect("/results");
-});
-
-app.get("/notices", async function(req, res) {
-    const su = req.protocol + "://" + req.get("host");
-    const category = (req.query.category || "all").trim();
-    const notices = await DB.getNotices(true, category);
-    const allNotices = await DB.getNotices(true);
-    res.render("notices", { 
-        notices, 
-        selectedCategory: category,
-        totalCount: allNotices.length,
-        pageTitle: (category && category !== "all") ? `${category} Notices & Circulars | Shaheen Academy` : "Notice Board, Circulars & Announcements | Shaheen Academy", 
-        pageDesc: "Stay updated with official notices, academic circulars, scholarship exam schedules, and holiday announcements from Shaheen Academy Badarpur.", 
-        pageUrl: su + "/notices" + (category && category !== "all" ? "?category=" + encodeURIComponent(category) : "")
-    });
-});
-
-app.get("/notice", function(req, res) {
-    res.redirect("/notices");
 });
 
 app.get("/careers", async function(req, res) {
@@ -1716,7 +1335,9 @@ app.get("/adminlogin", function(req, res) {
 
 app.get("/loggedin", function(req, res) {
     if (!req.isAuthenticated() && !req.session.isDemoAdmin) return res.redirect("/adminlogin");
-    res.redirect("/overview");
+    const flash = req.session.flash || null;
+    req.session.flash = null;
+    res.render("loggedin", { flash });
 });
 
 app.get("/updated", isAuth, function(req, res) { res.render("updated"); });
@@ -1894,227 +1515,6 @@ app.post("/admin-careers/edit/:id", isAuth, async function(req, res) {
 app.post("/admin-careers/delete/:id", isAuth, async function(req, res) {
     await DB.deleteCareer(req.params.id);
     res.redirect("/admin-careers");
-});
-
-// ── Admin Admissions Management Routes ───────────────────────────────────────
-app.get("/admin-admissions", isAuth, async function(req, res) {
-    const admissions = await DB.getAdmissions();
-    res.render("admin-admissions", { admissions });
-});
-
-app.get("/admin-admissions/add", isAuth, function(req, res) {
-    res.render("admin-admission-form", { admission: null, action: "/admin-admissions/add" });
-});
-
-app.post("/admin-admissions/add", isAuth, async function(req, res) {
-    await DB.addAdmission({
-        title: req.body.admissionTitle,
-        grade: req.body.admissionGrade,
-        session: req.body.admissionSession || "2026 - 2027",
-        eligibility: req.body.admissionEligibility,
-        duration: req.body.admissionDuration,
-        mode: req.body.admissionMode,
-        seats: req.body.admissionSeats,
-        fee: req.body.admissionFee,
-        deadline: req.body.admissionDeadline,
-        highlights: req.body.admissionHighlights,
-        description: req.body.admissionDescription,
-        order: parseInt(req.body.admissionOrder) || 0,
-        active: req.body.admissionActive === "on"
-    });
-    res.redirect("/admin-admissions");
-});
-
-app.get("/admin-admissions/edit/:id", isAuth, async function(req, res) {
-    const admission = await DB.getAdmission(req.params.id);
-    if (!admission) return res.redirect("/admin-admissions");
-    res.render("admin-admission-form", { admission, action: "/admin-admissions/edit/" + req.params.id });
-});
-
-app.post("/admin-admissions/edit/:id", isAuth, async function(req, res) {
-    await DB.updateAdmission(req.params.id, {
-        title: req.body.admissionTitle,
-        grade: req.body.admissionGrade,
-        session: req.body.admissionSession || "2026 - 2027",
-        eligibility: req.body.admissionEligibility,
-        duration: req.body.admissionDuration,
-        mode: req.body.admissionMode,
-        seats: req.body.admissionSeats,
-        fee: req.body.admissionFee,
-        deadline: req.body.admissionDeadline,
-        highlights: req.body.admissionHighlights,
-        description: req.body.admissionDescription,
-        order: parseInt(req.body.admissionOrder) || 0,
-        active: req.body.admissionActive === "on"
-    });
-    res.redirect("/admin-admissions");
-});
-
-app.post("/admin-admissions/delete/:id", isAuth, async function(req, res) {
-    await DB.deleteAdmission(req.params.id);
-    res.redirect("/admin-admissions");
-});
-
-app.get("/admin-academics", isAuth, async function(req, res) {
-    const academics = await DB.getAcademics();
-    res.render("admin-academics", { academics });
-});
-
-app.get("/admin-academics/add", isAuth, function(req, res) {
-    res.render("admin-academic-form", { academic: null, action: "/admin-academics/add" });
-});
-
-app.post("/admin-academics/add", isAuth, async function(req, res) {
-    await DB.addAcademic({
-        title: req.body.academicTitle,
-        category: req.body.academicCategory || "Academic Stream",
-        grades: req.body.academicGrades,
-        board: req.body.academicBoard,
-        curriculum: req.body.academicCurriculum,
-        pedagogy: req.body.academicPedagogy,
-        faculty: req.body.academicFaculty,
-        features: req.body.academicFeatures,
-        description: req.body.academicDescription,
-        icon: req.body.academicIcon || "fa-solid fa-graduation-cap",
-        order: parseInt(req.body.academicOrder) || 0,
-        active: req.body.academicActive === "on"
-    });
-    res.redirect("/admin-academics");
-});
-
-app.get("/admin-academics/edit/:id", isAuth, async function(req, res) {
-    const academic = await DB.getAcademic(req.params.id);
-    if (!academic) return res.redirect("/admin-academics");
-    res.render("admin-academic-form", { academic, action: "/admin-academics/edit/" + req.params.id });
-});
-
-app.post("/admin-academics/edit/:id", isAuth, async function(req, res) {
-    await DB.updateAcademic(req.params.id, {
-        title: req.body.academicTitle,
-        category: req.body.academicCategory || "Academic Stream",
-        grades: req.body.academicGrades,
-        board: req.body.academicBoard,
-        curriculum: req.body.academicCurriculum,
-        pedagogy: req.body.academicPedagogy,
-        faculty: req.body.academicFaculty,
-        features: req.body.academicFeatures,
-        description: req.body.academicDescription,
-        icon: req.body.academicIcon || "fa-solid fa-graduation-cap",
-        order: parseInt(req.body.academicOrder) || 0,
-        active: req.body.academicActive === "on"
-    });
-    res.redirect("/admin-academics");
-});
-
-app.post("/admin-academics/delete/:id", isAuth, async function(req, res) {
-    await DB.deleteAcademic(req.params.id);
-    res.redirect("/admin-academics");
-});
-
-// ── Admin Results Management ───────────────────────────────────────────────
-app.get("/admin-results", isAuth, async function(req, res) {
-    const results = await DB.getResults();
-    res.render("admin-results", { results });
-});
-
-app.get("/admin-results/add", isAuth, function(req, res) {
-    res.render("admin-result-form", { result: null, action: "/admin-results/add" });
-});
-
-app.post("/admin-results/add", isAuth, async function(req, res) {
-    await DB.addResult({
-        title: req.body.resultTitle,
-        category: req.body.resultCategory || "Competitive Exam",
-        session: req.body.resultSession || "2024 - 2025",
-        highlight: req.body.resultHighlight,
-        toppersCount: req.body.resultToppersCount,
-        toppersList: req.body.resultToppersList,
-        description: req.body.resultDescription,
-        pdfUrl: req.body.resultPdfUrl,
-        badge: req.body.resultBadge || "Achievement",
-        order: parseInt(req.body.resultOrder) || 0,
-        active: req.body.resultActive === "on"
-    });
-    res.redirect("/admin-results");
-});
-
-app.get("/admin-results/edit/:id", isAuth, async function(req, res) {
-    const result = await DB.getResult(req.params.id);
-    if (!result) return res.redirect("/admin-results");
-    res.render("admin-result-form", { result, action: "/admin-results/edit/" + req.params.id });
-});
-
-app.post("/admin-results/edit/:id", isAuth, async function(req, res) {
-    await DB.updateResult(req.params.id, {
-        title: req.body.resultTitle,
-        category: req.body.resultCategory || "Competitive Exam",
-        session: req.body.resultSession || "2024 - 2025",
-        highlight: req.body.resultHighlight,
-        toppersCount: req.body.resultToppersCount,
-        toppersList: req.body.resultToppersList,
-        description: req.body.resultDescription,
-        pdfUrl: req.body.resultPdfUrl,
-        badge: req.body.resultBadge || "Achievement",
-        order: parseInt(req.body.resultOrder) || 0,
-        active: req.body.resultActive === "on"
-    });
-    res.redirect("/admin-results");
-});
-
-app.post("/admin-results/delete/:id", isAuth, async function(req, res) {
-    await DB.deleteResult(req.params.id);
-    res.redirect("/admin-results");
-});
-
-// ── Admin Notices Management ───────────────────────────────────────────────
-app.get("/admin-notices", isAuth, async function(req, res) {
-    const notices = await DB.getNotices();
-    res.render("admin-notices", { notices });
-});
-
-app.get("/admin-notices/add", isAuth, function(req, res) {
-    res.render("admin-notice-form", { notice: null, action: "/admin-notices/add" });
-});
-
-app.post("/admin-notices/add", isAuth, async function(req, res) {
-    await DB.addNotice({
-        title: req.body.noticeTitle,
-        category: req.body.noticeCategory || "Academic Circular",
-        noticeDate: req.body.noticeDate || new Date().toLocaleDateString("en-GB", { day: '2-digit', month: 'short', year: 'numeric' }),
-        targetAudience: req.body.noticeAudience || "All Students & Parents",
-        isUrgent: req.body.noticeUrgent === "on",
-        content: req.body.noticeContent,
-        attachmentUrl: req.body.noticeAttachmentUrl,
-        order: parseInt(req.body.noticeOrder) || 0,
-        active: req.body.noticeActive === "on"
-    });
-    res.redirect("/admin-notices");
-});
-
-app.get("/admin-notices/edit/:id", isAuth, async function(req, res) {
-    const notice = await DB.getNotice(req.params.id);
-    if (!notice) return res.redirect("/admin-notices");
-    res.render("admin-notice-form", { notice, action: "/admin-notices/edit/" + req.params.id });
-});
-
-app.post("/admin-notices/edit/:id", isAuth, async function(req, res) {
-    await DB.updateNotice(req.params.id, {
-        title: req.body.noticeTitle,
-        category: req.body.noticeCategory || "Academic Circular",
-        noticeDate: req.body.noticeDate || new Date().toLocaleDateString("en-GB", { day: '2-digit', month: 'short', year: 'numeric' }),
-        targetAudience: req.body.noticeAudience || "All Students & Parents",
-        isUrgent: req.body.noticeUrgent === "on",
-        content: req.body.noticeContent,
-        attachmentUrl: req.body.noticeAttachmentUrl,
-        order: parseInt(req.body.noticeOrder) || 0,
-        active: req.body.noticeActive === "on"
-    });
-    res.redirect("/admin-notices");
-});
-
-app.post("/admin-notices/delete/:id", isAuth, async function(req, res) {
-    await DB.deleteNotice(req.params.id);
-    res.redirect("/admin-notices");
 });
 
 app.get("/admin-terms", isAuth, async function(req, res) {
@@ -2353,6 +1753,119 @@ app.post("/admin-gallery/delete/:id", isAuth, async function(req, res) {
     res.redirect("/admin-gallery");
 });
 
+// ── Admin Admissions CRUD Routes ──────────────────────────────────────────
+app.get("/admin-admissions", isAuth, async function(req, res) {
+    const admissions = await DB.getAdmissions();
+    res.render("admin-admissions", { admissions });
+});
+
+app.get("/admin-admissions/add", isAuth, function(req, res) {
+    res.render("admin-admission-form", { admission: null, action: "/admin-admissions/add" });
+});
+
+app.post("/admin-admissions/add", isAuth, async function(req, res) {
+    await DB.addAdmission({
+        title: req.body.admissionTitle,
+        category: req.body.admissionCategory || "Senior Secondary",
+        eligibility: req.body.admissionEligibility || "",
+        feeStructure: req.body.admissionFeeStructure || "",
+        seats: req.body.admissionSeats || "",
+        deadline: req.body.admissionDeadline || "",
+        description: req.body.admissionDescription || "",
+        icon: req.body.admissionIcon || "fa-solid fa-user-graduate",
+        order: parseInt(req.body.admissionOrder) || 0,
+        active: req.body.admissionActive === "on"
+    });
+    res.redirect("/admin-admissions");
+});
+
+app.get("/admin-admissions/edit/:id", isAuth, async function(req, res) {
+    const admission = await DB.getAdmission(req.params.id);
+    if (!admission) return res.redirect("/admin-admissions");
+    res.render("admin-admission-form", { admission, action: "/admin-admissions/edit/" + req.params.id });
+});
+
+app.post("/admin-admissions/edit/:id", isAuth, async function(req, res) {
+    await DB.updateAdmission(req.params.id, {
+        title: req.body.admissionTitle,
+        category: req.body.admissionCategory || "Senior Secondary",
+        eligibility: req.body.admissionEligibility || "",
+        feeStructure: req.body.admissionFeeStructure || "",
+        seats: req.body.admissionSeats || "",
+        deadline: req.body.admissionDeadline || "",
+        description: req.body.admissionDescription || "",
+        icon: req.body.admissionIcon || "fa-solid fa-user-graduate",
+        order: parseInt(req.body.admissionOrder) || 0,
+        active: req.body.admissionActive === "on"
+    });
+    res.redirect("/admin-admissions");
+});
+
+app.post("/admin-admissions/delete/:id", isAuth, async function(req, res) {
+    await DB.deleteAdmission(req.params.id);
+    res.redirect("/admin-admissions");
+});
+
+// ── Admin Academics CRUD Routes ───────────────────────────────────────────
+app.get("/admin-academics", isAuth, async function(req, res) {
+    const academics = await DB.getAcademics();
+    res.render("admin-academics", { academics });
+});
+
+app.get("/admin-academics/add", isAuth, function(req, res) {
+    res.render("admin-academic-form", { academic: null, action: "/admin-academics/add" });
+});
+
+app.post("/admin-academics/add", isAuth, uploadImage.single("academicImage"), async function(req, res) {
+    let image = req.body.imageUrl || "/img/slide2.jpg";
+    if (req.file) {
+        image = `data:${req.file.mimetype};base64,${req.file.buffer.toString("base64")}`;
+    }
+    await DB.addAcademic({
+        title: req.body.academicTitle,
+        stream: req.body.academicStream || "Science",
+        grade: req.body.academicGrade || "Class 11 - 12",
+        curriculum: req.body.academicCurriculum || "",
+        features: req.body.academicFeatures || "",
+        description: req.body.academicDescription || "",
+        image: image,
+        order: parseInt(req.body.academicOrder) || 0,
+        active: req.body.academicActive === "on"
+    });
+    res.redirect("/admin-academics");
+});
+
+app.get("/admin-academics/edit/:id", isAuth, async function(req, res) {
+    const academic = await DB.getAcademic(req.params.id);
+    if (!academic) return res.redirect("/admin-academics");
+    res.render("admin-academic-form", { academic, action: "/admin-academics/edit/" + req.params.id });
+});
+
+app.post("/admin-academics/edit/:id", isAuth, uploadImage.single("academicImage"), async function(req, res) {
+    const updateData = {
+        title: req.body.academicTitle,
+        stream: req.body.academicStream || "Science",
+        grade: req.body.academicGrade || "Class 11 - 12",
+        curriculum: req.body.academicCurriculum || "",
+        features: req.body.academicFeatures || "",
+        description: req.body.academicDescription || "",
+        order: parseInt(req.body.academicOrder) || 0,
+        active: req.body.academicActive === "on"
+    };
+    if (req.file) {
+        updateData.image = `data:${req.file.mimetype};base64,${req.file.buffer.toString("base64")}`;
+    } else if (req.body.imageUrl && req.body.imageUrl.trim().length > 0) {
+        updateData.image = req.body.imageUrl.trim();
+    }
+    await DB.updateAcademic(req.params.id, updateData);
+    res.redirect("/admin-academics");
+});
+
+app.post("/admin-academics/delete/:id", isAuth, async function(req, res) {
+    await DB.deleteAcademic(req.params.id);
+    res.redirect("/admin-academics");
+});
+
 // ── Auth & OTP ─────────────────────────────────────────────────────────────
 app.post("/adminregister", async function(req, res) {
     if (req.body.adminid !== confirmpassword) {
@@ -2571,36 +2084,32 @@ app.get("/logout", function(req, res) {
 // ── Global Search ─────────────────────────────────────────────────────────────
 app.get("/api/search", async function(req, res) {
     const q = (req.query.q || "").trim().toLowerCase();
-    if (!q) return res.json({ blogs: [], learnings: [], careers: [], galleries: [], admissions: [], academics: [], results: [], notices: [] });
+    if (!q) return res.json({ blogs: [], learnings: [], careers: [], galleries: [], admissions: [], academics: [] });
 
     const blogs = (await DB.getBlogs()).filter(b => b.title.toLowerCase().includes(q) || (b.content && b.content.toLowerCase().includes(q))).slice(0, 5);
     const learnings = (await DB.getLearnings()).filter(l => l.title.toLowerCase().includes(q) || (l.content && l.content.toLowerCase().includes(q))).slice(0, 5);
     const careers = (await DB.getCareers(true)).filter(c => c.title.toLowerCase().includes(q) || (c.description && c.description.toLowerCase().includes(q))).slice(0, 5);
     const galleries = (await DB.getGalleries(true)).filter(g => g.title.toLowerCase().includes(q) || (g.description && g.description.toLowerCase().includes(q)) || (g.category && g.category.toLowerCase().includes(q))).slice(0, 5);
-    const admissions = (await DB.getAdmissions(true)).filter(a => a.title.toLowerCase().includes(q) || (a.grade && a.grade.toLowerCase().includes(q)) || (a.description && a.description.toLowerCase().includes(q)) || (a.eligibility && a.eligibility.toLowerCase().includes(q))).slice(0, 5);
-    const academics = (await DB.getAcademics(true)).filter(a => a.title.toLowerCase().includes(q) || (a.category && a.category.toLowerCase().includes(q)) || (a.grades && a.grades.toLowerCase().includes(q)) || (a.description && a.description.toLowerCase().includes(q)) || (a.curriculum && a.curriculum.toLowerCase().includes(q))).slice(0, 5);
-    const results = (await DB.getResults(true)).filter(r => r.title.toLowerCase().includes(q) || (r.category && r.category.toLowerCase().includes(q)) || (r.highlight && r.highlight.toLowerCase().includes(q)) || (r.description && r.description.toLowerCase().includes(q)) || (r.toppersList && r.toppersList.toLowerCase().includes(q))).slice(0, 5);
-    const notices = (await DB.getNotices(true)).filter(n => n.title.toLowerCase().includes(q) || (n.category && n.category.toLowerCase().includes(q)) || (n.targetAudience && n.targetAudience.toLowerCase().includes(q)) || (n.content && n.content.toLowerCase().includes(q))).slice(0, 5);
+    const admissions = (await DB.getAdmissions(true)).filter(a => a.title.toLowerCase().includes(q) || (a.description && a.description.toLowerCase().includes(q)) || (a.category && a.category.toLowerCase().includes(q))).slice(0, 5);
+    const academics = (await DB.getAcademics(true)).filter(a => a.title.toLowerCase().includes(q) || (a.description && a.description.toLowerCase().includes(q)) || (a.stream && a.stream.toLowerCase().includes(q))).slice(0, 5);
 
-    res.json({ blogs, learnings, careers, galleries, admissions, academics, results, notices });
+    res.json({ blogs, learnings, careers, galleries, admissions, academics });
 });
 
 app.get("/search", async function(req, res) {
     const su = req.protocol + "://" + req.get("host");
     const q = (req.query.q || "").trim();
-    let blogs = [], learnings = [], careers = [], galleries = [], admissions = [], academics = [], results = [], notices = [];
+    let blogs = [], learnings = [], careers = [], galleries = [], admissions = [], academics = [];
     if (q) {
         const ql = q.toLowerCase();
         blogs = (await DB.getBlogs()).filter(b => b.title.toLowerCase().includes(ql) || (b.content && b.content.toLowerCase().includes(ql))).slice(0, 10);
         learnings = (await DB.getLearnings()).filter(l => l.title.toLowerCase().includes(ql) || (l.content && l.content.toLowerCase().includes(ql))).slice(0, 10);
         careers = (await DB.getCareers(true)).filter(c => c.title.toLowerCase().includes(ql) || (c.description && c.description.toLowerCase().includes(ql)) || (c.location && c.location.toLowerCase().includes(ql))).slice(0, 10);
         galleries = (await DB.getGalleries(true)).filter(g => g.title.toLowerCase().includes(ql) || (g.description && g.description.toLowerCase().includes(ql)) || (g.category && g.category.toLowerCase().includes(ql))).slice(0, 10);
-        admissions = (await DB.getAdmissions(true)).filter(a => a.title.toLowerCase().includes(ql) || (a.grade && a.grade.toLowerCase().includes(ql)) || (a.description && a.description.toLowerCase().includes(ql)) || (a.eligibility && a.eligibility.toLowerCase().includes(ql))).slice(0, 10);
-        academics = (await DB.getAcademics(true)).filter(a => a.title.toLowerCase().includes(ql) || (a.category && a.category.toLowerCase().includes(ql)) || (a.grades && a.grades.toLowerCase().includes(ql)) || (a.description && a.description.toLowerCase().includes(ql)) || (a.curriculum && a.curriculum.toLowerCase().includes(ql))).slice(0, 10);
-        results = (await DB.getResults(true)).filter(r => r.title.toLowerCase().includes(ql) || (r.category && r.category.toLowerCase().includes(ql)) || (r.highlight && r.highlight.toLowerCase().includes(ql)) || (r.description && r.description.toLowerCase().includes(ql)) || (r.toppersList && r.toppersList.toLowerCase().includes(ql))).slice(0, 10);
-        notices = (await DB.getNotices(true)).filter(n => n.title.toLowerCase().includes(ql) || (n.category && n.category.toLowerCase().includes(ql)) || (n.targetAudience && n.targetAudience.toLowerCase().includes(ql)) || (n.content && n.content.toLowerCase().includes(ql))).slice(0, 10);
+        admissions = (await DB.getAdmissions(true)).filter(a => a.title.toLowerCase().includes(ql) || (a.description && a.description.toLowerCase().includes(ql)) || (a.category && a.category.toLowerCase().includes(ql))).slice(0, 10);
+        academics = (await DB.getAcademics(true)).filter(a => a.title.toLowerCase().includes(ql) || (a.description && a.description.toLowerCase().includes(ql)) || (a.stream && a.stream.toLowerCase().includes(ql))).slice(0, 10);
     }
-    const total = blogs.length + learnings.length + careers.length + galleries.length + admissions.length + academics.length + results.length + notices.length;
+    const total = blogs.length + learnings.length + careers.length + galleries.length + admissions.length + academics.length;
     res.render("search", { 
         query: q, 
         blogs, 
@@ -2609,11 +2118,9 @@ app.get("/search", async function(req, res) {
         galleries,
         admissions,
         academics,
-        results,
-        notices,
         total,
         pageTitle: q ? "Search: " + q + " | Shaheen Academy" : "Search | Shaheen Academy",
-        pageDesc: "Search across gallery photos, blog posts, learnings, admissions, academics, exam results, notices, and open careers.",
+        pageDesc: "Search across admissions, academic streams, gallery photos, blog posts, and careers.",
         pageUrl: su + "/search" 
     });
 });

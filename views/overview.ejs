@@ -73,42 +73,6 @@
             </div>
         </div>
         <div class="overview-stat-card">
-            <div class="overview-stat-icon" style="background:#e0f2fe;">
-                <i class="fa-solid fa-book-bookmark" style="color:#0284c7;"></i>
-            </div>
-            <div class="overview-stat-body">
-                <span class="overview-stat-label">Academic Wings</span>
-                <span class="overview-stat-value"><%= typeof counts.activeAcademics !== 'undefined' ? counts.activeAcademics : (typeof counts.academics !== 'undefined' ? counts.academics : 0) %> <small style="font-size:0.85rem;color:var(--text-muted);">/ <%= typeof counts.totalAcademics !== 'undefined' ? counts.totalAcademics : (typeof counts.academics !== 'undefined' ? counts.academics : 0) %></small></span>
-            </div>
-        </div>
-        <div class="overview-stat-card">
-            <div class="overview-stat-icon" style="background:#e0e7ff;">
-                <i class="fa-solid fa-graduation-cap" style="color:#4f46e5;"></i>
-            </div>
-            <div class="overview-stat-body">
-                <span class="overview-stat-label">Admissions & Batches</span>
-                <span class="overview-stat-value"><%= typeof counts.activeAdmissions !== 'undefined' ? counts.activeAdmissions : (typeof counts.admissions !== 'undefined' ? counts.admissions : 0) %> <small style="font-size:0.85rem;color:var(--text-muted);">/ <%= typeof counts.totalAdmissions !== 'undefined' ? counts.totalAdmissions : (typeof counts.admissions !== 'undefined' ? counts.admissions : 0) %></small></span>
-            </div>
-        </div>
-        <div class="overview-stat-card">
-            <div class="overview-stat-icon" style="background:#fef3c7;">
-                <i class="fa-solid fa-trophy" style="color:#d97706;"></i>
-            </div>
-            <div class="overview-stat-body">
-                <span class="overview-stat-label">Results & Merit</span>
-                <span class="overview-stat-value"><%= typeof counts.activeResults !== 'undefined' ? counts.activeResults : (typeof counts.results !== 'undefined' ? counts.results : 0) %> <small style="font-size:0.85rem;color:var(--text-muted);">/ <%= typeof counts.totalResults !== 'undefined' ? counts.totalResults : (typeof counts.results !== 'undefined' ? counts.results : 0) %></small></span>
-            </div>
-        </div>
-        <div class="overview-stat-card">
-            <div class="overview-stat-icon" style="background:#ede9fe;">
-                <i class="fa-solid fa-bullhorn" style="color:#7c3aed;"></i>
-            </div>
-            <div class="overview-stat-body">
-                <span class="overview-stat-label">Notices & Circulars</span>
-                <span class="overview-stat-value"><%= typeof counts.activeNotices !== 'undefined' ? counts.activeNotices : (typeof counts.notices !== 'undefined' ? counts.notices : 0) %> <small style="font-size:0.85rem;color:var(--text-muted);">/ <%= typeof counts.totalNotices !== 'undefined' ? counts.totalNotices : (typeof counts.notices !== 'undefined' ? counts.notices : 0) %></small></span>
-            </div>
-        </div>
-        <div class="overview-stat-card">
             <div class="overview-stat-icon" style="background:#fdf2f8;">
                 <i class="fa-solid fa-briefcase" style="color:#a855f7;"></i>
             </div>
@@ -151,6 +115,24 @@
             <div class="overview-stat-body">
                 <span class="overview-stat-label">Carousel Slides</span>
                 <span class="overview-stat-value"><%= typeof counts.activeSlides !== 'undefined' ? counts.activeSlides : (typeof counts.totalSlides !== 'undefined' ? counts.totalSlides : 0) %> <small style="font-size:0.85rem;color:var(--text-muted);">/ <%= typeof counts.totalSlides !== 'undefined' ? counts.totalSlides : 0 %></small></span>
+            </div>
+        </div>
+        <div class="overview-stat-card">
+            <div class="overview-stat-icon" style="background:#eef2ff;">
+                <i class="fa-solid fa-user-graduate" style="color:#4f46e5;"></i>
+            </div>
+            <div class="overview-stat-body">
+                <span class="overview-stat-label">Admissions</span>
+                <span class="overview-stat-value"><%= typeof counts.activeAdmissions !== 'undefined' ? counts.activeAdmissions : (typeof counts.admissions !== 'undefined' ? counts.admissions : 0) %> <small style="font-size:0.85rem;color:var(--text-muted);">/ <%= typeof counts.admissions !== 'undefined' ? counts.admissions : 0 %></small></span>
+            </div>
+        </div>
+        <div class="overview-stat-card">
+            <div class="overview-stat-icon" style="background:#fdf4ff;">
+                <i class="fa-solid fa-graduation-cap" style="color:#c026d3;"></i>
+            </div>
+            <div class="overview-stat-body">
+                <span class="overview-stat-label">Academic Streams</span>
+                <span class="overview-stat-value"><%= typeof counts.activeAcademics !== 'undefined' ? counts.activeAcademics : (typeof counts.academics !== 'undefined' ? counts.academics : 0) %> <small style="font-size:0.85rem;color:var(--text-muted);">/ <%= typeof counts.academics !== 'undefined' ? counts.academics : 0 %></small></span>
             </div>
         </div>
         <div class="overview-stat-card">

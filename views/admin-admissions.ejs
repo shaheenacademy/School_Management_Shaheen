@@ -3,72 +3,128 @@
 <div class="page-content">
     <div class="page-header" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;">
         <div class="page-header-content">
-            <p class="page-label">Admin</p>
-            <h1>Manage <span>Admissions</span></h1>
-            <p class="page-subtitle">Add, edit, or remove academic batches, eligibility criteria, and enrollment listings.</p>
+            <p class="page-label">Admin Management</p>
+            <h1>Admission <span>Programs & Notices</span></h1>
+            <p class="page-subtitle">Create, edit, toggle visibility, or remove admission batches, entrance criteria, and seat availability.</p>
         </div>
-        <a href="/admin-admissions/add" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none;">
-            <i class="fa-solid fa-plus"></i> Add Admission Batch
+        <div class="d-flex gap-2">
+            <a href="/admission" target="_blank" class="btn btn-outline-secondary" style="display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none;">
+                <i class="fa-solid fa-eye"></i> View Public Admission Page
+            </a>
+            <a href="/admin-admissions/add" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none;">
+                <i class="fa-solid fa-plus-circle"></i> Add Admission Program
+            </a>
+        </div>
+    </div>
+
+    <!-- Quick Stats Bar -->
+    <div class="d-flex flex-wrap gap-3 mb-4 p-3 bg-white rounded border shadow-sm align-items-center">
+        <div class="d-flex align-items-center gap-2">
+            <span class="badge bg-primary px-2.5 py-1.5" style="font-size:0.85rem;"><i class="fa-solid fa-user-graduate me-1"></i> Total Programs: <%= admissions.length %></span>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+            <span class="badge bg-success px-2.5 py-1.5" style="font-size:0.85rem;"><i class="fa-solid fa-circle-check me-1"></i> Active: <%= admissions.filter(a => a.active).length %></span>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+            <span class="badge bg-secondary px-2.5 py-1.5" style="font-size:0.85rem;"><i class="fa-solid fa-eye-slash me-1"></i> Hidden: <%= admissions.filter(a => !a.active).length %></span>
+        </div>
+        <div class="ms-auto d-flex align-items-center gap-2">
+            <label class="small text-muted fw-semibold">Filter Category:</label>
+            <select id="adminAdmissionCategoryFilter" class="form-select form-select-sm" style="width: auto; font-size: 0.82rem;" onchange="filterAdminAdmissions(this.value)">
+                <option value="all">All Categories</option>
+                <option value="Senior Secondary">Senior Secondary</option>
+                <option value="Secondary">Secondary (Grades 6-10)</option>
+                <option value="Integrated Coaching">Integrated Coaching</option>
+                <option value="Pre-Foundation">Pre-Foundation</option>
+                <option value="Scholarship">Scholarship & Entrance</option>
+            </select>
+        </div>
+    </div>
+
+    <% if (admissions.length === 0) { %>
+    <div class="admin-empty-state text-center p-5 bg-white border rounded shadow-sm my-4">
+        <i class="fa-solid fa-user-graduate fa-3x text-muted mb-3"></i>
+        <h3 class="fw-bold">No Admission Programs Yet</h3>
+        <p class="text-muted">Create admission listings, batches, entrance exam notices, and fee guidelines for prospective students.</p>
+        <a href="/admin-admissions/add" class="btn btn-primary mt-2">
+            <i class="fa-solid fa-plus me-1"></i> Add First Admission Program
         </a>
     </div>
+    <% } else { %>
+    
+    <div class="row g-4" id="adminAdmissionsGrid">
+        <% for(var i=0; i<admissions.length; i++) { %>
+        <div class="col-md-6 col-lg-4 admin-admission-item" data-category="<%= admissions[i].category %>">
+            <div class="card h-100 border shadow-sm p-3 bg-white d-flex flex-column justify-content-between position-relative">
+                <div>
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div class="d-flex align-items-center gap-2">
+                            <div style="width: 38px; height: 38px; border-radius: 8px; background: #eef2ff; color: #4f46e5; display: flex; align-items: center; justify-content: center; font-size: 1.1rem;">
+                                <i class="<%= admissions[i].icon || 'fa-solid fa-user-graduate' %>"></i>
+                            </div>
+                            <div>
+                                <span class="badge bg-light text-dark border"><%= admissions[i].category || 'General' %></span>
+                            </div>
+                        </div>
+                        <span class="badge <%= admissions[i].active ? 'bg-success' : 'bg-secondary' %>">
+                            <%= admissions[i].active ? 'Active' : 'Hidden' %>
+                        </span>
+                    </div>
 
-    <% if (!admissions || admissions.length === 0) { %>
-    <div class="admin-empty-state">
-        <i class="fa-solid fa-graduation-cap"></i>
-        <p>No admission programs listed yet. <a href="/admin-admissions/add" style="color:var(--primary); font-weight:600;">Create your first batch</a></p>
-    </div>
-    <% } %>
+                    <h4 class="fw-bold mb-2 text-dark" style="font-size: 1.05rem;"><%= admissions[i].title %></h4>
+                    <p class="text-muted small mb-3" style="line-height: 1.5;"><%= admissions[i].description %></p>
 
-    <div class="admin-list-stack">
-    <% for(var i=0; i<admissions.length; i++) { %>
-    <div class="blogcard admin-list-card">
-        <div class="admin-list-card-body">
-            <div class="admin-list-card-badges">
-                <span class="admin-badge admin-badge--primary"><%= admissions[i].grade || 'General Batch' %></span>
-                <% if (admissions[i].session) { %>
-                <span class="admin-badge" style="background:#eef2ff; color:#4f46e5; border:1px solid #c7d2fe;">Session <%= admissions[i].session %></span>
-                <% } %>
-                <span class="admin-badge <%= admissions[i].active ? 'admin-badge--success' : 'admin-badge--danger' %>">
-                    <%= admissions[i].active ? 'Active' : 'Inactive' %>
-                </span>
-                <% if (typeof admissions[i].order !== 'undefined') { %>
-                <span class="admin-badge" style="background:#f1f5f9; color:#475569;">Order: <%= admissions[i].order %></span>
-                <% } %>
+                    <div class="bg-light p-2.5 rounded border small mb-3">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span class="text-muted">Eligibility:</span>
+                            <span class="fw-semibold text-dark text-end" style="max-width: 60%;"><%= admissions[i].eligibility || 'N/A' %></span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-1">
+                            <span class="text-muted">Fee Structure:</span>
+                            <span class="fw-semibold text-dark"><%= admissions[i].feeStructure || 'Contact Office' %></span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-1">
+                            <span class="text-muted">Available Seats:</span>
+                            <span class="fw-semibold text-dark"><%= admissions[i].seats || 'Limited' %></span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span class="text-muted">Deadline:</span>
+                            <span class="badge bg-warning text-dark"><%= admissions[i].deadline || 'Open Enrollment' %></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center pt-2 border-top mt-2">
+                    <span class="text-muted small font-monospace"><i class="fa-solid fa-sort me-1"></i> Order: #<%= admissions[i].order || 0 %></span>
+                    <div class="d-flex gap-2">
+                        <a href="/admin-admissions/edit/<%= admissions[i]._id %>" class="btn btn-sm btn-outline-primary" style="text-decoration:none;">
+                            <i class="fa-solid fa-pen-to-square me-1"></i> Edit
+                        </a>
+                        <form action="/admin-admissions/delete/<%= admissions[i]._id %>" method="post" onsubmit="return confirm('Are you sure you want to delete this admission program?');" style="margin:0;">
+                            <button type="submit" class="btn btn-sm btn-outline-danger">
+                                <i class="fa-solid fa-trash me-1"></i> Delete
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <h3 class="admin-list-card-title"><%= admissions[i].title %></h3>
-            <p class="admin-list-card-meta">
-                <% if(admissions[i].duration){ %><i class="fa-solid fa-hourglass-half"></i> <%= admissions[i].duration %>&nbsp;&nbsp;<% } %>
-                <% if(admissions[i].mode){ %><i class="fa-solid fa-school"></i> <%= admissions[i].mode %>&nbsp;&nbsp;<% } %>
-                <% if(admissions[i].seats){ %><i class="fa-solid fa-users-line"></i> <%= admissions[i].seats %>&nbsp;&nbsp;<% } %>
-                <% if(admissions[i].deadline){ %><i class="fa-solid fa-calendar-xmark text-danger"></i> Deadline: <%= admissions[i].deadline %><% } %>
-            </p>
-            <% if (admissions[i].eligibility) { %>
-            <p style="font-size:0.83rem; color:var(--text); margin-bottom:0.35rem;">
-                <strong>Eligibility:</strong> <%= admissions[i].eligibility %>
-            </p>
-            <% } %>
-            <% if (admissions[i].fee) { %>
-            <p style="font-size:0.83rem; color:var(--primary); font-weight:500; margin-bottom:0.35rem;">
-                <strong>Fee/Scholarship:</strong> <%= admissions[i].fee %>
-            </p>
-            <% } %>
-            <p class="admin-list-card-excerpt">
-                <%= admissions[i].description ? (admissions[i].description.substring(0,140) + (admissions[i].description.length > 140 ? '...' : '')) : '' %>
-            </p>
         </div>
-        <div class="admin-card-actions">
-            <a href="/admin-admissions/edit/<%= admissions[i]._id %>" class="btn-admin-edit">
-                <i class="fa-solid fa-pen"></i> Edit
-            </a>
-            <form action="/admin-admissions/delete/<%= admissions[i]._id %>" method="post" onsubmit="return confirm('Are you sure you want to delete this admission program?')">
-                <button type="submit" class="btn-admin-delete">
-                    <i class="fa-solid fa-trash"></i> Delete
-                </button>
-            </form>
-        </div>
+        <% } %>
     </div>
     <% } %>
-    </div>
 </div>
+
+<script>
+    function filterAdminAdmissions(category) {
+        const cards = document.querySelectorAll('#adminAdmissionsGrid .admin-admission-item');
+        cards.forEach(card => {
+            if (category === 'all' || card.getAttribute('data-category') === category) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+</script>
 
 <%- include('partials/footer'); -%>
